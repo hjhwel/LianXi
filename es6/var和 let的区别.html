@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>var和 let的区别</title>
+</head>
+<body>
+<button>按钮1</button>
+<button>按钮2</button>
+<button>按钮3</button>
+<button>按钮4</button>
+<button>按钮5</button>
+<script>
+// let 和 const 声明变量和常量,
+
+// let 和 var 的相同点
+// 1.都是用来声明变量
+
+    // let str = 10;
+    // var str2 = 23;
+    // console.log("let声明的"+str,"var声明的"+str2);
+
+
+// let 和 var 的不同点
+
+// 1.let严格区分作用域，var只在函数内部区分作用域
+        {
+            //代码块
+            // let str = 10;
+            // var str2 = 23;
+            // 在代码块内部 两个方式声明的变量都可以拿到
+            // console.log("代码块内let声明的变量"+str,"代码块内var声明的变量"+str2);
+        }
+            // 在代码块外部，let声明的就会报错，因为拿不到
+            // console.log("let声明的"+str,"var声明的"+str2);
+
+// 2. var 的声明会被提升到作用域的最顶部，但是let不会
+
+        // {
+        //     // 在代码块内部 var声明的已经定义，但是let声明的未定义
+        //     console.log("代码块内var声明的变量"+str2);
+        //     console.log("代码块内let声明的变量"+str);
+        //     //代码块
+        //     let str = 10;
+        //     var str2 = 23;
+        // }
+
+//  3.相同作用域里let不能同时声明相同的变量，var可以
+        //         {
+        //             //后面覆盖前面
+        //             var str = 12;
+        //             var str = 15;
+        //             console.log(str);
+        //             // 报错
+        //             let str = 12;
+        //             let str = 15;
+        //             console.log(str);
+        //         }
+
+
+//案例
+// 点击按钮，弹出对应的下标
+    // 用var 的时候不用闭包就会都弹出5，采取闭包就不会
+    // var btn = document.getElementsByTagName("button");
+    //     for (var i = 0;i < btn.length;i ++){
+    //         (function (i) {
+    //             btn[i].onclick = function () {
+    //                 alert(i);
+    //             }
+    //         })(i)
+    //     }
+
+//    用let声明就不需要闭包
+    // let btn = document.getElementsByTagName("button");
+    //     for (let i = 0;i < btn.length;i ++){
+    //             btn[i].onclick = function () {
+    //                 alert(i);
+    //             }
+    //     }
+
+
+// const 声明一个常量，必须赋值，不能更改，同一个作用域下不能重复声明，严格区分作用域,外部访问不到内部的
+
+    {
+        const ste = 12;
+        console.log(ste);
+    }
+    const ste = 15;
+    console.log(ste);
+
+// 如果const声明一个对象，对象因为是引用类型，对象存在堆区，栈区存放的是个对应的地址，所以对象内部是可以修改的
+    const obj = {
+        name:"张三"
+    };
+    console.log(obj);
+        obj.name = "李四";
+        obj.age = "18";
+    console.log(obj);
+</script>
+</body>
+</html>

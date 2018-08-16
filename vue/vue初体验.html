@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+
+<body>
+	<div id="app">
+		<p>{{ message }}</p>
+		<p>{{msg}}</p>
+	</div>
+	<script src="js/vue.js"></script>
+	<script>
+		// vue 基于vuemodel，所以第一步要创建一个vue实例
+		let vm = new Vue({
+			// 内部默认挂载
+			// el 你要关联的界面，传递的都是选择器
+			el: "#app",
+			// data:{} 关连数据，所有数据都存放在对象里
+			data: { //vue中的model->data
+				message: "vue初体验！",
+				msg:"我是第二个vue的数据"
+			}
+		})
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>map数据类型</title>
+</head>
+<body>
+<script>
+    //map 本质上是键值对的集合，和对象很像
+//    对象的键必须是字符串，传入的键都会调用toString转为字符串
+    let obj = {},obj1 = {a:1},obj2 = {b:2};
+    obj[obj1] = "张三";
+    obj[obj2] = "李四";
+    console.log(obj2.toString() === obj2.toString());//true
+    console.log(obj); //只有一个键值对
+
+//    map 的键可以是任意类型,不同的对象也可以区分出来
+    function f2() {
+        alert(56)
+    }
+    let map = new Map([
+        ["name","hjh"],
+        ["age",18],
+        [obj1,45],
+        [obj2,59],
+        [function () {
+
+        },92],
+        [function () {
+
+        },99],
+        [true,56]
+    ]);
+    //遍历
+    map.forEach(function (value,key,map) {
+        console.log(key,value,map);
+    });
+//    设置和获取就是set与get
+//    set 可以链式
+    map.set(15,"dd");
+    console.log(map.set(f2, 5999));
+    console.log(map);
+    console.log(map.get(15));
+    //delete 删除
+    map.delete(15)
+    console.log(map);
+
+//拿到所有值
+    console.log(map.values());
+    //所有键
+    console.log(map.keys());
+    //所有键值对
+    console.log(map.entries());
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>symbol</title>
+</head>
+<body>
+<script>
+    // symbol 代表的每一个值都是独一无二的
+//    创建、
+    let str1 = Symbol();
+    let str2 = Symbol();
+    console.log(str1 === str2);
+
+//    描述
+    let str3 = Symbol("name");
+    let str4 = Symbol("age");
+    console.log(str3);
+    console.log(str4);
+
+//    常用于对象的属性名
+    let obj = {};
+//    不用Symbol 相同属性名会覆盖
+    obj.name = 15;
+    obj.name = 56;
+    console.log(obj);
+//    用Symbol就是独一无二的
+    obj[Symbol("age")] = 18;
+    obj[Symbol("age")] = 563;
+    console.log(obj[Symbol("age")]);
+</script>
+</body>
+</html>

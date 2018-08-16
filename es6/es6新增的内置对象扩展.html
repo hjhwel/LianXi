@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>es6新增的内置对象扩展</title>
+	<style>
+		.sss {
+			color: #f00;
+		}
+	</style>
+</head>
+
+<body>
+	<ul>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+	<script>
+		// 模板字符串
+		// 之前方式
+		let html = "<html><head><body><p>以前的没有格式，不能随便换行</p></body></head></html>";
+		let str = "我是外部传进去的";
+		let classname = "sss";
+		let Html =
+			`<html>
+                <head>
+                <body>
+                    <p>模板字符串有格式，能随便换行</p>
+                    <p>哈哈哈</p>
+                    <div>${str}</div>
+                    <div class="${classname}">我有类名</div>
+                </body>
+                </head>
+                </html>`;
+		console.log(html);
+		console.log(Html);
+
+		// 2.数组扩展
+		// 2.1 Array.from  将假数组转为真数组
+		let alllis = document.getElementsByTagName('li');
+		console.log(alllis)
+		console.log(Array.isArray(alllis)) //false
+		Array.from(alllis);
+		console.log(Array.isArray(Array.from(alllis))) //true
+		// 2.2 Array.of 可以创建一个新数组，把括号里的值存进去
+		console.log(Array.of(1, 5, 2, 6, "张三"))
+
+
+		// 3.对象的扩展
+		// 3.1 在es6中，如果对象的键和值是一样的，就可以只写一个
+		let name = "hjh";
+		let age = 18;
+		let obj = {
+			name,
+			age
+		}
+		console.log(obj)
+
+		// Object.assign() 把对象合并,键不能一样，如果有冲突，谁被合并值就是谁的
+		let obj1 = {
+			name3 : "jkj1",
+			age3 : 561
+		}
+		let obj2 = {
+			name2 : "jkj2",
+			age2 : 562
+		}
+		let obj3 = {
+			name3 : "jkj3",
+			age3 : 563
+		}
+
+		Object.assign(obj3,obj1)
+		console.log(obj3)
+
+		// 4.延展操作符
+		// 4.1 主要用于数据的传递
+		let str2 = "今天天气不错啊";
+		let strArr = [...str2];
+		// 字符串被拆分放入了数组中
+		console.log(strArr)
+		
+		// let student = {
+		// 	name:"hjh",
+		// 	age:563
+		// }
+		// // 组件传递
+		// <Person {...student}/>
+
+		// 延展操作符去重
+		let arr = [1,2,5,1,25,1,356,1,2,4,5];
+		// 转为set
+		let set1 = new Set(arr);
+		console.log(set1)
+		// 用延展操作符取出set放入新数组
+		console.log([...set1])
+		
+	</script>
+</body>
+
+</html>

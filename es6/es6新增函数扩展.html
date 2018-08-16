@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+
+<body>
+	<script>
+		// 1.形参默认值设置
+		// 1.1 es5
+		function es5(num1, num2) {
+			// 设置默认值
+			num1 = num1 || 10;
+			num2 = num2 || 21;
+
+			console.log(num1 + num2)
+		}
+		es5(); // 不传也不设置默认值就会是NaN
+
+		// 1.2 es6
+		// 默认值直接赋值，不影响实参传入
+		function es6(num1 = 10, num2 = 52) {
+			// body
+			console.log(num1 + num2);
+		}
+
+		es6();
+		es6(23, 26);
+
+		// 2.参数形式 延展操作符
+		// 2.1 es5中，如果传入的值不确定，就可以遍历arguments，所有的值都在里面
+		function es5num() {
+			let result = 0;
+			// for in
+			for (const key in arguments) {
+				if (arguments.hasOwnProperty(key)) {
+					const element = arguments[key];
+					result += element;
+				}
+			}
+			console.log(result);
+		}
+
+		es5num(10, 21, 23, 2, 25)
+
+		// 2.2 es6中就可以通过 延展操作符
+		// function es6num (name,sex,...nums) {
+		// 	let result = 0;
+		// 	console.log(name,sex);
+		// 	// for of
+		// 	for (const element of nums) {
+		// 		result += element;
+		// 	}
+		// 	console.log(result);
+		// }
+		// es6num("hjh","nan",12,24,25,26)
+
+		// 3.箭头函数
+		// 写法 ()=>{}
+		// 案例
+		let es6num = (name, sex, ...nums) => {
+			let result = 0;
+			console.log(name, sex);
+			// for of
+			for (const element of nums) {
+				result += element;
+			}
+			console.log(result);
+		}
+		es6num("hjh", "nan", 12, 24, 25, 26)
+
+		// 解决了函数this指向不清楚的问题
+
+		function test() {
+			// body
+			setTimeout(function () {
+				console.log(this);
+			}, 1000)
+		}
+		let obj5 = {};
+		test.call(obj5); //window
+
+		function test1() {
+			// body
+			setTimeout(() => {
+				console.log(this);
+			}, 1000)
+		}
+		// let obj5 = {};
+		test1.call(obj5); //{}
+
+	</script>
+</body>
+
+</html>

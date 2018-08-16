@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>解构赋值</title>
+</head>
+<body>
+<script>
+// 1.基本用法
+//    一般赋值
+    //     let name = "hjh",age = 18,sex = "男";
+    //     console.log(name,age,sex);
+//    解构赋值,批量定义并赋值
+    //     let [name,age,sex] = ["hhhhjh",128,"男"];
+    //     console.log(name,age,sex);
+//  复杂的数组
+//     let [ar1,[ar2,ar3,[ar4,ar5]]] = [1,[2,3,[4,5]]]
+//
+// console.log(ar1,ar2,ar3,ar4,ar5);
+
+//    对象解构赋值
+//    一般方法
+        //     let obj = {
+        //         name:"hjh",
+        //         age:18,
+        //         sex:"男"
+        //     };
+        // console.log(obj.name,obj.age,obj.sex);
+//    解构赋值,通过对应的键取，键必须一一对应
+        //     let {name,age,sex} = {
+        //         name:"hjh",
+        //         age:18,
+        //         sex:"男"
+        //     };
+        // console.log(name,age,sex);
+    //  复杂一些的对象
+        //     let {name,age,sex,friend} = {
+        //         name:"hjh",
+        //         age:18,
+        //         sex:"男",
+        //         friend:{
+        //             name:'wl',
+        //             age:13
+        //         }
+        //     };
+        // console.log(name,age,sex,friend);
+
+//    基本数据类型的解构赋值
+//     let [a,b,c,d] = "我是孩子";
+// console.log(a,b,c,d);
+//数值没有解构器
+//     let [a,b,c,d] = 4569;
+// console.log(a,b,c,d);
+</script>
+</body>
+</html>

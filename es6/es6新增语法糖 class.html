@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>es6新增语法糖 class</title>
+</head>
+<body>
+<script>
+    // js里没有类的概念，都是通过构造函数模拟的，但是在es6中就包装了一下，可以通过类来创建对象
+
+//    构造函数
+//     function Person(name,age) {
+//         this.name = name;
+//         this.age = age;
+//     }
+//     Person.prototype = {
+//         say : function () {
+//             console.log(this.name + "说他今年" + this.age + "岁了");
+//         }
+//     };
+//
+//     let hjh = new Person("何金浩",18);
+//     hjh.say()
+
+//    class 创建
+    class Person {
+        constructor (name,age){
+            this.name = name;
+            this.age = age
+        }
+
+        say(){
+            console.log(this.name + "说他今年" + this.age + "岁了");
+        }
+    }
+
+    let hjh = new Person('何金浩',98);
+    hjh.say()
+</script>
+</body>
+</html>
