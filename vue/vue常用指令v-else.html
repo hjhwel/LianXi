@@ -10,11 +10,14 @@
 
 <body>
 	<div id="app">
-		<!-- 满足条件就显示，不满足就注释 -->
-		<!-- v-if 支持表达式 -->
-		<p v-if="show">{{ message }}</p>
-		<p v-if="hide">{{msg}}</p>
-		<p v-if="height + 1.69 >= 1.69">周星星的身高：{{height}} cm</p>
+		<!-- v-else 不需要表达式 -->
+		<!-- 前面的兄弟元素必须有 v-if 或者 v-else-if -->
+		<!-- v-if 支持判断，不支持等号 等号是赋值 -->
+		<p v-if="height>16"> {{height}}</p>
+		<!-- v-else和v-if中间不能有其他元素 -->
+		<p>ccc</p>
+		<!-- v-if 生效则v-else 不生效 -->
+		<p v-else>周星星的身高：{{height}} cm</p>
 	</div>
 	<script src="js/vue.js"></script>
 	<script>
@@ -25,12 +28,7 @@
 			el: "#app",
 			// data:{} 关连数据，所有数据都存放在对象里
 			data: { //vue中的model->data
-				message: "要显示的内容",
-				msg: "隐藏的内容",
-				show: true,
-				hide: false,
-
-				height: 1.68
+				height: 15
 			}
 		})
 	</script>

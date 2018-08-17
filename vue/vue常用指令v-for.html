@@ -10,11 +10,9 @@
 
 <body>
 	<div id="app">
-		<!-- 满足条件就显示，不满足就注释 -->
-		<!-- v-if 支持表达式 -->
-		<p v-if="show">{{ message }}</p>
-		<p v-if="hide">{{msg}}</p>
-		<p v-if="height + 1.69 >= 1.69">周星星的身高：{{height}} cm</p>
+		<!-- v-for 必须按照固定格式写 (value,index) in obj -->
+		<!-- 数组 -->
+		<p v-for="(item,index) in datas">{{item + ":" + index}}</p>
 	</div>
 	<script src="js/vue.js"></script>
 	<script>
@@ -25,12 +23,7 @@
 			el: "#app",
 			// data:{} 关连数据，所有数据都存放在对象里
 			data: { //vue中的model->data
-				message: "要显示的内容",
-				msg: "隐藏的内容",
-				show: true,
-				hide: false,
-
-				height: 1.68
+				datas:[1,2,5,3,65,5,26,3,6,6]
 			}
 		})
 	</script>
