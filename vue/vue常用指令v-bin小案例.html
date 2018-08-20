@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    .active{
+      background-color: #d00;
+      color:white
+    }
+  </style>
+  <script src="js/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 判断index === 2  -->
+    <h1 v-for="(item,index) in datas" :class="index === 2?'active':''">{{item}}</h1>
+  </div>
+  <script>
+    new Vue({
+      el: "#app",
+      data: {
+        datas: [
+          "hjh",
+          "wel",
+          "hjhwel",
+          "welhjh",
+          "hw"
+        ]
+      }
+    })
+  </script>
+</body>
+
+</html>

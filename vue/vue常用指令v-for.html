@@ -12,7 +12,14 @@
 	<div id="app">
 		<!-- v-for 必须按照固定格式写 (value,index) in obj -->
 		<!-- 数组 -->
-		<p v-for="(item,index) in datas">{{item + ":" + index}}</p>
+		<p v-for="(item,index) in datas">{{index + " : " + item}}</p>
+		<!-- 对象 -->
+		<p v-for="(item,index) in obj">{{index + " : " + item}}</p>
+		<p v-for="item in obj">{{item}}</p>
+		<!-- 数字 -->
+		<p>`</p>
+		<!-- 字符串 -->
+		<p v-for="str in strs">{{str}}</p>
 	</div>
 	<script src="js/vue.js"></script>
 	<script>
@@ -23,7 +30,14 @@
 			el: "#app",
 			// data:{} 关连数据，所有数据都存放在对象里
 			data: { //vue中的model->data
-				datas:[1,2,5,3,65,5,26,3,6,6]
+				datas: [156, 2, 5, 3, 65, 5, 26, 3, 6, 6],
+				obj: {
+					name: "hjh",
+					age: 18,
+					girlfriend: ["wel", "wl"]
+				},
+				nums: 12356894,
+				strs: "hjhlovewel"
 			}
 		})
 	</script>
