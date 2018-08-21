@@ -1,0 +1,199 @@
+/* 从这里复制 */
+
+.pub-footer {
+  width: 100%;
+  padding-top: 70px;
+}
+
+.pub-footer .footer-icon {
+  background: #f8f8f8;
+  padding: 35px 0;
+  border-bottom: 1px solid #ededed;
+  text-align: center;
+}
+
+.pub-footer ._view_ {
+  width: 1190px;
+}
+
+.footer-icon ._view_ {
+  font-size: 0;
+}
+
+.pub-footer .footer-icon ._view_ a {
+  display: inline-block;
+  width: 148px;
+  height: 80px;
+  font-size: 14px;
+}
+
+.pub-footer .footer-icon ._view_ a i {
+  display: block;
+  width: 50px;
+  height: 50px;
+  margin: 0 auto;
+  background-color: #0ff;
+  background: url(../image/footer-img/footerIcon.png) no-repeat 0 0;
+}
+
+.pub-footer .footer-icon ._view_ a:nth-of-type(2) i {
+  background-position: -50px 0;
+}
+
+.pub-footer .footer-icon ._view_ a:nth-of-type(3) i {
+  background-position: -100px 0;
+}
+
+.pub-footer .footer-icon ._view_ a:nth-of-type(4) i {
+  background-position: -150px 0;
+}
+
+.pub-footer .footer-icon ._view_ a:nth-of-type(5) i {
+  background-position: -0px -50px;
+}
+
+.pub-footer .footer-icon ._view_ a:nth-of-type(6) i {
+  background-position: -50px -50px;
+}
+
+.pub-footer .footer-icon ._view_ a:nth-of-type(7) i {
+  background-position: -100px -50px;
+}
+
+.pub-footer .footer-icon ._view_ a:nth-of-type(8) i {
+  background-position: -150px -50px;
+}
+
+.pub-footer .footer-icon ._view_ a span {
+  display: inline-block;
+  text-align: center;
+  margin-top: 10px;
+  color: #000;
+}
+
+/* 八个图标结束 */
+
+/* 底部的中间部分 */
+
+.footer-help {
+  background: #f8f8f8;
+  padding: 35px 0 54px;
+}
+
+/* 中间左部 */
+
+.footer-help .help-left {
+  width: 240px;
+  height: 165px;
+  float: left;
+  background: url(../image/footer-img/footerIcon.png) 0 -100px no-repeat;
+}
+
+.footer-help .help-left .s1 {
+  line-height: 19px;
+  font-size: 14px;
+}
+
+.footer-help .help-left .s2 {
+  color: #e62318;
+  margin: 5px 0;
+  font-size: 20px;
+}
+
+.footer-help .help-left .s3 {
+  color: #999;
+  margin-bottom: 30px;
+}
+
+.footer-help .help-left .s4 {
+  margin-bottom: 10px;
+}
+
+.footer-help .help-left a {
+  display: block;
+  width: 106px;
+  height: 24px;
+  border: 1px solid #e62318;
+  line-height: 24px;
+  text-align: center;
+  color: #e62318;
+  position: relative;
+  padding-left: 10px;
+}
+
+.footer-help .help-left i {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 11px;
+  height: 14px;
+  background: url(../image/footer-img/footerIcon.png) -11px -265px no-repeat;
+}
+
+.footer-help .help-left .mobile {
+  background-position: 0 -265px;
+}
+
+.footer-help dl {
+  float: left;
+}
+
+.footer-help dl a {
+  display: block;
+}
+
+/* 中间右部分 */
+
+.footer-help .help-right {
+  width: 851px;
+  float: right;
+}
+
+.help-right dl {
+  width: 151px;
+}
+
+.help-right .weixin {
+  width: 96px;
+}
+
+.help-right dl dt {
+  color: #444;
+  font-size: 14px;
+  padding: 3px 0 5px;
+}
+
+.help-right dl a,
+.help-right .weixin img {
+  color: #999;
+  margin-top: 9px;
+}
+
+/* 底部的最底部 */
+
+.footer-extend {
+  background: #1f1f1f;
+  padding: 21px 0 30px;
+  color:rgb(119, 119, 119)
+}
+.footer-extend a{
+  color:rgb(119, 119, 119)
+}
+.footer-extend .footer-link {
+  border-bottom: solid 1px #2e2e2e;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+.footer-extend .footer-link span{
+  margin-right: 10px;
+}
+.footer-extend .footer-link a{
+  margin-right: 20px;
+}
+.footer-extend .footer-link a:last-of-type{
+  margin-right: 0px;
+}
+
+.footer-extend .footer-copyrights ul{
+  display: inline-block;
+}
