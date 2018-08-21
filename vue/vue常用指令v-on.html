@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="js/vue.js"></script>
+</head>
+<div id="app">
+  <p v-bind:style="{color:cl}">{{msg}}</p>
+  <!-- v-on 是添加事件的 -->
+  <!-- 这种适合简单的绑定，事件多了最好 使用钩子 -->
+  <button v-on:click="msg='今天天气不咋好',cl='red'">修改</button>
+  <!-- 钩子 -->
+  <button @click="al()">弹出</button>
+</div>
+<body>
+  <script>
+    new Vue({
+      el: "#app",
+      data: {
+        msg: "今天天气不错啊",
+        cl: "red"
+      },
+      // 钩子，实例方法都可以放在这里，然后调用
+      methods: {
+        al() {
+          this.msg = "我就要改",
+          this.cl = 'blue'
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
