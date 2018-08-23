@@ -6,7 +6,7 @@
     // 监控窗口滚动
     $(window).scroll(function () {
       // 当窗口滚动到一定程度显示返回顶部按钮
-      if ($(window).scrollTop() >= $(window).width()) {
+      if ($(window).scrollTop() >= 500) {
         $cb_foot.css({
           display: "block"
         })
