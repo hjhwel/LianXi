@@ -36,6 +36,14 @@
         }
       })
     })
-
+    // 底部友情链接扩展
+    $('.footer-link li i').click(function () {
+      $(this).css({
+        display:"none"
+      })
+      $(this).parents("li").stop().animate({
+        height:110
+      })
+    })
   })
 })($, window)

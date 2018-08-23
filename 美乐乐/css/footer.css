@@ -193,6 +193,20 @@
 
 .footer-extend .footer-link a {
   margin-right: 20px;
+  line-height: 20px;
+}
+.footer-extend .footer-link li{
+  height: 20px;
+  overflow: hidden;
+  position: relative;
+}
+.footer-extend .footer-link li i{
+  position: absolute;
+  top: 4px;
+  right: 0;
+  width: 15px;
+  height: 15px;
+  background: url(../image/footer-img/footer.png) no-repeat -23px -266px;
 }
 
 .footer-extend .footer-link a:last-of-type {
@@ -201,6 +215,9 @@
 
 .footer-extend .footer-copyrights ul {
   display: inline-block;
+}
+.footer-extend .footer-copyrights .copyrights{
+  line-height: 20px;
 }
 
 .footer-extend .credit li {
