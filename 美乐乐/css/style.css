@@ -1,0 +1,546 @@
+
+
+/* 头部导航 */
+
+
+.clearfix{
+    zoom: 1;
+}
+.left{
+    float: left;
+}
+.right{
+    float: right;
+}
+.zx-nav{
+    width: 100%;
+    height: 50px;
+    background: #c04033;
+}
+.zx-top-nav{
+    width: 980px;
+    height: 50px;
+    margin: 0 auto;
+}
+.zx-nav .zx-top-nav img{
+    width: 980px;
+    height: 50px;
+}
+.zx-nav .zx-right-nav{
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100px;
+    height: 100px;
+    z-index: 100;
+    background: #000;
+    
+}
+.zx-nav .zx-right-nav .zx-shut{
+    width: 14px;
+    height: 14px;
+    background: #bababc;
+    color: #fff;
+    text-align: center;
+    margin-left: 86px;
+    position: absolute;
+    z-index: 0;
+    line-height: 12px;
+    cursor: pointer;
+}
+.zx-nav .zx-right-nav  img{
+    width: 100px;
+    height: 100px;
+}
+
+
+/* logo部分 */
+
+.zx-logo{
+    position: relative;
+    width: 1190px;
+    margin: 0 auto;
+    text-align: left;
+    /* background: pink; */
+}
+.zx-logo .zx-logo-head{
+    padding: 7px 0 1px 0;
+    height: 74px;
+    /* width: 1190px; */
+}
+.zx-logo .zx-logp-left{
+    width: 176px;
+    height: 72px;
+    /* margin-top: -4px; */
+}
+.zx-logo .zx-logo-right{
+    position: absolute;
+    bottom: 14px;
+    right: 0;
+
+}
+.zx-logo .zx-logo-right a{
+    text-decoration: none;
+    color: #333;
+    font-size: 12px;
+}
+.zx-logo .zx-logo-right a:hover{
+    color: #e62318!important;
+}
+.zx-logo .zx-logo-right .zx-cut-rule{
+    font-size: 11px;
+    margin-left: -1.3px;
+    margin-right: -1.5px;
+}
+
+
+/* 主题 */
+.zx-main{
+    background: #cf000e;
+    padding: 72px 0;
+    min-width: 1190px;
+    min-height: 454px;
+}
+.zx-main .zx-content{
+    margin: 0 auto;
+    width: 1070px;
+    position: relative;
+}
+.zx-main .zx-content .zx-main-left{
+    float: left;
+}
+ img{
+    background: none;
+}
+.zx-main .zx-content .zx-main-right{
+    position: relative;
+    width: 306px;
+    /* min-height: 371px; */
+    background: #fff;
+    padding: 23px 27px;
+    float:right;
+}
+.zx-main .zx-content .zx-main-right .zx-login{
+    font-family: Microsoft YaHei;
+}
+
+.zx-main .zx-content .zx-main-right .zx-login .zx-login-classify{
+    position: relative;
+    width: 306px;
+    overflow: hidden;
+}
+.zx-main .zx-content .zx-main-right .zx-login .zx-login-classify .zx-login-switch{
+    position: relative;
+    font-size: 16px;
+    font-weight: 700;
+    color: #888;
+    width: 924px;
+    left: 0;
+    border-bottom: 1px solid rgb(187,187,187);
+    height: 50px;
+}
+.zx-main .zx-content .zx-main-right .zx-login .zx-login-classify .zx-login-switch li{
+    position: relative;
+    float: left;
+    width: 154px;
+    text-align: center;
+    padding: 13px 0 14px 0;
+    cursor: pointer;
+   
+}
+.zx-main .zx-content .zx-main-right .zx-login .zx-login-classify .zx-login-switch .zx-shortcut{
+    color: #cf000e;
+}
+.zx-main .zx-content .zx-main-right .zx-login .zx-login-form{
+    width: 306px;
+    overflow: hidden;
+    position: relative;
+
+}
+.zx-main .zx-content .zx-main-right .zx-login .zx-login-form .zx-login-type{
+    position: relative;
+    width: 1224px;
+    left: -612px;
+}
+/* 微信登录 */
+.zx-main .zx-content .zx-main-right .zx-login .zx-login-form .zx-login-type .zx-login-weixin{
+     width: 306px;
+    height: 229px; 
+    position: relative; 
+    padding: 55px 0 8px 0;
+    text-align: center;
+}
+.zx-main .zx-content .zx-main-right .zx-login .zx-login-form .zx-login-type .zx-login-weixin .zx-weixin-img{
+    position: relative;
+}
+.zx-main .zx-content .zx-main-right .zx-login .zx-login-form .zx-login-type .zx-login-weixin img{
+    overflow: hidden;
+    vertical-align: top;
+    background: #eee;
+    width: 174px;
+    height: 174px;
+    
+
+}
+/* 账号密码登录 */
+.zx-main .zx-content .zx-main-right .zx-login .zx-login-form .zx-login-type .zx-login-pwd{
+    width: 306px;
+    height: 229px;
+}
+.zx-login-pwd .zx-login_id{
+    position: relative;
+    height: 40px;
+    border: 1px solid #ddd;
+    /* overflow: hidden; */
+    line-height: 40px;
+    margin-bottom: 25px;
+    margin-top: 8px;
+  
+}
+
+.zx-login-pwd .zx-login_pwd{
+    position: relative;
+    height: 40px;
+    border: 1px solid #ddd;
+    /* overflow: hidden; */
+    line-height: 40px;
+    margin-bottom: 13px;
+}
+.zx-login-regist{
+    margin-top: 17px;
+}
+.zx-login-pwd .zx-forget{
+    margin-bottom: 5px;
+}
+.zx-login-pwd .zx-login_id .zx-sprite1{
+    float: left;
+    width: 19px;
+    height: 19px;
+    background: url(../image/login-img/allPuzzle.png) 0 -30px no-repeat;
+    margin: 10px 16px 10px 11px;
+}
+.zx-login-pwd .zx-login_pwd .zx-sprite2{
+    float: left;
+    width: 19px;
+    height: 19px;
+    background: url(../image/login-img/allPuzzle.png) -21px -30px no-repeat;
+    margin: 10px 16px 10px 11px;
+}
+.zx-login-pwd .zx-login_id .zx_id{
+    float: left;
+    height: 20px;
+    font-size: 13px;
+    width: 254px;
+    border: 0 none;
+    padding: 10px 0;
+    margin: 0;
+    font-family: 'å¾®è½¯é›…é»‘';
+    opacity: 0.5;
+}
+.zx-login-pwd .zx-login_pwd .zx_pwd{
+    float: left;
+    height: 20px;
+    font-size: 13px;
+    width: 254px;
+    border: 0 none;
+    padding: 10px 0;
+    margin: 0;
+    font-family: 'å¾®è½¯é›…é»‘';
+    opacity: 0.5;
+
+}
+
+/* 快捷登录 */
+.zx-main .zx-content .zx-main-right .zx-login .zx-login-form .zx-login-type .zx-login-mobile{
+    width: 306px;
+    height: 229px;
+ 
+}
+.zx-login-mobile .zx-error-hint{
+    background: #fef2f2;
+    /* margin: 5px 0; */
+    min-height: 26px;
+    border: 1px solid #fff;
+    border-color: #faccc6;
+    visibility: hidden;
+    
+}
+.zx-login-pwd .zx-error-hint{
+    background: #fef2f2;
+    /* margin: 5px 0; */
+    min-height: 26px;
+    border: 1px solid #fff;
+    border-color: #faccc6;
+    visibility: hidden;
+}
+.zx-error-hint .zx-error-sprite{
+    display: inline-block;
+    background: url(../image/login-img/allPuzzle.png) -156px -30px no-repeat;
+    width: 15px;
+    height: 15px;
+    vertical-align: top;
+    margin: 5px 3px 6px 8px;
+}
+.zx-error-hint .zx-error-text{
+    display: inline-block;
+    vertical-align: top;
+    padding: 5px 0;
+    word-break: break-all;
+    word-wrap: break-word;
+    width: 264px;
+    color: #cf000e;
+}
+
+
+
+/* 扫码登录 */
+.zx-main .zx-content .zx-main-right .zx-login .zx-login-form .zx-login-type .zx-app{
+    padding-top: 10px;
+    text-align: center;
+    position: relative;
+    width: 306px;
+    height: 229px;
+   
+}
+.zx-login-type .zx-app .zx-app-imgs .none{
+    display: none;
+}
+.zx-login-type .zx-app .zx-app-imgs:hover .none{
+    display: inline-block;
+}
+.zx-app-box .zx-app-text{
+    margin-top: 10px;
+    line-height: 16px;
+    color: #333;
+    margin-bottom: 34px;
+    position: absolute;
+    left: 68px;
+    top: 192px;
+}
+.zx-app-box .zx-app-text i{
+    background: url(../image/login-img/allPuzzle.png) -103px -52px no-repeat;
+    width: 16px;
+    height: 15px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 6px;
+}
+.zx-app-box{
+    margin-top: 7px;
+}
+ .zx-app .zx-app-regist{
+    position: absolute;
+    top:248px;
+    right:0;
+}
+.zx-error-date{
+    width: 153px;
+    background-color: #cf000e;
+    height: 2px;
+    position: absolute;
+    top: 72px;
+    /* left:27px; */
+    z-index: 10;
+}
+
+.zx-login-form .zx-login-mobile .zx-input-group{
+    position: relative;
+    height: 40px;
+    border: 1px solid #ddd;
+    overflow: hidden;
+    line-height: 40px;
+    margin-bottom: 25px;
+}
+.zx-login-form .zx-login-mobile .zx-input-group .zx-phone{
+    float: left;
+    width: 19px;
+    height: 20px;
+    background: url(../image/login-img/allPuzzle.png) -63px -30px no-repeat;
+    margin: 10px 16px 10px 11px;
+}
+.zx-login-form .zx-login-mobile .zx-input-group .zx-pwd{
+    float: left;
+    width: 19px;
+    height: 19px;
+    background: url(../image/login-img/allPuzzle.png) -21px -30px no-repeat;
+    margin: 10px 16px 10px 11px;
+}
+.zx-login-form .zx-login-mobile .zx-input-group .zx-input-account{
+    float: left;
+    height: 20px;
+    font-size: 13px;
+    width: 254px;
+    border: 0 none;
+    padding: 10px 0;
+    margin: 0;
+    font-family: '微软雅黑';
+    color: #b2b2b2;
+    opacity: 0.5;
+}
+.zx-login-form .zx-login-mobile .zx-input-group .zx-note{
+    width: 148px;
+    color: #b2b2b2;
+
+}
+
+.zx-login-form .zx-login-mobile .zx-input-group .zx-sms-btn{
+    display: inline-block;
+    background: #f0f0f0;
+    color: #333;
+    height: 28px;
+    width: 104px;
+    text-align: center;
+    line-height: 28px;
+    border-radius: 3px;
+    margin-top: 6px;
+    text-decoration: none;
+    font-size: 12px;
+}
+ .zx-submit-btn{
+    display: block;
+    height: 42px;
+    line-height: 42px;
+    background-color: #cf000e;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    border-radius: 3px;
+    margin: 10px 0 0;
+    margin-top: 53px;
+    cursor: pointer;
+}
+
+.zx-main .zx-content .zx-main-right .zx-other-login{
+    margin: 8px 0 15px 0;
+    vertical-align: bottom;
+}
+.zx-main .zx-content .zx-main-right .zx-other-login .zx-i-app{
+    margin: 30px 0 15px 0;
+    vertical-align: bottom;
+    text-decoration: none;
+    font-size: 12px;
+    color: #b2b2b2;
+}
+.zx-main .zx-content .zx-main-right .zx-other-login .zx-i-app i{
+    vertical-align: middle;
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    margin-right: 6px;
+    background: url(../image/login-img/allPuzzle.png) no-repeat;
+    background-position: -73px -80px;
+}
+.zx-main .zx-content .zx-main-right .zx-other-login .zx-i-account{
+    margin: 30px 0 15px 0;
+    vertical-align: bottom;
+    text-decoration: none;
+    font-size: 12px;
+    color: #b2b2b2;
+    margin: 0 7px;
+}
+.zx-main .zx-content .zx-main-right .zx-other-login .zx-i-account i{
+    vertical-align: middle;
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    margin-right: 6px;
+    background: url(../image/login-img/allPuzzle.png) no-repeat;
+    background-position: -73px -52px;
+}
+.zx-main .zx-content .zx-main-right .zx-other-login .zx-i-qq{
+    margin: 30px 0 15px 0;
+    vertical-align: bottom;
+    text-decoration: none;
+    font-size: 12px;
+    color: #b2b2b2;
+}
+.zx-main .zx-content .zx-main-right .zx-other-login .zx-i-qq i{
+    vertical-align: middle;
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    margin-right: 6px;
+    background: url(../image/login-img/allPuzzle.png) no-repeat;
+    background-position: -73px -108px;
+}
+
+
+
+/* 底部 */
+.zx-footer{
+    width: 100%;
+}
+/* 底部上部分 */
+.zx-footer .zx-footer-icon{
+    background: #f8f8f8;
+    padding: 35px 0;
+    border-bottom: 1px solid #ededed;
+    text-align: center;
+}
+.zx-footer .zx-footer-icon .zx-footer-icon-view{
+    width: 1190px;
+    margin: 0 auto;
+
+}
+.zx-footer .zx-footer-icon .zx-footer-icon-view a{
+    width: 148px;
+    text-decoration: none;
+    float: left;
+}
+.zx-footer .zx-footer-icon .zx-footer-icon-view span{
+    display: inline-block;
+    width: 100%;
+    font-size: 14px;
+    color: #000;
+    text-align: center;
+    margin-top: 10px;
+}
+.zx-footer .zx-footer-icon .zx-footer-icon-view i{
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    margin: 0 auto;
+    background: url(../image/login-img/zx-2.png) no-repeat;
+}
+.zx-footer .zx-footer-icon .zx-footer-icon-view .zx-icon1{
+    background-position: 0 0;
+}
+.zx-footer .zx-footer-icon .zx-footer-icon-view .zx-icon2{
+    background-position: -50px 0;
+}
+.zx-footer .zx-footer-icon .zx-footer-icon-view .zx-icon3{
+    background-position: -100px 0;
+}
+.zx-footer .zx-footer-icon .zx-footer-icon-view .zx-icon4{
+    background-position: -150px 0;
+}
+.zx-footer .zx-footer-icon .zx-footer-icon-view .zx-icon5{
+    background-position:  0 -50px;
+}
+.zx-footer .zx-footer-icon .zx-footer-icon-view .zx-icon6{
+    background-position: -50px -50px;
+}
+.zx-footer .zx-footer-icon .zx-footer-icon-view .zx-icon7{
+    background-position: -100px -50px;
+}
+.zx-footer .zx-footer-icon .zx-footer-icon-view .zx-icon8{
+    background-position: -150px -50px;
+}
+
+/* 底部下部分 */
+.zx-footer .zx-footer-extend{
+    background: #1f1f1f;
+    padding: 21px 0 30px;
+}
+.zx-footer .zx-footer-extend .zx-footer-copyright{
+    position: relative;
+    color: #777;    
+}
+
+.pub-footer{
+    padding-top:0;
+}
+input{
+    color: #000 !important;
+}

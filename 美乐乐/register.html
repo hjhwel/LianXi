@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>免费注册</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/register.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="shortcut icon" href="image/header-img/favicon.ico" type="image/x-icon">
+    <script src="lib/jquery-1.8.3.min.js"></script>
+    <script src="lib/jquery.validate.min.js"></script>
+    <script src="lib/messages_zh.min.js"></script>
+    <script src="js/footer-1.js"></script>
+</head>
+
+<body>
+    <!-- 头部开始 -->
+    <div class="register_active_header clearfix">
+        <div class="active_img">
+            <a href="active.html" target="_blank"><img src="image/regAnduser/1535073184832784924.jpg" alt=""></a>
+        </div>
+    </div>
+    <div class="user_all clearfix">
+        <div class="user_header clearfix">
+            <div class="logo left">
+                 <a href="index.html" target="_blank" title="返回美乐乐首页">
+                    <img src="image/regAnduser/flow2.png" alt="美乐乐">
+                </a>
+            </div>
+            <div class="left">
+                <p class="regist_title">用户注册</p>
+            </div>
+            <div class="nav right">
+                 <a href="index.html" target="_blank" title="返回美乐乐首页">返回首页</a>
+                |
+                 <a href="helpcenter.html" target="_blank" title="返回美乐乐首页">帮助中心</a>
+            </div>
+        </div>
+        <!-- 注册内容开始 -->
+        <div class="user_content clearfix">
+            <!-- 内容部分左边注册开始 -->
+            <div class="user_login left">
+                <form id="register_form">
+                    <div class="register_box">
+                        <p>
+                            <label class="tips">
+                                <span class="red">*</span>账号名：
+                            </label>
+                            <input type="text" name="username" class="register_input">
+                            <!-- <b></b> -->
+                        </p>
+                        <p>
+                            <label class="tips">
+                                <span class="red">*</span>设置密码：
+                            </label>
+                            <input type="text" name="password" class="register_input" id="password">
+                            <!-- <b></b> -->
+                        </p>
+                        <p>
+                            <label class="tips">
+                                <span class="red">*</span>确认密码：
+                            </label>
+                            <input type="text" name="confirm_password" class="register_input">
+                            <!-- <b></b> -->
+                        </p>
+                        <p>
+                            <label class="tips">
+                                <span class="red">*</span>手机号码：
+                            </label>
+                            <input type="text" name="phone" class="register_input">
+                            <!-- <b></b> -->
+                        </p>
+                        <p>
+                            <label class="tips">
+                                <span class="red">*</span>验证码：
+                            </label>
+                            <input type="test" name="sms_code" class="register_input">
+                            <!-- <b></b> -->
+                            <!-- <img src="https://www.meilele.com/solr_api/captcha/getCaptcha.do?&_=0.6001722132121767" width="61" height="27" border="0" alt="" id="JS_captcha" style="cursor:pointer"> -->
+
+                            <a class="change-one" href="javascript:void(0);" id="JS_captcha_tip" tabindex="15">换一张</a>
+                        </p>
+                        <p class="readed">
+                            <input type="checkbox">
+                            <label>请阅读《<a href="helpcenter.html" target="_blank" class="blue" tabindex="17">美乐乐用户注册协议》</a></label>
+                        </p>
+                        <div>
+                            <input type="button" class="regi_btn" value="注册">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- 右侧内容开始 -->
+            <div id="" class="user_register right" style="color:#555;">
+                <div class="user_ok_register">
+                    <span>已注册？</span><a href="###" class="logintoreg">登录</a>
+                </div>
+
+                <div class="login_api">
+                    <div class="img_login2" style="position: relative;">
+                        <img src="https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQE08DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyS3pLYUY2WndiM2UxeTY4MHhyMXIAAgSGZX1bAwQAowIA"
+                            style="width: 120px;height: 120px;" id="JS_img_ewm">
+                        <div id="JS_fixed_login_mc" style="width: 120px;height: 120px;position: absolute;top:89px;left:50px;background-color: rgba(0,0,0,.5);display: none;">
+                            <p style="width: 48px;height: 48px;background: url(//static.mllres.com/mll/mpg/login/i/allPuzzle.png) no-repeat;background-position: -123px -53px;position: absolute;top:36px;left:36px;"></p>
+                        </div>
+                        <p>微信扫一扫，快速登录</p>
+                    </div>
+                    <div class="share_login">
+                        <span class="api_tips">使用合作账号登录：</span>
+                        <br>
+                        <span class="api_from">
+                            <a href="https://www.meilele.com/dubbo_api/user/login/thirdLogin/ALIPAY" onclick="$.setWindowName('QQ',this);"
+                                class="qq" tabindex="9"></a>
+                            <a href="/dubbo_api/user/login/thirdLogin/WEIBO" onclick="$.setWindowName('新浪微博',this);"
+                                class="sina" tabindex="9"></a>
+                            <!-- <a href="javascript:;" class="weixin" tabindex="9"></a> -->
+                            <a href="/dubbo_api/user/login/thirdLogin/ALIPAY" onclick="$.setWindowName('支付宝',this);"
+                                class="alipay" tabindex="9"></a>
+                            <!-- <a href="/dubbo_api/user/login/thirdLogin/TAOBAO" onclick="setWindowName('淘宝',this);" class="taobao" tabindex="9"></a> -->
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- checkbox未勾选蒙版框开始-->
+    <div class="protocol_mask"> </div>
+    <div>
+        <div class="register_protocol">
+            <div class="protocol_head">
+                <span class="protocol_hint">提示</span>
+                <span class="protocol_close close_mask"></span>
+            </div>
+            <div class="hint_content">
+                <i></i>请阅读《美乐乐用户注册协议》
+            </div>
+            <button class="protocol_ensure close_mask">确定</button>
+        </div>
+        <!-- 注册校验，提交，美乐乐注册协议蒙版效果JS -->
+        <script src="js/registerCheckoutAndMask.js"></script>
+    </div>
+
+</body>
+
+</html>

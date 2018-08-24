@@ -1,0 +1,308 @@
+﻿/* 用户注册页面开始 */
+.active_img{
+    margin:0 auto;
+    width:1190px;
+}
+.register_active_header{
+    width: 100%;
+    height: 50px;
+    background: #ffe933
+}
+.user_all{
+    width: 1190px;
+    margin: auto;
+}
+.left{
+    float: left;
+}
+.right{
+    float:right;
+}
+.clearfix:before,.clearfix:after{
+    content:"";
+    display:table;
+    clear: both;
+}
+/* 注册头部开始 */
+.user_header{
+    width:1190px;
+    padding:27px 0;
+    padding: 30px 0;
+}
+.user_header a{
+    color:#333;
+    font-size:12px;
+}
+.user_header a:hover{
+    color:red;
+}
+.user_header .logo{
+    width:160px;
+    height:52px;
+    padding: 2px 0;
+    vertical-align: baseline;
+}
+.user_header .log img{
+    overflow:hidden;
+    vertical-align:top;
+}
+.user_header .regist_title{
+    position: relative;
+    font-size:24px;
+    top:20px;
+    left: 18px;
+    color:#333
+}
+.user_header .nav{
+    width:180px;
+    padding-top: 36px;
+    text-align: right
+}
+
+/* 注册内容开始 */
+.user_content{
+    width:1190px;
+    height: 540px;
+    border: 1px solid #d7d7d7;
+    padding:40px 0 40px 40px;
+}
+.user_content  .user_login input[class="error"]{
+    background-color: #fff3f3;
+    color: #d10000;
+    font-size: 12px;
+    border-color: #ff5242;
+}
+label.error{
+    background-color: #fff3f3;
+    color: #d10000;
+    font-size: 12px;
+    border-color: #ff5242;
+    display: inline-block;
+    top: -22px;
+    padding: 5px;
+    height: 30px;
+    width: 255px;
+    text-indent:0;
+    margin-top:-20px;
+    visibility:visible;
+    vertical-align:bottom;
+    border: solid 1px #ffe4e4;
+    background-color: #fff3f3;
+    color: #d10000;
+    font-size: 12px;
+    border-color:#ff5242
+}
+label.success{
+    display: inline-block;
+    width: 24px;
+    height:23px;
+    background-image: url(../image/regAnduser/allPuzzle.png);
+    background-position:165px -180px;
+    background-color:red;
+    vertical-align: -6px;
+    background-size: 85px 110px;
+}
+
+.user_content .user_login{
+    width:768px;
+    color:#555;
+    
+}
+.user_content .red{
+    color: #e62318!important;
+}
+.register_box{
+    padding: 20px 0;
+    border-right: solid 1px #ddd;
+}
+.user_content p{
+    margin-bottom:21px;
+}
+.tips{
+    width: 100px;
+    display: inline-block;
+    text-align: right;
+    font-size: 14px;
+}
+.register_box .register_input {
+    height: 40px;
+    line-height: 40px;
+    width: 296px;
+    border: 1px solid #d5d5d5;
+    font-size: 14px;
+    padding: 0 5px;
+}
+.register_box input[name="phone_code"]{
+    margin-left:5px;
+}
+.phone_code{
+    position: relative;
+}
+.get_phone_code{
+    position: absolute;
+    top: 0;
+    font-size: 12px;
+    height: 36px;
+    right: 360px;
+    border: none;
+    margin-top: 3px;
+    padding: 10px 8px;
+    opacity: 0.8;
+}
+.readed{
+    line-height: 18px;
+    padding:10px 0 20px 100px;
+    font-size: 12px;
+}
+.readed input{
+    vertical-align: middle;
+}
+.regi_btn{
+    cursor: pointer;
+    background: #cf000e;
+    width: 308px;
+    height: 42px;
+    border: none;
+    outline: 0;
+    color:#fff;
+    margin-left:100px;
+    padding: 0 4px;
+}
+/* 注册内容版块右侧内容开始*/
+.user_register{
+    color:#555;
+    width: 220px;
+    margin-right:80px;
+}
+.user_ok_register{
+    padding:20px 0;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+.logintoreg{
+    color: #fff!important;
+    font-size: 14px;
+    display: inline-block;
+    text-align: center;
+    line-height: 32px;
+    background: #cf000e;
+    border: 0;
+    height: 32px;
+    width: 70px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.img_login2{
+    position: relative;
+    text-align: center;
+    padding: 90px 0;
+    border-bottom: 1px solid #eee;
+}
+.img_login2>p{
+    position: relative;
+    top: 20px;
+    font-size:14px;
+    line-height:14px;
+    color: #333;
+}
+.api_tips{
+    color: #999;
+    font-size: 12px;
+}
+.share_login{
+    margin-top:20px;
+}
+.api_from a{
+    width: 28px;
+    height: 28px;
+    border-radius: 50% 50%;
+    display: inline-block;
+    background-color: red;
+    background-image: url(../image/regAnduser/allPuzzle.png);
+    margin-left: 1px;
+}
+.api_from .qq{
+    background-position: 0px 0px;
+}
+.api_from .sina{
+    background-position: -28px 0px;
+}
+.api_from .alipay{
+    background-position: -56px 0px;
+}
+/* checkbox未勾选蒙版框开始 */
+.protocol_mask{
+    position:fixed;
+    z-index: 2;
+    left: 0;
+    top:0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0,0,0);
+    opacity:0.5;
+    z-index:1;
+    display:none;
+}
+.register_protocol{
+    border-collapse: collapse;
+    border-spacing: 0;
+    position:fixed;
+    left:50%;
+    top:50%;
+    border:3px solid rgb(190,190,190);
+    margin-left:-186px;
+    width:372px;
+    height: 216px;
+    background-color:#fff;
+    margin-top:-118px;
+    font-size: 14px;
+    z-index:3;
+    display:none;
+}
+.protocol_head{
+    width: 372px;
+    height:48px;
+    background-color:rgb(241,241,241);
+    border-bottom: 1px solid rgb(190,190,190);
+    line-height: 48px;
+}
+.protocol_close{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-image: url(../image/regAnduser/allPuzzle.png);
+    background-position: -72px -136px;
+    margin-left:310px;
+    vertical-align: middle;
+    opacity:0.4;
+}
+.hint_content{
+    width: 312px;
+    height: 88px;
+    text-align: center;
+    margin: auto;
+    line-height: 130px;
+    border-bottom: 1px solid rgb(248,248,248);
+}
+.hint_content i{
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    background: url(../image/regAnduser/user_bg.png) 0 0 no-repeat;
+    background-position: -206px -229px;
+    vertical-align: -4px;
+}
+.protocol_hint{
+    padding-left:6px;
+}
+.protocol_ensure{
+    width: 54px;
+    height: 28px;
+    border-radius: 3px;
+    outline: none;
+    border: 1px solid  rgb(190,190,190);
+    background-color:rgb(245,245,245);
+    margin-left:280px;
+    margin-top:24px;
+}
+

@@ -2,6 +2,7 @@
 
 .pub-footer {
   width: 100%;
+  min-width: 1190px;
   padding-top: 70px;
 }
 
@@ -195,12 +196,14 @@
   margin-right: 20px;
   line-height: 20px;
 }
-.footer-extend .footer-link li{
+
+.footer-extend .footer-link li {
   height: 20px;
   overflow: hidden;
   position: relative;
 }
-.footer-extend .footer-link li i{
+
+.footer-extend .footer-link li i {
   position: absolute;
   top: 4px;
   right: 0;
@@ -216,7 +219,8 @@
 .footer-extend .footer-copyrights ul {
   display: inline-block;
 }
-.footer-extend .footer-copyrights .copyrights{
+
+.footer-extend .footer-copyrights .copyrights {
   line-height: 20px;
 }
 
@@ -296,17 +300,20 @@
   cursor: pointer;
   margin-bottom: 5px;
 }
-.cb-foot li{
+
+.cb-foot li {
   background-position: 0 -950px;
 }
-.cb-foot li .cb-name{
+
+.cb-foot li .cb-name {
   position: absolute;
   top: 0;
   right: 0;
   left: 0;
   bottom: 0;
 }
-.cb-foot li:hover{
+
+.cb-foot li:hover {
   background-position: 0 -878px;
 }
 
@@ -370,12 +377,6 @@
   padding: 0 4.5px;
 }
 
-.cb-cebian li:hover .cb-ann,
-.cb-foot li:hover .cb-ann {
-  opacity: 1;
-  right: 80px;
-}
-
 .cb-cebian li:hover .cb-name {
   color: #fff;
 }
@@ -383,17 +384,17 @@
 .cb-cebian li .cb-ann,
 .cb-foot li .cb-ann {
   position: absolute;
-  right: 110px;
   top: 20px;
   opacity: 0;
   box-sizing: border-box;
-  transition: opacity, right 300ms, 300ms;
+  transition: opacity 200ms ;
   padding-right: 7px;
   font-size: 13px;
   line-height: 36px;
   color: #fff;
   text-align: center;
-  width: 152px;
   background-image: url(../image/cb-img/img.png);
   background-position: 0 -1116px;
+  width: 152px;
+  display: none;
 }

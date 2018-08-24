@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>用户中心Meilele 美乐乐家具网,网上家具商城:在线销售沙发 软床 实木床 餐桌 衣柜 韩式家具 美式家具 现代家具等</title>
+  <script src="js/jquery-1.8.3.js"></script>
+  <!-- <script src="js/jquery.validate.min.js"></script> -->
+  <script src="js/footer.js"></script>
+  <script src="js/login.js"></script>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/general.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="shortcut icon" href="image/login-img/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+  <!-- 头部 -->
+  <div class="zx-nav">
+    <div class="zx-top-nav">
+      <a href="index.html" target="_blank" title="返回美乐乐首页">
+        <img src="image/login-img/zx-1.jpg" alt="">
+      </a>
+    </div>
+
+    <div class="zx-right-nav">
+      <div class="zx-shut">×</div>
+      <img src="image/login-img/zx-3.gif" alt="">
+    </div>
+  </div>
+
+  <!-- logo -->
+  <div class="zx-logo">
+    <div class="zx-logo-head">
+      <div class="zx-logo-left">
+        <a href="index.html" target="_blank" title="返回美乐乐首页">
+          <img src="image/login-img/logo2.png" alt="">
+        </a>
+      </div>
+      <div class="zx-logo-right">
+        <a href="index.html" target="_blank">返回首页</a>
+        <span class="zx-cut-rule">|</span>
+        <a href="helpcenter.html" target="_blank">帮助中心</a>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <!-- 主题 -->
+  <div class="zx-main">
+
+    <div class="zx-content">
+      <div class="zx-main-left">
+        <img src="image/login-img/zx-4.png" alt="">
+      </div>
+
+      <div class="zx-main-right">
+        <div class="zx-login">
+          <div class="zx-error-date"></div>
+          <div class="zx-login-classify">
+            <ul class="zx-login-switch">
+              <li class="zx-shortcut">快捷登录/注册</li>
+              <li class="zx-qrCode">微信登录</li>
+              <li class="zx-zh">账户登录</li>
+              <li class="zx-safety">手机扫码，安全登录</li>
+
+            </ul>
+          </div>
+
+          <div class="zx-login-form">
+            <!-- 登录类型 -->
+            <div class="zx-login-type clearfix">
+              <!-- 微信登录 -->
+              <div class="zx-login-weixin left">
+                <div class="zx-weixin-img">
+                  <img src="image/login-img/showqrcode" alt="">
+                  <p style="margin-top:5px;">微信扫一扫，快速登录</p>
+                </div>
+
+              </div>
+
+              <!-- 账号，密码登录 -->
+              <div class="zx-login-pwd left">
+                <div class="zx-error-hint">
+                    <i class="zx-error-sprite"></i>
+                    <span class="zx-error-text">请输入手机号</span>
+                 </div>
+                <div class="zx-login_id">
+                  <label class="zx-sprite1"></label>
+                  <input type="text" placeholder="用户名/手机" class="zx_id" name="username">
+                </div>
+                <div class="zx-login_pwd">
+                  <label class="zx-sprite2"></label>
+                  <input type="password" placeholder="密码" class="zx_pwd" name="password">
+                </div>
+                <div class="zx-forget">
+                  <a href="javascript:;" class="right">忘记密码?</a>
+                </div>
+                <span class="zx-submit-btn">登录</span>
+                <div class="zx-login-regist">
+                  <a href="javascript:;" class="right zx-getback">返回快捷登录>></a>
+                </div>
+              </div>
+
+              <!-- 快捷登录 -->
+              <div class="zx-login-mobile left">
+                <div class="zx-error-hint">
+                  <i class="zx-error-sprite"></i>
+                  <span class="zx-error-text">请输入正确的手机号码</span>
+                </div>
+                <div class="zx-input-group">
+                  <label for="mobile" class="zx-phone"></label>
+                  <input type="text" class="zx-input-account" placeholder="手机号" maxlength="11" style="color:#000">
+                </div>
+                <div class="zx-input-group">
+                  <label for="mobile" class="zx-pwd"></label>
+                  <input type="text" class="zx-input-account zx-note" placeholder="短信验证码" name="usersms" maxlength="6" style="color:#000">
+                  <a href="javascript:;" class="zx-sms-btn">获取短信验证码</a>
+                </div>
+                <span class="zx-submit-btn">登录/注册</span>
+              </div>
+
+              <!-- 扫码登录 -->
+              <div class="zx-app left">
+                <div class="zx-app-box">
+                  <div class="zx-app-imgs">
+                    <img src="image/login-img/getAppLoginQRCode" alt="" class="zx-two">
+                    <img src="image/login-img/userApp_1512955422.png" alt="" class="none">
+                  </div>
+                  <p class="zx-app-text">
+                    <i></i>
+                    打开
+                    <span style="color:#cf000e">美乐乐APP扫一扫</span>登录
+                  </p>
+                </div>
+                
+                <div class="zx-app-regist">
+                  <a href="javascript:;" class="right zx-getback">返回快捷登录>></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- 扫码 账号  QQ -->
+          <div class="zx-other-login">
+            <a href="javascript:;" class="zx-i-app">
+              <i></i>
+              <span>扫码登录</span>
+            </a>
+            <a href="javascript:;" class="zx-i-account">
+              <i></i>
+              <span>账号登录</span>
+            </a>
+            <a href="javascript:;" class="zx-i-qq">
+              <i></i>
+              <span>QQ登录</span>
+            </a>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+
+  <!-- 底部 -->
+  <!-- public 公共底部部 -->
+  <div class="pub-footer">
+    <!-- 八个小图标 -->
+    <div class="footer-icon">
+      <div class="_view_">
+        <a href="#" title="美乐乐O2O">
+          <i class="f-icon"></i>
+          <span>美乐乐o2o</span>
+        </a>
+        <a href="#" title="全国体验馆">
+          <i class="f-icon"></i>
+          <span>全国体验馆</span>
+        </a>
+        <a href="#" title="双重质检">
+          <i class="f-icon"></i>
+          <span>双重质检</span>
+        </a>
+        <a href="#" title="售后无忧">
+          <i class="f-icon"></i>
+          <span>售后无忧</span>
+        </a>
+        <a href="#" title="原创设计">
+          <i class="f-icon"></i>
+          <span>原创设计</span>
+        </a>
+        <a href="#" title="全球采购">
+          <i class="f-icon"></i>
+          <span>全球采购</span>
+        </a>
+        <a href="#" title="万千口碑">
+          <i class="f-icon"></i>
+          <span>万千口碑</span>
+        </a>
+        <a href="#" title="团队优势">
+          <i class="f-icon"></i>
+          <span>团队优势</span>
+        </a>
+      </div>
+    </div>
+    <!-- 一些官方跳转 -->
+    <!-- <div class="footer-help">
+          <div class="_view_ clearfix">
+            <ul class="help-left">
+              <li class="s1">客服热线（9:00-22:00）</li>
+              <li class="s2">400-009-8666</li>
+              <li class="s3">美乐乐在全国体验店
+                <span class="red">254</span>家、样板间
+                <span class="red">1</span>家</li>
+              <li class="s4">
+                <a href="/expr.html" target="_blank">
+                  <i class="coord"></i>查看全国体验店</a>
+              </li>
+              <li class="s5">
+                <a href="javascript:;" id="jsFooterSendSms">
+                  <i class="mobile"></i>免费发送到手机</a>
+              </li>
+            </ul>
+    
+            <div class="help-right clearfix">
+              <dl>
+                <dt>关于美乐乐</dt>
+                <dd>
+                  <a href="/article_cat-12/article-5224.html" target="_blank" title="公司简介" rel="nofollow">公司简介</a>
+                  <a href="/article_cat-12/article-10600.html" target="_blank" title="媒体聚焦" rel="nofollow">媒体聚焦</a>
+                  <a href="/article_cat-12/article-5225.html" target="_blank" title="体验馆" rel="nofollow">体验馆</a>
+                  <a href="/article_cat-12/article-830.html" target="_blank" title="诚聘英才" rel="nofollow">诚聘英才</a>
+                  <a href="/join_us-1.html" target="_blank" title="招商加盟" rel="nofollow">招商加盟</a>
+                  <a href="/article_cat-12/article-4615.html" target="_blank" title="联系我们" rel="nofollow">联系我们</a>
+                </dd>
+              </dl>
+              <dl>
+                <dt>新手指南</dt>
+                <dd>
+                  <a href="/article_cat-6/article-5404.html" target="_blank" title="注册新用户" rel="nofollow">注册新用户</a>
+                  <a href="/article_cat-6/article-9930.html" target="_blank" title="会员级别" rel="nofollow">会员级别</a>
+                  <a href="/article_cat-6/article-9931.html" target="_blank" title="金币说明" rel="nofollow">金币说明</a>
+                  <a href="/article_cat-6/article-16736.html" target="_blank" title="乐币说明" rel="nofollow">乐币说明</a>
+                  <a href="/article_cat-6/article-101.html" target="_blank" title="订购家具流程" rel="nofollow">订购家具流程</a>
+                  <a href="/article_cat-6/article-5280.html" target="_blank" title="体验馆购买指导" rel="nofollow">体验馆购买指导</a>
+                </dd>
+              </dl>
+              <dl>
+                <dt>配送安装</dt>
+                <dd>
+                  <a href="/article_cat-23/article-5405.html" target="_blank" title="收货指南" rel="nofollow">收货指南</a>
+                  <a href="/article_cat-23/article-3206.html" target="_blank" title="体验馆服务费" rel="nofollow">体验馆服务费</a>
+                  <a href="/article_cat-23/article-618.html" target="_blank" title="物流配送" rel="nofollow">物流配送</a>
+                </dd>
+              </dl>
+              <dl>
+                <dt>售后服务</dt>
+                <dd>
+                  <a href="/article_cat-26/article-620.html" target="_blank" title="30天无忧退换货" rel="nofollow">30天无忧退换货</a>
+                  <a href="/article_cat-26/article-621.html" target="_blank" title="如何申请退款" rel="nofollow">如何申请退款</a>
+                  <a href="/article_cat-26/article-2838.html" target="_blank" title="维修补件说明" rel="nofollow">维修补件说明</a>
+                  <a href="/article_cat-26/article-1530.html" target="_blank" title="贵就赔" rel="nofollow">贵就赔</a>
+                  <a href="/article_cat-26/article-679.html" target="_blank" title="家具保修" rel="nofollow">家具保修</a>
+                </dd>
+              </dl>
+              <dl>
+                <dt>购物保障</dt>
+                <dd>
+                  <a href="/article_cat-15/article-2880.html" target="_blank" title="正品保证" rel="nofollow">正品保证</a>
+                  <a href="/article_cat-15/article-300.html" target="_blank" title="注册协议" rel="nofollow">注册协议</a>
+                  <a href="/article_cat-15/article-298.html" target="_blank" title="隐私保护" rel="nofollow">隐私保护</a>
+                  <a href="/article_cat-15/article-297.html" target="_blank" title="免责声明" rel="nofollow">免责声明</a>
+                </dd>
+              </dl>
+              <dl class="weixin">
+                <dt>官方微信</dt>
+                <dd>
+                  <img src="image/footer-img/footer-ewm.jpg" alt="美乐乐微信公众号" width="96" height="96">
+                </dd>
+              </dl>
+            </div>
+          </div>
+        </div> -->
+    <!-- 最底部版权和友站连接 -->
+    <div class="footer-extend">
+      <div class="_view_">
+        <!-- <ul id="jsFooterLinks" class="footer-link">
+              <li>
+                <div class="switch">
+                  <span>热门城市:</span>
+                  <a target="_blank" href="http://www.meilele.com/beijing/" title="北京家具">北京家具</a>
+                  <a target="_blank" href="http://www.meilele.com/shanghai/" title="上海家具">上海家具</a>
+                  <a target="_blank" href="http://www.meilele.com/chongqing/" title="重庆家具">重庆家具</a>
+                  <a target="_blank" href="http://www.meilele.com/shenzhen/" title="深圳家具">深圳家具</a>
+                  <a target="_blank" href="http://www.meilele.com/guangzhou/" title="广州家具">广州家具</a>
+                  <a target="_blank" href="http://www.meilele.com/chengdu/" title="成都家具">成都家具</a>
+                  <a target="_blank" href="http://www.meilele.com/foshan/" title="佛山家具">佛山家具</a>
+                  <a target="_blank" href="http://www.meilele.com/changsha/" title="长沙家具">长沙家具</a>
+                  <a target="_blank" href="http://www.meilele.com/suzhou/" title="苏州家具">苏州家具</a>
+                  <a target="_blank" href="http://www.meilele.com/tianjin/" title="天津家具">天津家具</a>
+                  <a target="_blank" href="http://www.meilele.com/fuzhou/" title="福州家具">福州家具</a>
+                  <a target="_blank" href="http://www.meilele.com/zhengzhou/" title="郑州家具">郑州家具</a>
+                  <a target="_blank" href="http://www.meilele.com/kunming/" title="昆明家具">昆明家具</a>
+                  <a target="_blank" href="http://www.meilele.com/dongguan/" title="东莞家具">东莞家具</a>
+                  <a target="_blank" href="http://www.meilele.com/xian/" title="西安家具">西安家具</a>
+                  <a target="_blank" href="http://www.meilele.com/jinan/" title="济南家具">济南家具</a>
+                </div>
+                <i></i>
+              </li>
+    
+            </ul> -->
+
+        <div class="footer-copyrights">
+          <ul class="copyrights">
+            <li>
+              <a href="http://zx.meilele.com/" target="_blank" title="装修网">装修网</a> |
+              <a href="//www.meilele.com/list/" target="_blank" title="家具图片">家具图片</a> |
+              <a href="/article/" target="_blank" title="家居资讯">家居资讯</a> |
+              <a href="/baike/" target="_blank" title="生活百科">生活百科</a> |
+              <a href="/article_cat-1/" target="_blank" title="家私导购">家私导购</a> |
+              <a href="/brand/" target="_blank" title="品牌展厅">品牌展厅</a> |
+              <a href="//club.meilele.com" target="_blank" title="装修论坛">装修论坛</a> |
+              <a href="//zx.meilele.com/albums/" target="_blank" title="装修效果图">装修效果图</a> |
+              <a href="/article_cat-4/article-656.html" target="_blank" title="客服中心" rel="nofollow">客服中心</a> |
+              <a href="/sitesmap.html" target="_blank" title="网站地图">网站地图</a> |
+              <a href="/links.html" target="_blank" title="友情链接" rel="nofollow">友情链接</a> |
+              <a href="/keywords/" target="_blank" title="更多">更多</a>
+            </li>
+            <li>
+              <span class="yen">© 2005-2016 </span>
+              <span id="JS_footer_copyright">美乐乐</span> 天津美维信息技术有限公司 版权所有，并保留所有权利。
+              <a href="//www.miibeian.gov.cn/" target="_blank" class="gray" rel="nofollow">ICP备案证书号：粤ICP备08008334号</a>
+            </li>
+          </ul>
+          <ul class="credit Right">
+            <li class="spec">
+              <a id="___szfw_logo___" href="https://credit.szfw.org/CX08282017016325280438.html" target="_blank">
+                <i class="icon-1"></i>
+                <span>诚信网站</span>
+              </a>
+            </li>
+            <li>
+              <a target="_blank" href="http://si.trustutn.org/info?sn=279180716035986764485&amp;certType=1">
+                <i class="icon-2"></i>
+                <span>认证联盟品牌官网</span>
+              </a>
+            </li>
+            <li>
+              <a target="_blank" href="https://ss.knet.cn/verifyseal.dll?sn=e12042051010018574308175&amp;ct=df">
+                <i class="icon-3"></i>
+                <span>可信网站信用评价</span>
+              </a>
+            </li>
+            <li>
+              <i class="icon-4"></i>
+              <span>经营网站备案信息</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 侧边栏 -->
+  <div class="pub-cb">
+    <ul class="cb-cebian">
+      <li>
+        <div class="cb-ann">咨询在线客服</div>
+        <div class="cb-name">客服</div>
+      </li>
+      <li>
+        <div class="cb-ann">发送体验馆地址</div>
+        <div class="cb-name">体验馆</div>
+      </li>
+      <li>
+        <div class="cb-ann">查看购物车</div>
+        <div class="cb-name">购物车</div>
+        <div class="cb-num">0</div>
+      </li>
+      <li>
+        <div class="cb-ann">参与本次抽奖</div>
+        <div class="cb-name">抽奖</div>
+      </li>
+      <li>
+        <div class="cb-ann">查看最新活动</div>
+        <div class="cb-name">活动</div>
+      </li>
+    </ul>
+    <ul class="cb-foot">
+      <li>
+        <div class="cb-ann">返回顶部</div>
+        <a href="#" class="cb-name"></a>
+      </li>
+    </ul>
+  </div>
+</body>
+
+</html>

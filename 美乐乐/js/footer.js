@@ -1,5 +1,6 @@
 // 返回顶部，包起来
 (function ($, window) {
+
   // 入口函数
   $(function () {
     var $cb_foot = $(".pub-cb .cb-foot");
@@ -16,6 +17,43 @@
         })
       }
     })
+    //
+    $(".pub-cb  li").on("mouseenter",function () {
+      $(this).find('.cb-ann').css({
+        display:"block",
+        right:100
+      }).stop(true,true).animate({
+        opacity:1,
+        right:80
+      })
+    })
+
+
+
+    $(".pub-cb  li").on("mouseleave",function () {
+      $(this).find('.cb-ann').stop(true,true).animate({
+        right:100
+      },50).fadeOut(50);
+    })
+
+    $(".pub-cb  li").eq(1).on("click",function () {
+      window.location.href = "mll.html";
+    })
+    $(".pub-cb  li").eq(2).on("click",function () {
+      window.location.href = "not-shoping-car.html";
+    })
+    $(".pub-cb  li").eq(3).on("click",function () {
+      window.location.href = "active.html";
+    })
+    $(".pub-cb  li").eq(4).on("click",function () {
+      window.location.href = "active.html";
+    })
+
+    $("floor-box").find('img').on("click",function () {
+      alert(1);
+      window.location.href = "details.html";
+    })
+
     // 监控窗口改变
     $(window).resize(function () {
       var wh = $(this).height();

@@ -1,0 +1,757 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing:border-box;
+}
+body{
+    overflow-x:hidden;
+}
+ul li{
+    list-style:none;
+}
+a{
+    text-decoration:none;
+}
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+  }
+.top-t{
+    width:1920px;
+    height:50px;
+    background:#c04033;
+}
+.top-t img{
+    margin:0 auto;
+    display:block;
+}
+/* 头部信息开始 */
+
+.top-info{
+    width:1200px;
+    height:30px;
+    /* background:green; */
+    margin:0 auto;
+}
+.top-info-left{
+    width:225px;
+    height:30px;
+    float:left;
+}
+.top-info-left>i{
+    display:block;
+    width:11px;
+    height:14px;
+    background:url(../image/woodReading-img/nav.png)0px -38px  ;
+    color:red;
+    float:left;
+    margin:8px 5px 0 0;
+}
+.top-info-left>span{
+   font-size:12px;
+    color:#e82318;
+    line-height:30px;
+}
+.top-info-left>a{
+    font-size:12px;
+    color:#717171;
+    line-height:30px;
+}
+
+.top-info-right>div{
+    float:left;
+}
+.top-info-right>div>span{
+    font-size:12px;
+    color:#717171;
+    line-height:30px
+}
+.top-info-right{
+    width:642px;
+    height:30px;
+    float:right;
+}
+.top-info-right>span{ 
+    
+    line-height:30px;
+    /* margin-right:5px; */
+}
+.arrow{
+    display:inline-block;
+    width:7px;
+    height:4px;
+    background:url(../image/woodReading-img/nav.png) 0px 0px;
+    margin-left:5px;
+}
+.shopping-cart{
+        display:inline-block;
+        width:16px;
+        height:14px;
+        background:url(../image/woodReading-img/nav.png)0px -53px;
+        margin-right:8px;
+        
+    }
+    .top-info-right .top-str{
+        color:#717171;
+        margin:0px 10px 0 6px
+    }
+.cart-arrow{
+    display:inline-block;
+    width:7px;
+    height:4px;
+    background:url(../image/woodReading-img/nav.png) 0px 0px;
+    margin-left:5px;
+}
+.span1{
+    margin-right:22px;
+}
+
+.scavenging{
+    display:inline-block;
+        width:12px;
+        height:13px;
+        background:url(../image/woodReading-img/nav.png)0px -10px;
+        margin-right:8px;
+}
+.top-info-rr{
+    /* font-size:12px; */
+    color:#717171;
+}
+.top-info-right div .top-str1{
+    color:#e62318;
+}
+
+
+/* |头部导航 */
+.top-nav{
+    width:1200px;
+    height:102px;
+    /* background:red; */
+    margin:0 auto;
+}
+.top-nav>img{
+    display:block;
+    float:left;
+    margin:20px 58px 0px 0px;
+}
+.nav-info{
+    width:918px;
+    height:102px;
+
+    margin-left:251px;
+}
+.nav-info li{
+    width:66px;
+    height:96px;
+    float:left;
+    font-size:16px;
+    color:#333333;
+    line-height:96px;
+    text-align:center;
+    margin-right:30px; 
+}
+.nav-info .border{
+    border-bottom:6px solid #b6874f;
+    color:#dca54f;
+}
+.nav-info li:hover{
+    border-bottom:6px solid #b6874f;
+    color:#dca54f;
+}
+
+/* woods */
+/* html,body{
+    width: 100%;
+} */
+.woods-box{
+    width:100%;
+}
+.woods{
+    width:100%;
+    height:500px;
+    background:url("../image/woodReading-img/1533028266916165764.jpg") no-repeat center center;
+    background-size: cover;
+    overflow: hidden;
+}
+.woods input{
+    display: block;
+    width:580px;
+    height:44px;
+    border-radius:20px;
+    border:none;
+    outline:none;
+    padding-left:30px;
+    background:#8e8f8d;
+    margin:300px auto;
+}
+.search-sample{
+    position:absolute;
+    top:11px;
+    left:32px;
+    color:#f7ffff;
+}
+.woods div{
+    width:580px;
+    height:44px;
+    position: relative;
+    margin:0 auto;
+}
+.woods div i{
+    font-size:24px;
+    color:#ffffff;
+    position:absolute;
+    top:10px;
+    left:534px
+}
+
+.furniture-info-box{
+    width:100%;
+    height:122px;
+    border-bottom:1px solid #eeeeee;
+}
+.furniture-info{
+    width:1200px;
+    height:122px;
+    margin:0 auto;
+}
+.hot-wood{
+    height:58px;
+    width:346px;
+    float:left;
+    border-right:1px dotted #dddddd;
+    /* background:red; */
+    margin-top:24px;
+}
+.hot-wood-tb{
+    width:64px;
+    height:67px;
+    float:left;
+    margin-right:34px;
+
+}
+.hot-wood-tb>strong{
+    font-size:14px;
+    color:#b6874f;
+    
+}
+.hot-wood-tb img{
+    display:block;
+    margin:0px 0px 17px 4px;
+}
+.hot-wood-ft{
+    width:180px;
+    float:left;
+    margin-top:10px;
+
+}
+.hot-wood-ft div{
+    width:90px;
+    height:39px;
+    float:left;
+}
+.hot-wood-ft div a{
+    width:90px;
+    height:16px;
+    display:block;
+    color:#333333;
+}
+
+
+
+.use-wood{
+    height:58px;
+    width:346px;
+    float:left;
+    border-right:1px dotted #dddddd;
+    margin-top:24px;
+    margin-left:78px;
+}
+.use-wood-tb{
+    width:64px;
+    height:67px;
+    float:left;
+    margin-right:34px;
+
+}
+.use-wood-tb>strong{
+    font-size:14px;
+    color:#b6874f;   
+}
+.use-wood-tb img{
+    display:block;
+    margin:0px 0px 9px 8px;
+   
+}
+.use-wood-ft{
+    width:180px;
+    float:left;
+    margin-top:10px;
+
+}
+.use-wood-ft div{
+    width:90px;
+    height:39px;
+    float:left;
+}
+.use-wood-ft div a{
+    width:90px;
+    height:16px;
+    color:#333333;
+    display:block;
+
+}
+
+
+.region-wood{
+    height:58px;
+    width:346px;
+    float:left;
+    /* margin-top:24px;
+    margin-left:78px; */
+    margin:24px 0px 0px 78px;
+}
+.region-wood-tb{
+    width:64px;
+    height:67px;
+    float:left;
+    margin-right:34px;
+
+}
+.region-wood-tb>strong{
+    font-size:14px;
+    color:#b6874f;
+    
+}
+.region-wood-tb img{
+    display:block;
+    margin:0px 0px 11px 8px;
+}
+.region-wood-ft{
+    width:180px;
+    float:left;
+    margin-top:10px;
+
+}
+.region-wood-ft div{
+    width:90px;
+    height:39px;
+    float:left;
+}
+.region-wood-ft div a{
+    width:90px;
+    height:16px;
+    color:#333333;
+    display:block;
+}
+
+/* 猜你喜欢 */
+
+
+.guess-like{
+    width:1200px;
+    height:656px;
+    /* background:red; */
+    margin:0 auto;
+}
+.guess-like>p{
+    width:250px;
+    height:77px;
+    background:url(../image/woodReading-img/wood_bg.png) -40px -1px;
+    margin:0 auto;
+    margin:90px auto 30px;
+}
+.guess-like>span{
+    display:block;
+    margin:0 auto;
+    width:60px;
+    height:4px;
+    background:#b6874f;
+}
+
+
+.like-list{
+    width:1200px;
+    height:420px;
+    /* background:green; */
+    margin-top:75px;
+}
+.like-list div img{
+    border-radius:5px;
+
+}
+.like-list div{
+    width:285px;
+    height:190px;
+    position:relative;
+    float:left;
+    margin-right:20px;
+    margin-bottom:20px;
+}
+.like-list .margin0{
+    margin-right:0;
+}
+.like-list div span{
+    position:absolute;
+    top:10px;
+    left:10px;
+    width:90px;
+    height:34px;
+    display:block;
+    background:rgba(52,23,10,.5);
+    border-radius:5px;
+    line-height:34px;
+    text-align:center;
+    color:#fff7f7;
+}
+
+/* main开始 */
+
+.main{
+    width:100%;
+    background:#f4f4f4;
+    
+     /* background:red; */
+    /* overflow:hidden; */
+    /* float:left; */
+}
+.hot-attention{
+    width:100%;
+    height:271px;
+    /* background:red; */
+    overflow:hidden;
+}
+.hot-attention>p{
+    width:250px;
+    height:77px;
+    background:url(../image/woodReading-img/wood_bg.png) -51px -77px;
+    margin:90px auto 30px;
+    
+}
+.hot-attention>span{
+    display:block;
+    margin:0 auto;
+    width:60px;
+    height:4px;
+    background:#b6874f;
+
+}
+/* selection-wood公用css代码开始 */
+.selection-wood{
+    width:1200px;
+    height:368px;
+    margin:0 auto;
+    background:#ffffff;
+    overflow:hidden;
+    
+
+}
+.selection-wood>.selection-wood-title{
+    text-align:center;
+    color:#333333;
+    font-size:20px;
+    font-weight:200px;
+   margin:51px 0 30px 0;
+}
+.selection-wood>.selection-wood-con{
+    font-size:14px;
+    width:863px;
+    text-align:center;
+    margin:0 auto;
+    color:#666666;
+    line-height:25px;
+}
+.selection-wood>img{
+    display:block;
+    margin:0 auto;
+    margin-top:33px;
+}
+.recommend{
+    /* height:532px; */
+    width:1200px;
+    /* background:red; */
+    margin:0 auto;
+    padding-top:28px;
+    background:#fff;
+}
+.recommend-title{
+    text-align:center;
+    color:#333333;
+    font-size:20px;
+    font-weight:200px;
+   margin:51px 0 30px 0;
+}
+.pick-week{
+    width:1200px;
+    height:400px;
+    background:#ffffff;
+}
+.pick-week .marginl{
+    margin-left:30px;
+}
+.pick-week div{
+    width:360px;
+    height:150px;
+    /* background:red; */
+    /* overflow:hidden; */
+    float:left;
+    margin-right:30px;
+    margin-bottom:30px;
+}
+.pick-week div img{
+    float:left;
+}
+.pick-week div .weekp1{
+    color:#333333;
+    margin:20px 0px 20px 168px;
+    font-size:14px;
+}
+.pick-week div .weekp2{
+    color:#888888;
+   margin-left:168px;
+   font-size:13px;
+}
+.pick-week div .weekp3{
+    color:#888888;
+    font-size:13px;
+    margin:9px 0px 8px 168px;
+}
+.pick-week div .weekp4{
+    width:73px;
+    height:11px;
+    background:url(../image/woodReading-img/wood_bg.png)0px -204px;
+    margin-left:168px;
+}
+button{
+    display:block;
+    width:180px;
+    height:40px;
+    margin:0 auto;
+    border-radius:20px;
+    outline:none;
+    border:none;
+    font-size:16px;
+    border:1px solid #b6874f;
+    color:#b6874f;
+}
+/* selection-wood公用css代码结束 */
+
+ /* relevant公用代码开始  */
+.relevant{
+    width:1200px;
+    /* height:416px; */
+    background:#ffffff;
+    margin:0 auto;
+}
+.relevant>p{
+    text-align:center;
+    color:#333333;
+    font-size:20px;
+    font-weight:200px;
+    padding:70px 0 42px 0;
+
+}
+.relevant-list{
+    width:1200px;
+    height:350px;
+    background:#fff;
+}
+
+.relevant-list div{
+    width:270px;
+    height:350px;
+    background:#fff;
+    margin-left:20px;
+    float:left;
+}
+.relevant-list>.marginl{
+    margin-left:30px;
+}
+.relevant-list div p{
+    text-align:center;
+    margin-top:14px;
+    color:#333352;
+    font-size:18px;
+}
+/* relevant公用代码结束  */
+.banner{
+    position:relative;
+    width:1200px;
+    height:500px;
+    margin:0 auto;
+    margin-top:40px;
+    /* margin-bottom:40px; */
+}
+.banner div{
+    position:absolute;
+    top:462px;
+    left:495px
+}
+.banner p{
+    width:30px;
+    height:5px;
+    background:red;
+    float:left;
+    margin-right:6px;
+}
+
+
+
+
+
+.floo-wood{
+    width:1200px;
+    height:368px;
+    margin:0 auto;
+    background:#ffffff;
+    overflow:hidden;
+    margin-top:40px;
+}
+.floo-wood>.floo-wood-title{
+    text-align:center;
+    color:#333333;
+    font-size:20px;
+    font-weight:200px;
+   margin:51px 0 30px 0;
+}
+.floo-wood>.floo-wood-con{
+    font-size:14px;
+    width:863px;
+    text-align:center;
+    margin:0 auto;
+    color:#666666;
+    line-height:25px;
+}
+.floo-wood>img{
+    display:block;
+    margin:0 auto;
+    margin-top:33px;
+}
+/* recommend{ 
+
+    width:1200px;
+
+    margin:0 auto;
+    padding-top:28px;
+    background:#fff;
+}
+.recommend-title{
+    text-align:center;
+    color:#333333;
+    font-size:20px;
+    font-weight:200px;
+   margin:51px 0 30px 0;
+}
+.pick-week{
+    width:1200px;
+    height:400px;
+    background:#ffffff;
+}
+.pick-week .marginl{
+    margin-left:30px;
+}
+.pick-week div{
+    width:360px;
+    height:150px;
+    float:left;
+    margin-right:30px;
+    margin-bottom:30px;
+}
+.pick-week div img{
+    float:left;
+    
+}
+.pick-week div .weekp1{
+    color:#333333;
+    margin:20px 0px 20px 168px;
+    font-size:14px;
+}
+.pick-week div .weekp2{
+    color:#888888;
+   margin-left:168px;
+   font-size:13px;
+}
+.pick-week div .weekp3{
+    color:#888888;
+    font-size:13px;
+    margin:9px 0px 8px 168px;
+}
+.pick-week div .weekp4{
+    width:73px;
+    height:11px;
+    background:url(../image/woodReading-img/wood_bg.png)0px -204px;
+    margin-left:168px;
+}
+button{
+    display:block;
+    width:180px;
+    height:40px;
+    margin:0 auto;
+    border-radius:20px;
+    outline:none;
+    border:none;
+    font-size:16px;
+    border:1px solid #b6874f;
+    color:#b6874f;
+}  */
+
+.wood-lessons{
+    width:100%;
+    height:1051px;
+    background:url(../image/woodReading-img/wood_lessons.jpg)
+}
+.wood-lessons-con{
+    width:1200px;
+    height:981px;
+    margin:0 auto;
+    overflow:hidden;
+}
+.lessons p{
+    /* display:block; */
+    width:203px;
+    height:77px;
+    background:red;
+    background:url(../image/woodReading-img/wood_bg.png)-292px 0px ;
+    margin:90px auto 30px;
+}
+.lessons span{
+    display:block;
+    margin:0 auto;
+    width:60px;
+    height:4px;
+    background:#b6874f;
+}
+.wood-lessons-con-imgb{
+    width:1200px;
+    height:710px;
+    background:#ffffff;
+    margin-top:70px;
+}
+.wood-lessons-con-imgb div{
+    width:360px;
+    height:300px;
+    /* background:green; */
+    float:left;
+    margin-left:30px;
+    margin-top:30px;
+}
+.wood-lessons-con-imgb div a{
+    display:block;
+    margin-top:7px;
+    font-size:16px;
+    border-left:4px solid #b6874f;
+    padding-left:11px;
+    color:#333333;
+
+}
+
+.wood-lessons-con-imgb div a:hover{
+color:#b6874f !important;
+}
+.pub-footer{
+    padding-top:35px;
+
+}

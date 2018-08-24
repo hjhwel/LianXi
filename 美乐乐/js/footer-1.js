@@ -1,0 +1,389 @@
+
+
+
+// 返回顶部，包起来
+(function ($, window) {
+
+
+  // 入口函数
+  $(function () {
+
+
+    $("body").append(`  <!-- 底部 -->
+    <!-- public 公共底部部 -->
+    <div class="pub-footer">
+      <!-- 八个小图标 -->
+      <div class="footer-icon">
+        <div class="_view_">
+          <a href="mll.html">
+            <i class="f-icon"></i>
+            <span>美乐乐o2o</span>
+          </a>
+          <a href="mll.html">
+            <i class="f-icon"></i>
+            <span>全国体验馆</span>
+          </a>
+          <a href="mll.html">
+            <i class="f-icon"></i>
+            <span>双重质检</span>
+          </a>
+          <a href="mll.html">
+            <i class="f-icon"></i>
+            <span>售后无忧</span>
+          </a>
+          <a href="mll.html">
+            <i class="f-icon"></i>
+            <span>原创设计</span>
+          </a>
+          <a href="mll.html">
+            <i class="f-icon"></i>
+            <span>全球采购</span>
+          </a>
+          <a href="mll.html">
+            <i class="f-icon"></i>
+            <span>万千口碑</span>
+          </a>
+          <a href="mll.html">
+            <i class="f-icon"></i>
+            <span>团队优势</span>
+          </a>
+        </div>
+      </div>
+      <!-- 一些官方跳转 -->
+      <div class="footer-help">
+        <div class="_view_ clearfix">
+          <ul class="help-left">
+            <li class="s1">客服热线（9:00-22:00）</li>
+            <li class="s2">400-009-8666</li>
+            <li class="s3">美乐乐在全国体验店
+              <span class="red">254</span>家、样板间
+              <span class="red">1</span>家</li>
+            <li class="s4">
+              <a href="/expr.html" target="_blank">
+                <i class="coord"></i>查看全国体验店</a>
+            </li>
+            <li class="s5">
+              <a href="javascript:;" id="jsFooterSendSms">
+                <i class="mobile"></i>免费发送到手机</a>
+            </li>
+          </ul>
+
+          <div class="help-right clearfix">
+            <dl>
+              <dt>关于美乐乐</dt>
+              <dd>
+                <a href="intro.html" target="_blank" title="公司简介" rel="nofollow">公司简介</a>
+                <a href="intro.html" target="_blank" title="媒体聚焦" rel="nofollow">媒体聚焦</a>
+                <a href="intro.html" target="_blank" title="体验馆" rel="nofollow">体验馆</a>
+                <a href="intro.html" target="_blank" title="诚聘英才" rel="nofollow">诚聘英才</a>
+                <a href="intro.html" target="_blank" title="招商加盟" rel="nofollow">招商加盟</a>
+                <a href="intro.html" target="_blank" title="联系我们" rel="nofollow">联系我们</a>
+              </dd>
+            </dl>
+            <dl>
+              <dt>新手指南</dt>
+              <dd>
+                <a href="helpcenter.html" target="_blank" title="注册新用户" rel="nofollow">注册新用户</a>
+                <a href="helpcenter.html" target="_blank" title="会员级别" rel="nofollow">会员级别</a>
+                <a href="helpcenter.html" target="_blank" title="金币说明" rel="nofollow">金币说明</a>
+                <a href="helpcenter.html" target="_blank" title="乐币说明" rel="nofollow">乐币说明</a>
+                <a href="helpcenter.html" target="_blank" title="订购家具流程" rel="nofollow">订购家具流程</a>
+                <a href="helpcenter.html" target="_blank" title="体验馆购买指导" rel="nofollow">体验馆购买指导</a>
+              </dd>
+            </dl>
+            <dl>
+              <dt>配送安装</dt>
+              <dd>
+                <a href="helpcenter.html" target="_blank" title="收货指南" rel="nofollow">收货指南</a>
+                <a href="helpcenter.html" target="_blank" title="体验馆服务费" rel="nofollow">体验馆服务费</a>
+                <a href="helpcenter.html" target="_blank" title="物流配送" rel="nofollow">物流配送</a>
+              </dd>
+            </dl>
+            <dl>
+              <dt>售后服务</dt>
+              <dd>
+                <a href="helpcenter.html" target="_blank" title="30天无忧退换货" rel="nofollow">30天无忧退换货</a>
+                <a href="helpcenter.html" target="_blank" title="如何申请退款" rel="nofollow">如何申请退款</a>
+                <a href="helpcenter.html" target="_blank" title="维修补件说明" rel="nofollow">维修补件说明</a>
+                <a href="helpcenter.html" target="_blank" title="贵就赔" rel="nofollow">贵就赔</a>
+                <a href="helpcenter.html" target="_blank" title="家具保修" rel="nofollow">家具保修</a>
+              </dd>
+            </dl>
+            <dl>
+              <dt>购物保障</dt>
+              <dd>
+                <a href="helpcenter.html" target="_blank" title="正品保证" rel="nofollow">正品保证</a>
+                <a href="helpcenter.html" target="_blank" title="注册协议" rel="nofollow">注册协议</a>
+                <a href="helpcenter.html" target="_blank" title="隐私保护" rel="nofollow">隐私保护</a>
+                <a href="helpcenter.html" target="_blank" title="免责声明" rel="nofollow">免责声明</a>
+              </dd>
+            </dl>
+            <dl class="weixin">
+              <dt>官方微信</dt>
+              <dd>
+                <img src="image/footer-img/footer-ewm.jpg" alt="美乐乐微信公众号" width="96" height="96">
+              </dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+      <!-- 最底部版权和友站连接 -->
+      <div class="footer-extend">
+        <div class="_view_">
+          <ul id="jsFooterLinks" class="footer-link">
+            <li>
+              <div class="switch">
+                <span>热门城市:</span>
+                <a target="_blank" href="http://www.meilele.com/beijing/" title="北京家具">北京家具</a>
+                <a target="_blank" href="http://www.meilele.com/shanghai/" title="上海家具">上海家具</a>
+                <a target="_blank" href="http://www.meilele.com/chongqing/" title="重庆家具">重庆家具</a>
+                <a target="_blank" href="http://www.meilele.com/shenzhen/" title="深圳家具">深圳家具</a>
+                <a target="_blank" href="http://www.meilele.com/guangzhou/" title="广州家具">广州家具</a>
+                <a target="_blank" href="http://www.meilele.com/chengdu/" title="成都家具">成都家具</a>
+                <a target="_blank" href="http://www.meilele.com/foshan/" title="佛山家具">佛山家具</a>
+                <a target="_blank" href="http://www.meilele.com/changsha/" title="长沙家具">长沙家具</a>
+                <a target="_blank" href="http://www.meilele.com/suzhou/" title="苏州家具">苏州家具</a>
+                <a target="_blank" href="http://www.meilele.com/tianjin/" title="天津家具">天津家具</a>
+                <a target="_blank" href="http://www.meilele.com/fuzhou/" title="福州家具">福州家具</a>
+                <a target="_blank" href="http://www.meilele.com/zhengzhou/" title="郑州家具">郑州家具</a>
+                <a target="_blank" href="http://www.meilele.com/kunming/" title="昆明家具">昆明家具</a>
+                <a target="_blank" href="http://www.meilele.com/dongguan/" title="东莞家具">东莞家具</a>
+                <a target="_blank" href="http://www.meilele.com/xian/" title="西安家具">西安家具</a>
+                <a target="_blank" href="http://www.meilele.com/jinan/" title="济南家具">济南家具</a>
+              </div>
+              <i style="display: none;"></i>
+            </li>
+            <li>
+              <div class="switch">
+                <span>友情链接:</span>
+                <a target="_blank" href="http://house.china.com.cn/" title="地产中国网">地产中国网</a>
+                <a target="_blank" href="http://www.izaojiao.com/zhengzhou" title="郑州爱早教">郑州爱早教</a>
+                <a target="_blank" href="http://zhengzhou.tianqi.com/" title="郑州天气">郑州天气</a>
+                <a target="_blank" href="http://club.meilele.com/" title="房屋装修效果图">房屋装修效果图</a>
+                <a target="_blank" href="http://zz.focus.cn/" title="郑州房产网">郑州房产网</a>
+                <a target="_blank" href="http://kaifeng.offcn.com/" title="开封人事网">开封人事网</a>
+                <a target="_blank" href="http://www.monph.com/" title="魔飞公寓">魔飞公寓</a>
+                <a target="_blank" href="http://zx.meilele.com/albums/c-31/" title="阳台装修效果图片">阳台装修效果图片</a>
+                <a target="_blank" href="http://www.rong360.com/zhengzhou/" title="郑州贷款">郑州贷款</a>
+                <a target="_blank" href="http://zhengzhou.zsezt.com/" title="郑州装修设计">郑州装修设计</a>
+                <a target="_blank" href="http://zz.tobosu.com/" title="郑州装修网">郑州装修网</a>
+                <a target="_blank" href="http://zz.51zsjc.com/" title="郑州装修网">郑州装修网</a>
+                <a target="_blank" href="http://zhengzhou.365azw.com/" title="郑州装修网">郑州装修网</a>
+                <a target="_blank" href="http://zz.pinjie.cc" title="郑州装修公司">郑州装修公司</a>
+                <a target="_blank" href="http://zhengzhou.xtuan.com/" title="郑州装修公司">郑州装修公司</a>
+                <a target="_blank" href="http://www.zzjdzs.net" title="郑州装修公司">郑州装修公司</a>
+                <a target="_blank" href="http://zz.whjzw.net/" title="郑州装修">郑州装修</a>
+                <a target="_blank" href="http://home.zz.fang.com/" title="郑州装修">郑州装修</a>
+                <a target="_blank" href="http://www.yicheshi.com/zhengzhou/" title="郑州第一车市">郑州第一车市</a>
+                <a target="_blank" href="http://www.mayi.com/zhengzhou/" title="郑州短租公寓">郑州短租公寓</a>
+                <a target="_blank" href="http://www.youtx.com/zhengzhou/" title="郑州短租">郑州短租</a>
+                <a target="_blank" href="http://zz.ohqly.com" title="郑州百姓网">郑州百姓网</a>
+                <a target="_blank" href="http://0371.taofw.cn" title="郑州淘房屋">郑州淘房屋</a>
+                <a target="_blank" href="http://www.qc188.com/zhengzhou/" title="郑州汽车网">郑州汽车网</a>
+                <a target="_blank" href="http://www.hunt007.com/zhengzhou/" title="郑州招聘网">郑州招聘网</a>
+                <a target="_blank" href="http://zhengzhou.01hr.com" title="郑州招聘">郑州招聘</a>
+                <a target="_blank" href="http://zhengzhou.shouji.com/" title="郑州手机">郑州手机</a>
+                <a target="_blank" href="http://zz.cityhouse.cn/" title="郑州房产">郑州房产</a>
+                <a target="_blank" href="http://zhengzhou.99wed.com/" title="郑州婚纱照">郑州婚纱照</a>
+                <a target="_blank" href="http://zz.xfwed.com/" title="郑州婚纱摄影网">郑州婚纱摄影网</a>
+                <a target="_blank" href="http://zhengzhou.hunlimama.com/" title="郑州婚纱摄影">郑州婚纱摄影</a>
+                <a target="_blank" href="http://www.chachaba.com/zhengzhou/" title="郑州地图">郑州地图</a>
+                <a target="_blank" href="http://zhengzhou.51zupu.com/" title="郑州商铺网">郑州商铺网</a>
+                <a target="_blank" href="http://shop.zz.fang.com/" title="郑州商铺">郑州商铺</a>
+                <a target="_blank" href="http://zz.lieju.com" title="郑州列举网">郑州列举网</a>
+                <a target="_blank" href="http://zhengzhou.kuyiso.com" title="郑州分类信息网站">郑州分类信息网站</a>
+                <a target="_blank" href="http://zhengzhou.lbx.cc/" title="郑州分类信息网">郑州分类信息网</a>
+                <a target="_blank" href="http://zz.400jz.com/" title="郑州兼职网">郑州兼职网</a>
+                <a target="_blank" href="http://zhengzhou.gongjiao.com" title="郑州公交查询">郑州公交查询</a>
+                <a target="_blank" href="http://zz.zhaoshang800.com/" title="郑州产业园招租">郑州产业园招租</a>
+                <a target="_blank" href="http://zz.273.cn" title="郑州二手车市场">郑州二手车市场</a>
+                <a target="_blank" href="http://zhengzhou.cn2che.com/" title="郑州二手车">郑州二手车</a>
+                <a target="_blank" href="http://zz.ganji.com/bangong/" title="郑州二手设备">郑州二手设备</a>
+                <a target="_blank" href="http://zz.58fenlei.com/" title="郑州58同城">郑州58同城</a>
+                <a target="_blank" href="http://zx.meilele.com/process/" title="装修流程">装修流程</a>
+                <a target="_blank" href="http://zx.meilele.com/albums/c-747/" title="石材背景墙装修效果图">石材背景墙装修效果图</a>
+                <a target="_blank" href="http://www.meilele.com/baike/list/" title="生活分类">生活分类</a>
+                <a target="_blank" href="http://www.meilele.com/img/zhuanqu-f-41/" title="玄关装修效果图">玄关装修效果图</a>
+                <a target="_blank" href="http://henan.bidchance.com/" title="河南招标网">河南招标网</a>
+                <a target="_blank" href="http://hn.bidcenter.com.cn" title="河南招标">河南招标</a>
+                <a target="_blank" href="http://henan.tuliu.com/" title="河南土地流转">河南土地流转</a>
+                <a target="_blank" href="http://cn.makepolo.com/henan/" title="河南企业">河南企业</a>
+                <a target="_blank" href="http://www.meilele.com/ym/" title="家具木材">家具木材</a>
+                <a target="_blank" href="http://www.lpetl.com" title="宠物生活网">宠物生活网</a>
+                <a target="_blank" href="http://zx.meilele.com/albums/c-749/" title="实木餐桌椅图片">实木餐桌椅图片</a>
+                <a target="_blank" href="http://zx.meilele.com/albums/c-748/" title="实木儿童床图片">实木儿童床图片</a>
+                <a target="_blank" href="http://baoji.cncn.com/" title="宝鸡旅游">宝鸡旅游</a>
+                <a target="_blank" href="http://ay.zxdyw.com/" title="安阳装饰">安阳装饰</a>
+                <a target="_blank" href="http://zx.meilele.com/albums/c-394/" title="双层儿童床">双层儿童床</a>
+                <a target="_blank" href="http://fs.loupan.com" title="佛山房产网">佛山房产网</a>
+                <a target="_blank" href="http://zx.meilele.com/albums/c-392/" title="不锈钢置物架">不锈钢置物架</a>
+                <a href="/links.html" target="_blank" rel="nofollow" title="更多友情链接">更多</a>
+              </div>
+              <i></i>
+            </li>
+          </ul>
+
+          <div class="footer-copyrights">
+            <ul class="copyrights">
+              <li>
+                <a href="http://zx.meilele.com/" target="_blank" title="装修网">装修网</a> |
+                <a href="//www.meilele.com/list/" target="_blank" title="家具图片">家具图片</a> |
+                <a href="/article/" target="_blank" title="家居资讯">家居资讯</a> |
+                <a href="/baike/" target="_blank" title="生活百科">生活百科</a> |
+                <a href="/article_cat-1/" target="_blank" title="家私导购">家私导购</a> |
+                <a href="/brand/" target="_blank" title="品牌展厅">品牌展厅</a> |
+                <a href="//club.meilele.com" target="_blank" title="装修论坛">装修论坛</a> |
+                <a href="//zx.meilele.com/albums/" target="_blank" title="装修效果图">装修效果图</a> |
+                <a href="/article_cat-4/article-656.html" target="_blank" title="客服中心" rel="nofollow">客服中心</a> |
+                <a href="/sitesmap.html" target="_blank" title="网站地图">网站地图</a> |
+                <a href="/links.html" target="_blank" title="友情链接" rel="nofollow">友情链接</a> |
+                <a href="/keywords/" target="_blank" title="更多">更多</a>
+              </li>
+              <li>
+                <span class="yen">© 2005-2016 </span>
+                <span id="JS_footer_copyright">美乐乐</span> 天津美维信息技术有限公司 版权所有，并保留所有权利。
+                <a href="//www.miibeian.gov.cn/" target="_blank" class="gray" rel="nofollow">ICP备案证书号：粤ICP备08008334号</a>
+              </li>
+            </ul>
+            <ul class="credit Right">
+              <li class="spec">
+                <a id="___szfw_logo___" href="https://credit.szfw.org/CX08282017016325280438.html" target="_blank">
+                  <i class="icon-1"></i>
+                  <span>诚信网站</span>
+                </a>
+              </li>
+              <li>
+                <a target="_blank" href="http://si.trustutn.org/info?sn=279180716035986764485&amp;certType=1">
+                  <i class="icon-2"></i>
+                  <span>认证联盟品牌官网</span>
+                </a>
+              </li>
+              <li>
+                <a target="_blank" href="https://ss.knet.cn/verifyseal.dll?sn=e12042051010018574308175&amp;ct=df">
+                  <i class="icon-3"></i>
+                  <span>可信网站信用评价</span>
+                </a>
+              </li>
+              <li>
+                <i class="icon-4"></i>
+                <span>经营网站备案信息</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 侧边栏 -->
+    <div class="pub-cb">
+      <ul class="cb-cebian">
+        <li>
+          <div class="cb-ann">咨询在线客服</div>
+          <div class="cb-name">客服</div>
+        </li>
+        <li>
+          <div class="cb-ann">发送体验馆地址</div>
+          <div class="cb-name">体验馆</div>
+        </li>
+        <li>
+          <div class="cb-ann">查看购物车</div>
+          <div class="cb-name">购物车</div>
+          <div class="cb-num">0</div>
+        </li>
+        <li>
+          <div class="cb-ann">参与本次抽奖</div>
+          <div class="cb-name">抽奖</div>
+        </li>
+        <li>
+          <div class="cb-ann">查看最新活动</div>
+          <div class="cb-name">活动</div>
+        </li>
+      </ul>
+      <ul class="cb-foot">
+        <li>
+          <div class="cb-ann">返回顶部</div>
+          <a href="#" class="cb-name"></a>
+        </li>
+      </ul>
+    </div>`);
+
+
+    var $cb_foot = $(".pub-cb .cb-foot");
+    // 监控窗口滚动
+    $(window).scroll(function () {
+      // 当窗口滚动到一定程度显示返回顶部按钮
+      if ($(window).scrollTop() >= 500) {
+        $cb_foot.css({
+          display: "block"
+        })
+      } else {
+        $cb_foot.css({
+          display: "none"
+        })
+      }
+    })
+    //
+    $(".pub-cb  li").on("mouseenter",function () {
+      $(this).find('.cb-ann').css({
+        display:"block",
+        right:100
+      }).stop(true,true).animate({
+        opacity:1,
+        right:80
+      })
+    })
+
+    $(".pub-cb  li").on("mouseleave",function () {
+      $(this).find('.cb-ann').stop(true,true).animate({
+        right:100
+      },50).fadeOut(50);
+    })
+    $(".pub-cb  li").eq(1).on("click",function () {
+      window.location.href = "mll.html";
+    })
+    $(".pub-cb  li").eq(2).on("click",function () {
+      window.location.href = "not-shoping-car.html";
+    })
+    $(".pub-cb  li").eq(3).on("click",function () {
+      window.location.href = "active.html";
+    })
+    $(".pub-cb  li").eq(4).on("click",function () {
+      window.location.href = "active.html";
+    })
+    
+    $(".floor-box").find('div').on("click",function () {
+
+      window.location.href = "details.html";
+    })
+
+    // 监控窗口改变
+    $(window).resize(function () {
+      var wh = $(this).height();
+      // 拿到所有的侧边栏
+      var $cebian = $(".pub-cb .cb-cebian li")
+      // 遍历所有的li
+      $.each($cebian, function () {
+        // 取出距离窗口顶部的高度加上本身的高度
+        var lh = $(this).offset().top + $(this).outerHeight() - $(window).scrollTop();
+        if (lh + 100 > wh) {
+          $(this).css({
+            opacity: 0
+          })
+        } else {
+          $(this).css({
+            opacity: 1
+          })
+        }
+      })
+    })
+    // 底部友情链接扩展
+    $('.footer-link li i').click(function () {
+      $(this).css({
+        display:"none"
+      })
+      $(this).parents("li").stop().animate({
+        height:110
+      })
+    })
+  })
+})($, window)

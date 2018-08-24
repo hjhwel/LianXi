@@ -1,0 +1,213 @@
+/*公用样式*/
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    font: 14px/1.5 "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
+}
+
+/*美乐乐中心内容*/
+.topic-s1 {
+    width: 100%;
+    background: #fff;
+    position: relative;
+    margin-top: 10px;
+}
+
+.topic-s2 {
+    background: url(../image/footer-img/5.jpg) center top no-repeat;
+}
+
+.Sw-s {
+    width: 1100px;
+    margin: 0 auto;
+}
+
+.codeS {
+    position: relative;
+}
+
+img {
+    overflow: hidden;
+    vertical-align: top;
+    background: #eee;
+}
+
+/*全国体验馆样式*/
+.topic-s3 {}
+
+.topic-simg {
+    background: url(../image/footer-img/6.jpg) center top no-repeat;
+}
+
+.Sw-s {
+    width: 1100px;
+}
+
+.codeSs {
+    width: 1100px;
+    position: relative;
+    margin: 0 auto;
+}
+
+.codeSss {
+    width: 1100px;
+    margin: 0 auto;
+    position: relative;
+    font-size: 0;
+}
+
+.codeSsss {
+    width: 1100px;
+    margin: 0 auto;
+    position: relative;
+    font-size: 0;
+}
+
+.codeSssss {
+    width: 1100px;
+    margin: 0 auto;
+    position: relative;
+    font-size: 0;
+}
+
+.topic-simg1 {
+    background: url(../image/footer-img/24.jpg) center top no-repeat;
+}
+
+.Sw-ss {
+    width: 1100px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.codeSssss {
+    width: 1100px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.codeSsssss {
+    width: 1100px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.codeSssssss {
+    width: 1100px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.Sw-sss {
+    width: 1190;
+    margin: 0 auto;
+}
+
+.Sw-ssss {
+    width: 978px;
+    border: 1px solid #eee;
+    margin: 0 auto;
+    padding-top: 12px;
+    padding-bottom: 10px;
+    margin-top: 18px;
+    background-color: #fbfbfb;
+}
+
+.Swz {
+    width: 456px;
+    height: 206px;
+    padding: 4px 5px;
+    border: 1px solid #d5d5d5;
+    margin-left: 12px;
+    display: inline;
+    margin-bottom: 12px;
+}
+
+/*底部活动样式*/
+.bottom-s {
+    margin: 0 auto;
+    width: 978px;
+    height: 504px;
+    border: 1px solid #eee;
+    background: -webkit-linear-gradient(#f6f6f6, #fbfbfb 30%);
+    padding-top: 12px;
+    padding-bottom: 10px;
+    margin-top: 18px;
+}
+
+.bottom-ss {
+    padding-bottom: 5px;
+    height: 24px;
+    width: 978px;
+    color: #535353;
+    font-family: 微软雅黑;
+    padding-left: 12px;
+    font-size: 14px;
+    float: left;
+    height: 19px;
+}
+
+.sleft {
+    width: 456px;
+    height: 206px;
+    padding: 4px 5px;
+    border: 1px solid #d5d5d5;
+    margin-left: 12px;
+    display: inline;
+    margin-bottom: 12px;
+    float: left;
+}
+
+/*跳转栏*/
+.fixed {
+    position: fixed;
+    top: 0;
+    visibility: visible;
+    width: 100%;
+    display: none;
+    height: 137px;
+}
+
+img{
+    background-color: transparent;
+}
+
+.fixed .mod-sblank {
+    width: 100%;
+    height: 137px;
+    background: #fff;
+}
+
+.mod-scont {
+    margin-left: 76px;
+    background: url(../image/footer-img/40.jpg) no-repeat;
+    width: 1190px;
+    height: 137px;
+    margin: 0 auto;
+}
+
+.footer-extend {
+    background: #1f1f1f;
+    padding: 21px 300px;
+    /* width: 1190px; */
+    color: rgb(119, 119, 119);
+}
+
+.footer-extend .credit li span {
+    display: inline-block;
+    width: 60px;
+    vertical-align: top;
+    height: 40px;
+    margin-top: 5px;
+}

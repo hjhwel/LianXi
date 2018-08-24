@@ -1,0 +1,285 @@
+.container {
+    max-width: 980px;
+    min-width: 980px;
+    margin: 0 auto;
+  }
+  body{
+      background:#f2f2f2;
+  }
+a{
+    color: #999 !important;
+}
+.left{
+    float: left;
+}
+.right{
+    float: right;
+}
+img{
+    
+    overflow: hidden;
+    vertical-align: top;
+}
+  .pub-header-box .pub-header-bg {
+      background: #fff;
+  }
+.pub-footer ._view_{
+    width: 980px;
+}
+.main-header-r ul li.zx-line{
+    margin-top: 9px;
+    margin-left: 8px;
+}
+.main-header-r .customer .customer-list strong {
+    padding: 0 0px;
+}
+.main-header-r .customer li {
+    padding: 0 3px;
+}
+.customer .zx-line{
+    width: 0;
+    height: 12px;
+    border-left: 1px solid #e6e6e6;
+    overflow: hidden;
+}
+.main-header .main-header-l .zx-weibo{
+    float: left;
+}
+.main-header .main-header-l .zx_line{
+    float: left;
+    padding: 0 10px;
+    color: #e6e6e6;
+}
+.zx-weibo .zx-app{
+    padding-left: 15px;
+    background: url(../image/experience-img/site-bg.png) no-repeat;
+    background-position: -111px -40px;
+}
+.zx-weibo .zx-xinlang{
+    padding-left: 23px;
+    margin-left: 11px;
+    background: url(../image/experience-img/site-bg.png) no-repeat;
+    background-position: -104px -24px;
+}
+.main-header .main-header-l .login a {
+    color: #717171;
+    padding: 0 2px;
+}
+.main-header .main-header-l .login a span{
+    color: red;
+}
+.pub-header-box {
+    border-bottom:none;
+}
+.login .log:hover{
+    color: #999 !important;
+}
+
+
+.zx-header{
+    height: 97px;
+    background-color: #d1023d;;
+}
+.zx-header .container{
+    height: 97px;
+    background: url(../image/experience-img/header_bg2.jpg) 46% bottom no-repeat;
+}
+.zx-header .zx-logo{
+    display: inline-block;
+    margin-top: 32px;
+    height: 35px;
+}
+.zx-header .zx-zz{
+    height: 26px;
+    padding-top: 47px;
+    margin-left: 5px;
+
+    font-size: 18px;
+    color:#fff;
+}
+.zx-header .zx-city{
+    width: 69px;
+    height: 22px;
+    padding: 48px 0 0 10px;
+ 
+}
+.zx-header .zx-city .zx-show{
+    height: 22px;
+    margin-left: 5px;
+    position: relative;
+}
+.city-select .selector {
+    padding-right: 0;
+}
+
+.city-select .selector {
+    width: 59px;
+    height: 18px;
+    line-height: 18px;
+    padding-left: 5px;
+    overflow: hidden;
+    background: url(../image/experience-img/bg.png) -77px -175px no-repeat;
+    margin-top: 2px;
+    color: #717171;
+    text-decoration: none;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.zx-header .zx-search-box{
+    width: 335px;
+    /* height: auto; */
+    margin-top: 30px;
+}
+
+.zx-header .zx-search-box .search-panel{
+    width: 325px;
+    height: 28px;
+    padding-left: 10px;
+    background: url(../image/experience-img/top_new_2.png) -223px -257px no-repeat #fff;
+    overflow: hidden;
+}
+.zx-header .zx-search-box .search-panel .zx-input-size{
+    float: left;
+    width: 280px;
+    height: 28px;
+    line-height: 28px;
+    border: 0;
+    padding: 0;
+    color: #a9a9a9;
+}
+.zx-header .zx-search-box .search-panel .zx-input-btn{
+    width: 32px;
+    height: 28px;
+    line-height: 28px;
+    text-indent: -9999em;
+    overflow: hidden;
+    background: url(../image/experience-img/top_new_2.png) -223px -228px no-repeat;
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+}
+.zx-header .zx-search-box .zx-more{
+    margin-left: 8px;
+    margin-top: 8px;
+}
+.zx-header .zx-search-box .zx-more a{
+    color: #fdddd6 !important;
+    margin-right: 5px;
+    font-family: "宋体";
+}
+.zx-header .zx-search-box .zx-more a:hover{
+    color: #f60 !important;
+}
+
+.zx-nav {
+    height: 40px;
+    background: #515151;
+}
+.zx-nav  .zx-nav-list li{
+    width: 90px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    font-size: 15px;
+    font-weight: bold;
+}
+.zx-nav  .zx-nav-list li a{
+    color: #fff !important;
+}
+.zx-nav  .zx-nav-list .zx-list-Homepage{
+    background: #fff;
+    border-right: 1px solid #333;
+}
+.zx-nav  .zx-nav-list .zx-list-Homepage a{
+    color: #000 !important;
+}
+.zx-nav  .zx-nav-list .zx-list-item:hover{
+    background: #fff;
+}
+.zx-nav  .zx-nav-list .zx-list-item:hover a{
+    color:#000 !important;
+}
+
+.zx-nav  .zx-nav-list .experience{
+    position: relative;
+}
+.zx-nav  .zx-nav-list .experience:hover .zx-visit{
+    display: block;
+}
+.zx-nav .zx-mall{
+    display: block;
+    width: 100px;
+    height: 40px;
+    background: url(../image/experience-img/top_new_2.png) 0 0 no-repeat;
+    overflow: hidden;
+}
+.zx-nav  .zx-nav-list .zx-visit{
+    height: 50px;
+    width: 400px;
+    border: 1px solid #333;
+    border-top:none; 
+    position: absolute;
+    top: 40px;
+    left: -1px;
+    display: none;
+    background-color: #fff;
+}
+.zx-nav  .zx-nav-list .zx-visit a{
+    display: inline-block;
+    height: 40px;
+    width: 130px;
+    color:#000 !important;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+.zx-nav  .zx-nav-list .zx-visit a:hover{
+    background: #d8143f;
+    color: #fff !important;
+}
+
+.exprGroup{
+    margin: 25px;
+}
+.exprGroup .experience-title .zx-title-text{
+    font-size: 19px;
+    font-weight: bold;
+    line-height: 30px;
+    font-family: "微软雅黑";
+    color: #333;
+}
+.exprGroup .experience-title  .zx-ZH{
+    font-weight: bold;
+    color: #c9033b;
+    font-size: 12px;
+    font-weight: bold;
+    font-family: Arial,Verdana;
+}
+.exprGroup .experience-title .Introduction{
+    display: inline-block;
+    height: 19px;
+    width: 70px;
+    background: url(../image/experience-img/index_new_2.png) 0 -90px no-repeat;
+    margin: 10px 0 0 10px;
+    color: #555;
+    line-height: 19px;
+    padding-left: 5px;
+}
+.exprGroup .experience-title .zx-title-visit{
+    display: inline-block;
+    margin-top: 11px;
+    color: #333;
+}
+.exprGroup .experience-title .zx-title-visit .zx-title-num{
+    color: #cf000e;
+}
+
+.exprGroup .zx-speLine{
+    margin-top: 8px;
+    height: 25px;
+    background: url(../image/experience-img/index2.png) 0 -355px repeat-x;
+    border-left: 1px solid #dcdcdc;
+    border-right: 1px solid #dcdcdc;
+}
+
+
