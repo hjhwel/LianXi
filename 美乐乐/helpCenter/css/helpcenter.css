@@ -1,3 +1,6 @@
+body{
+  overflow-x: hidden;
+}
 .art_main ._view_ {
   width: 980px;
 }
@@ -60,12 +63,9 @@ aside section dl dd a {
   overflow: hidden;
 }
 
-aside section dl dd:nth-of-type(even) a {
-  background-position: 0 -31px;
-}
 
 aside section dl dd a:hover {
-  background-position: 0 -55px;
+  background-position: 0 -55px !important;
   color: #fff !important;
 }
 
