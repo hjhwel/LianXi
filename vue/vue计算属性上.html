@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="js/vue.js"></script>
+
+</head>
+
+<body>
+  <div id="app">
+    <p>初始值：{{name.split('').join(' ')}}</p>
+    <!-- 第一种方式，表达式直接写 ,只是用于简单的表达式，并且不能重复使用-->
+    <p>反转值：{{name.split('').reverse().join(' ')}}</p>
+    <!-- 第二种写在函数方法里 -->
+    <p>函数反转：{{reverseStr()}}</p>
+    <!-- 第三种通过计算属性 -->
+    <p>计算属性：{{reverse}}</p>
+
+    <!-- 计算属性和函数的区别 -->
+    <!-- 计算属性只会在第一次进行计算，之后就会直接调用缓存中计算出的值，适合进行大量的计算后得出结果，并且结果需要重复使用的，函数每次都会进行计算 -->
+  </div>
+
+  <script>
+    new Vue({
+      el: "#app",
+      data: {
+        name: "hjhlovewel"
+      },
+      methods: {
+        reverseStr() {
+          return this.name.split('').reverse().join(' ');
+        }
+      },
+      // 计算属性
+      computed: {
+          // get方法
+          reverse() {
+            return this.name.split('').reverse().join(' ');
+          }
+        }
+    })
+  </script>
+</body>
+
+</html>

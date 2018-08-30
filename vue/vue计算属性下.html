@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="js/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 直接调用就是计算属性的获取 -->
+    <p>{{updateName}}</p>
+    <button @click="update()">set</button>
+  </div>
+  <script>
+    new Vue({
+      el: "#app",
+      data: {
+        xin: "he",
+        name: "jinhao"
+      },
+      methods: {
+        update() {
+          // 点击调用set
+          this.updateName = "wei erli"
+        }
+      },
+      computed: {
+        updateName: {
+          set(str) {
+            let xi = str.split(' ');
+            this.xin = xi[0];
+            this.name = xi[1]
+          },
+          get() {
+            return this.xin + " " + this.name;
+          }
+        }
+      }
+
+    })
+  </script>
+</body>
+
+</html>
