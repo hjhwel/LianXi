@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- vue组件是可复用的 Vue 实例，且带有一个名字 -->
+    <!-- 
+        // 定义一个名为 button-counter 的新组件
+        Vue.component('button-counter', {
+        data: function () {
+             return {
+             count: 0
+            }
+        },
+        template: '<button v-on:click="count++">You clicked me {{ count }} times.</button>'
+        })
+     -->
+
+    <!-- 全局组件可以在所有的vue实例上调用，局部组件只能在注册的实例上调用 -->
+
+    <div id="app">
+        <!-- 向标签一样用起来 -->
+        <zj></zj>
+        <zj></zj>
+        <zj></zj>
+    </div>
+
+    <div id="app2">
+        <!-- 向标签一样用起来 -->
+        <zj></zj>
+        <zj></zj>
+        <zj></zj>
+    </div>
+
+    <script src="js/vue.js"></script>
+    <script>
+        //  1.创建一个组件构造器
+        // 构造器可以用变量接收一下
+        let zujian1 = Vue.extend({
+            // 模板选项template
+            template: `
+            <div>
+                <input type="date">
+                <p>今天已经是冬天了   </p>
+            </div>
+            `
+        });
+        // 2.全局注册组件
+        // 第一个值是注册组件的名称，第二个值是组件的构造器，也可以直接写构造模板
+        Vue.component("zj", zujian1);
+        new Vue({
+            el: "#app",
+        })
+        // 实例都可以访问到全局组件
+        new Vue({
+            el: "#app2",
+        })
+    </script>
+</body>
+
+</html>
