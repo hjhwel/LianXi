@@ -1,0 +1,415 @@
+/* 公用样式 */
+.left {
+  float: left;
+}
+
+.di {
+  display: none;
+}
+
+.right {
+  float: right;
+}
+
+.clearfix:before {
+  content: " ";
+  display: table;
+  clear: both;
+  visibility: hidden;
+}
+
+.clearfix:after {
+  content: " ";
+  display: table;
+  clear: both;
+  visibility: hidden;
+}
+
+.clearfix {
+  *zoom: 1
+}
+
+a {
+  font-family: "微软雅黑";
+  color: #111;
+  text-decoration: none;
+}
+
+/* 公用样式结束 */
+/* nav开始 */
+.nav {
+  width: 100%;
+  height: 86px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  overflow: hidden;
+  z-index: 99;
+}
+
+.nav-logo {
+  width: 400px;
+}
+
+.nav .nav-logo a img {
+  float: left;
+  margin-top: 16px;
+  margin-right: 10px;
+}
+
+.nav .nav-logo a h2 {
+  font-size: 22px;
+  color: #000;
+  margin-top: 20px;
+  font-weight: normal;
+}
+
+.nav .nav-logo a p {
+  color: #666;
+}
+
+/* nav-list */
+.nav-list ul {
+  margin-top: 28px;
+  margin-right: 20px;
+}
+
+.nav-list ul li {
+  float: left;
+  width: 68px;
+  height: 20px;
+  text-align: center;
+  margin-left: 10px;
+  margin-top: 5px;
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-list ul li p {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: top 0.4s;
+}
+
+.nav-list ul li a {
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.nav-list ul li:hover p {
+  top: -20px;
+}
+
+/* nav结束 */
+/* banner开始 */
+.banner {
+  height: 450px;
+  margin-top: 86px;
+}
+
+.banner1,
+.banner2,
+.banner3,
+.banner4 {
+  height: 450px;
+  background: url(../images/banner1-bg.jpg) no-repeat 0 0;
+  background-size: cover;
+}
+
+.banner .ban {
+  width: 1200px;
+  margin: 0 auto;
+  height: 450px;
+  position: relative;
+  overflow: hidden;
+  *
+}
+
+.fir .im1 {
+  width: 343px;
+  height: 79px;
+  position: absolute;
+  right: 210px;
+  top: 90px;
+  animation: im1 0.8s linear;
+}
+
+@keyframes im1 {
+  from {
+    top: -79px;
+  }
+}
+
+.fir .im2 {
+  width: 500px;
+  height: 35px;
+  position: absolute;
+  top: 200px;
+  right: 140px;
+  animation: im2 0.8s linear;
+}
+
+@keyframes im2 {
+  from {
+    right: -500px;
+  }
+}
+
+.fir .im3 {
+  width: 317px;
+  height: 77px;
+  position: absolute;
+  right: 200px;
+  bottom: 100px;
+  animation: im3 0.8s linear;
+}
+
+@keyframes im3 {
+  from {
+    bottom: -77px;
+  }
+}
+
+.fir .im4 {
+  width: 525px;
+  height: 418px;
+  position: absolute;
+  top: 24px;
+  left: 49px;
+  animation: im4 0.8s linear;
+}
+
+@keyframes im4 {
+  from {
+    left: -554px;
+  }
+}
+
+.fir .im5 {
+  width: 112px;
+  height: 78px;
+  position: absolute;
+  left: 300px;
+  top: 179px;
+  opacity: 0;
+  animation: im5 0.8s 0.8s linear;
+}
+
+@keyframes im5 {
+  from {
+    top: 450px;
+    opacity: 1;
+    transform: rotate(-360deg)
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fir .im6 {
+  width: 77px;
+  height: 54px;
+  position: absolute;
+  left: 161px;
+  opacity: 0;
+  top: 180px;
+  animation: im6 0.8s 0.8s linear;
+}
+
+@keyframes im6 {
+  from {
+    left: -238px;
+    opacity: 1;
+    transform: rotate(-180deg)
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fir .im7 {
+  width: 61px;
+  height: 43px;
+  position: absolute;
+  opacity: 0;
+  left: 152px;
+  top: 114px;
+  animation: im7 0.8s 0.8s linear;
+}
+
+@keyframes im7 {
+  from {
+    left: -118px;
+    opacity: 1;
+    transform: rotate(-180deg)
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fir .im8 {
+  width: 71px;
+  height: 51px;
+  opacity: 0;
+  position: absolute;
+  left: 434px;
+  top: 54px;
+  animation: im8 0.8s 0.8s linear;
+}
+
+@keyframes im8 {
+  from {
+    top: -108px;
+    opacity: 1;
+    transform: rotate(-180deg)
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.banner2 {
+  background: #e14c39;
+}
+
+.sec .im1 {
+  width: 468px;
+  height: 345px;
+  position: absolute;
+  top: 80px;
+  right: 85px;
+  animation: sec1 0.8s linear;
+}
+
+@keyframes sec1 {
+  from {
+    transform: scale(0.1)
+  }
+}
+
+.sec .im2 {
+  position: absolute;
+  top: 240px;
+  right: 401px;
+  opacity: 0;
+  animation: sec2 0.8s 0.8s linear forwards;
+}
+
+@keyframes sec2 {
+  from {
+    top: 450px;
+    opacity: 1;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.sec .im3 {
+  position: absolute;
+  bottom: 0;
+  opacity: 0;
+  right: 41px;
+  animation: sec3 0.8s 0.8s linear forwards;
+}
+
+@keyframes sec3 {
+  from {
+    bottom: -257px;
+    opacity: 1;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.p1 {
+  position: absolute;
+  top: 50px;
+  left: 100px;
+  opacity: 0;
+  animation: sec4 0.8s 0.8s linear forwards;
+}
+
+.p2 {
+  position: absolute;
+  top: 140px;
+  left: 200px;
+  opacity: 0;
+  animation: sec4 0.8s 1.6s linear forwards;
+}
+
+.p3 {
+  position: absolute;
+  bottom: 110px;
+  left: 110px;
+  opacity: 0;
+  animation: sec4 0.8s 2.4s linear forwards;
+}
+
+@keyframes sec4{
+  from{
+    left: -800px;
+    opacity: 1;
+  }
+  to{
+    opacity: 1;
+  }
+}
+@keyframes sec5{
+  from{
+    left: -800px;
+    opacity: 1;
+    transform: rotate(-360deg)
+  }
+  to{
+    opacity: 1;
+  }
+}
+.sp3 {
+  display: block;
+}
+
+.sec .im4 {
+  position: absolute;
+  bottom: 50px;
+  left: 100px;
+  opacity: 0;
+  animation: sec5 0.8s 3.2s linear forwards;
+}
+
+.sec .sp1 {
+  color: #dafff8;
+  font-size: 30px;
+}
+
+.sec .sp2 {
+  color: #ffee55;
+  font-size: 46px;
+  font-weight: 700;
+}
+
+.sec .sp3 {
+  color: #030600;
+  font-size: 20px;
+}
+.sec .p1 .sp3 {
+  margin-left: -20px;
+}
+.sec .p2 .sp3 {
+  margin-left: -40px;
+}
+.sec .p3 .sp2 {
+  display: block;
+  color: #ffee55;
+  font-size: 18px;
+}
