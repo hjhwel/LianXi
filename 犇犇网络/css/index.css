@@ -35,6 +35,26 @@ a {
   text-decoration: none;
 }
 
+/* 字体图标 */
+
+@font-face {
+  font-family: wl;
+  src: url(../font/iconfont.eot) format("embedded-opentype"),
+        url(../font/iconfont.svg) format("svg"),
+        url(../font/iconfont.ttf) format("truetype"),
+        url(../font/iconfont.woff) format("woff");
+}
+
+[class^="wl-"],[class*=" wl-"]{
+  font-family: wl;
+  font-style: normal;
+}
+
+.wl-k::before{
+  content: "\e958";
+  font-size: 13px;
+}
+
 /* 公用样式结束 */
 /* nav开始 */
 .nav {
@@ -714,4 +734,39 @@ a {
   left: 499px;
   opacity: 0;
   animation: fou2 0.4s 2.5s linear forwards;
+}
+
+/* 主营业务 */
+.zy-header {
+  width: 100%;
+  height: 160px;
+  background: url(../images/title_bg1.jpg) no-repeat center bottom;
+  border-bottom: 2px solid #666;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  position: relative;
+}
+
+.zy-header h2 {
+  width: 210px;
+  text-align: center;
+  font-size: 30px;
+  border-bottom: 2px solid #f00;
+  bottom: -2px;
+  position: absolute;
+}
+
+.zyyw .zy-content {
+  width: 1000px;
+  height: 410px;
+  background-color: #0ff;
+  margin: 0 auto;
+}
+
+.zy-content ul .con-img{
+  width: 100px;
+  height: 100px;
+  background: url(../images/web-jian1.png) no-repeat 0 0;
+  background-size: cover;
 }
