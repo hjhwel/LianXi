@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <par></par>
+        <!-- 子组件注册在父组件内部，所以只能在父组件里用，如果需要在外面使用，就需要在外面注册 -->
+    </div>
+
+    <script>
+        // 父子组件
+        // 先创建子组件构造器
+        let child1 = Vue.extend({
+            template: `
+            <div>
+                <p>第一个子孩子</p>
+            </div>
+            `
+        })
+        
+        let child2 = Vue.extend({
+            template: `
+            <div>
+                <p>第二个子孩子</p>
+            </div>
+            `
+        })
+
+        // 父组件构造器
+        let parent = Vue.extend({
+            // 将子组件注册在父组件内部
+            components:{
+                'c1':child1,
+                'c2':child2
+            },
+            template:`
+            <div class="par">
+                <c1></c1>
+                <c2></c2>
+            </div>
+            `
+        })
+
+        // 父组件注册到全局
+
+        Vue.component('par', parent);
+
+        new Vue({
+            el: "#app"
+        })
+    </script>
+</body>
+
+</html>
