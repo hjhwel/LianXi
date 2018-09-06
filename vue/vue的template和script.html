@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <tem></tem>
+        <src></src>
+    </div>
+
+    <!-- 1.用tempalate标签构造组件 -->
+    <template id="tem">
+        <!-- 第一级只能由一个标签 -->
+        <div>
+            <input type="text" name="" id="">
+            <p>template构造的组件</p>
+        </div>
+    </template>
+
+    <!-- script标签创建 必须约束type -->
+    <script type="html/template" id="src">
+        <div>
+            <input type="text" name="" id="">
+            <p>script构造的组件</p>
+        </div>
+    </script>
+        
+    <script>
+        // 注册组件
+        Vue.component('tem', {
+            template: "#tem"
+        })
+        
+
+        Vue.component('src', {
+            template: "#src"
+        })
+
+
+        new Vue({
+            el: "#app"
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <zj></zj>
+        <zj2></zj2>
+    </div>
+    
+
+    <script>
+        // 局部组件在哪里注册在哪里用
+        // 1.创建构造器
+        let julian = Vue.extend({
+            template: `
+            <div>
+                <input type="text">
+            </div>
+            `
+        })
+
+        let julian2 = Vue.extend({
+            template: `
+            <div>
+                <input type="text">
+                <p>的艰苦撒旦</p>
+                <input type="text">
+            </div>
+            `
+        })
+
+        new Vue({
+            el: "#app",
+            // 局部组件注册在实例内部的components中
+            components: {
+               'zj': julian,
+               'zj2':julian2
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <src></src>
+    </div>
+
+
+
+    <script type="html/template" id="src">
+        <div>
+            <input type="text" name="" id="">
+            <p>script构造的组件</p>
+            {{message}}
+        </div>
+    </script>
+        
+    <script>
+        
+        Vue.component('src', {
+            template: "#src",
+            // 在这里或者extend里的data必须写成函数返回形式
+            data(){
+                return {
+                    message:"我是函数返回的data"
+                }
+            }
+        })
+
+        new Vue({
+            el: "#app",
+            // 在这里使用data
+            data:{
+                message:"我是实例化对象里的"
+            }
+        })
+    </script>
+</body>
+
+</html>
