@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>QQ</title>
+    <script src="zepto/zepto.min.js"></script>
+    <script src="zepto/touch1.2.js"></script>
+    <script src="zepto/animate.js"></script>
+    <script src="iscroll.Veb.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        #box {
+            width: 400px;
+            height: 600px;
+            margin: 30px auto;
+            background: #333;
+            box-shadow: 0 0 5px #999;
+        }
+
+        .right {
+            width: 700px;
+            height: 600px;
+        }
+
+        .right>li {
+            width: 400px;
+            height: 600px;
+            background-color: #fff;
+            float: left;
+        }
+
+        .right>li:nth-of-type(1) {
+            background-color: #fff;
+            width: 300px;
+        }
+
+        .list {
+            margin-top: 100px;
+
+        }
+
+        .list>li {
+            width: 100%;
+            height: 50px;
+            line-height: 50px;
+            text-indent: 4em;
+        }
+
+        .list>li:hover {
+            background-color: #ddd;
+        }
+
+        .message {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .message .head {
+            width: 100%;
+            height: 60px;
+            background: url(images/bg.png) no-repeat 0 0;
+            background-size: 100%;
+        }
+
+        .message .content {
+            position: absolute;
+            width: 100%;
+            top: 60px;
+            bottom: 60px;
+        }
+
+        .message .foot {
+            width: 100%;
+            height: 50px;
+            background: url(images/bg.png) no-repeat 0 bottom;
+            background-size: 100%;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+
+        .con-mess {
+            width: 100%;
+        }
+
+        .re {
+            width: 100%;
+            text-align: center;
+            line-height: 30px;
+            color: #444;
+            background-color: #dedede;
+        }
+
+        .mainmess {
+            height: 60px;
+            position: relative;
+            border-bottom: 1px solid #999;
+            margin-bottom: 1px;
+        }
+
+        .mainmess .main-con {
+            position: absolute;
+            top: 0;
+            width: 470px;
+            height: 61px;
+            background: url(images/bg.png) no-repeat 0 -536px;
+            background-size: 400px;
+            z-index: 1
+        }
+
+        .mainmess .btn {
+            width: 70px;
+            position: absolute;
+            right: 0;
+            top: 1px;
+            background-color: #f00;
+            color: #fff;
+            text-align: center;
+            line-height: 58px;
+            height: 58px;
+            z-index: -1;
+        }
+
+        .mengban {
+            position: absolute;
+            width: 400px;
+            height: 600px;
+            display: none;
+            right: 0;
+            top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <ul class="right">
+            <li>
+                <ul class="list">
+                    <li>了解会员特权</li>
+                    <li>qq钱包</li>
+                    <li>个性装扮</li>
+                    <li>我的收藏</li>
+                    <li>我的相册</li>
+                </ul>
+            </li>
+            <li>
+                <ul class="message">
+                    <li class="head"></li>
+                    <li class="content">
+                        <ul class="con-mess">
+                            <li class="re">
+                                下拉刷新
+                            </li>
+                            <li class="mainmess">
+                                <div class="main-con">
+
+                                </div>
+                                <div class="btn">
+                                    删除
+                                </div>
+                            </li>
+                            <li class="mainmess">
+                                <div class="main-con">
+
+                                </div>
+                                <div class="btn">
+                                    删除
+                                </div>
+                            </li>
+                            <li class="mainmess">
+                                <div class="main-con">
+
+                                </div>
+                                <div class="btn">
+                                    删除
+                                </div>
+                            </li>
+                            <li class="mainmess">
+                                <div class="main-con">
+
+                                </div>
+                                <div class="btn">
+                                    删除
+                                </div>
+                            </li>
+                            <li class="mainmess">
+                                <div class="main-con">
+
+                                </div>
+                                <div class="btn">
+                                    删除
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="foot"></li>
+                </ul>
+                <div class="mengban"></div>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        function iscro() {
+            for (var i = 0; i < mainmess.length; i++) {
+                mainmess[i].isc = new iScroll(mainmess[i], {
+                    vScroll: false,
+                    bounce: false,
+                    hScrollbar: false,
+                    snap: true,
+                    onScrollEnd: function () {
+                        if (this.x <= -70) {
+                            $(this.wrapper).find('.btn').css({
+                                zIndex: 3
+                            })
+                            $(this.wrapper).siblings(".mainmess").each(function () {
+                                this.isc.scrollTo(0, 0, 300);
+                                $(this).find(".btn").css({
+                                    zIndex: -1
+                                })
+                            })
+
+                        } else {
+                            $(this.wrapper).find('.btn').css({
+                                zIndex: -1
+                            })
+                        }
+
+                        if (this.x < 0) {
+                            rh.disable();
+                        } else {
+                            rh.enable();
+                        }
+                    },
+                    onScrollMove: function () {
+                        if (this.x <= -70) {
+                            $(this.wrapper).find('.btn').css({
+                                zIndex: 3
+                            })
+                            $(this.wrapper).siblings(".mainmess").each(function () {
+                                this.isc.scrollTo(0, 0, 300);
+                                $(this).find(".btn").css({
+                                    zIndex: -1
+                                })
+                            })
+                        } else {
+                            $(this.wrapper).find('.btn').css({
+                                zIndex: -1
+                            })
+                        }
+
+                        if (this.x < 0) {
+                            rh.disable();
+                        } else {
+                            rh.enable();
+                        }
+                    }
+                })
+            }
+        }
+
+
+        var rh = new iScroll("box", {
+            vScroll: false,
+            bounce: false,
+            hScrollbar: false,
+            snap: true,
+            x: -300,
+            snapThreshold: 50,
+            onScrollMove: function (e) {
+                var num = this.x / -300;
+                if (num < 0.5) {
+                    num = 0.5;
+                }
+                $(".right>li").eq(1).css({
+                    opacity: num
+                })
+
+                if (rh.x > -300) {
+                    $('.mengban').css({
+                        display: "block"
+                    })
+                } else {
+                    $('.mengban').css({
+                        display: "none"
+                    })
+                }
+
+            },
+            onScrollEnd: function () {
+                if (rh.x > -300) {
+                    $('.mengban').css({
+                        display: "block"
+                    })
+                } else {
+                    $('.mengban').css({
+                        display: "none"
+                    })
+                }
+            },
+            ani: function (e) {
+                var num = this.x / -300;
+                if (num < 0.5) {
+                    num = 0.5;
+                }
+                $(".right>li").eq(1).css({
+                    opacity: num
+                })
+            }
+        })
+
+
+
+        var content = document.getElementsByClassName('content')[0];
+        var sx = new iScroll(content, {
+            hScroll: false,
+            vScrollbar: false,
+            y: -30,
+            topOffset: 30,
+            onScrollMove: function () {
+                if (this.y >= 50) {
+                    $(".re").text("松开立刻刷新！")
+                    this.minScrollY = 0;
+                } else if (this.y < 50) {
+                    $(".re").text("下拉刷新")
+                    this.minScrollY = -30;
+                }
+            },
+            onTouchEnd: function () {
+                if (this.y >= 50) {
+                    $(".re").text("刷新中...")
+                    setTimeout(function () {
+                        $(".con-mess>li").eq(1).before(
+                            `
+                        <li class="mainmess">
+                                <div class="main-con">
+
+                                </div>
+                                <div class="btn">
+                                    删除
+                                </div>
+                            </li>
+                        `
+                        );
+                        $(".re").text("刷新完成");
+                        iscro();
+                    }, 1000)
+
+                    setTimeout(function () {
+                        this.refresh();
+                    }.bind(this), 1500)
+
+
+                }
+            }
+        })
+
+        var mainmess = document.getElementsByClassName("mainmess");
+
+        iscro();
+        $("#box").delegate(".btn", "click", function () {
+            $(this).parent().remove();
+            $(this).parent().get(0).isc.destroy();
+        })
+    </script>
+</body>
+
+</html>
