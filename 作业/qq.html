@@ -41,8 +41,9 @@
         }
 
         .right>li:nth-of-type(1) {
-            background-color: #fff;
+            background-color:#ff6700;
             width: 300px;
+            color: #fff;
         }
 
         .list {
@@ -58,7 +59,7 @@
         }
 
         .list>li:hover {
-            background-color: #ddd;
+            background-color: #ff3300;
         }
 
         .message {
@@ -106,7 +107,7 @@
         .mainmess {
             height: 60px;
             position: relative;
-            border-bottom: 1px solid #999;
+            border-bottom: 1px solid #ddd;
             margin-bottom: 1px;
         }
 
@@ -269,6 +270,9 @@
                         }
                     }
                 })
+                $(".btn").css({
+                    zIndex: -1
+                })
             }
         }
 
@@ -293,11 +297,19 @@
                     $('.mengban').css({
                         display: "block"
                     })
+                    $(".mainmess").each(function () {
+                        this.isc.hScroll = false;
+                    })
                 } else {
                     $('.mengban').css({
                         display: "none"
                     })
+                    $(".mainmess").each(function () {
+                        this.isc.hScroll = true;
+                    })
                 }
+
+
 
             },
             onScrollEnd: function () {
@@ -374,6 +386,8 @@
         $("#box").delegate(".btn", "click", function () {
             $(this).parent().remove();
             $(this).parent().get(0).isc.destroy();
+            rh.enable();
+
         })
     </script>
 </body>
