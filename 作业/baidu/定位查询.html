@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>百度定位查询</title>
+  <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=GN5ab6dQimderLStqTaj0nBG1iu2GxVR"></script>
+  <script src="js/vue.min.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body,
+    #maparea {
+      width: 100%;
+      height: 100%;
+    }
+
+    li{
+      list-style: none;
+    }
+
+    #app{
+      position: absolute;
+      top: 20px;
+      width: 300px;
+      background-color: #fff;
+      left: 20px;
+    }
+
+    #app input{
+      width: 250px;
+      height: 40px;
+      padding: 10px;
+      box-sizing: border-box;
+      outline: none;
+      display: block;
+      float: left;
+    }
+    #app button{
+      display: block;
+      float: left;
+      width: 50px;
+      height: 40px;
+      line-height: 40px;
+      text-align: center;
+      border: none;
+      outline: none;
+      background-color: rgb(17, 189, 109);
+      color: #fff;
+    }
+    #app button:active{
+      opacity: 0.8;
+    }
+    #app p{
+      height: 40px;
+    }
+    #app #list li{
+      width: 100%;
+      height: 60px;
+      background-color: #fff;
+      border-bottom: 1px solid #dedede;
+      text-align: center;
+      line-height: 60px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="maparea">
+
+  </div>
+  <div id="app" @click="search()">
+    <sea class=""></sea>
+
+  </div>
+
+  <template id="search">
+    <div class="box">
+      <p><input type="text" id="ipu" placeholder="搜素查询"><button id="btn" @click="search()">搜索</button></p>
+      <ul id="list">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+      </ul>
+    </div>
+  </template>
+  <script>
+    // 创建map实例
+    var map = new BMap.Map("maparea");
+    // 初始化地图,设置中心点坐标和地图级别
+
+    function fn(data) {
+      // console.log(data.content.point.x, data.content.point.y);
+      // console.log(data);
+      map.centerAndZoom(new BMap.Point(data.content.point.x, data.content.point.y), 11);
+
+      map.addControl(new BMap.MapTypeControl({
+        mapTypes: [
+          BMAP_NORMAL_MAP,
+          BMAP_HYBRID_MAP
+        ]
+      }));
+
+      function fn2(data) {
+        console.log(data);
+      }
+      map.setCurrentCity(data.content.address_detail.city); // 设置地图显示的城市 此项是必须设置的
+      map.enableScrollWheelZoom(true);
+
+      var marker = new BMap.Marker(new BMap.Point(data.content.point.x, data.content.point.y), 16);
+
+      map.addOverlay(marker);
+    }
+
+    // 封装一个ip定位的方法
+
+    function iposition(src) {
+
+      var sp = document.createElement("script");
+      sp.src = src;
+      document.body.appendChild(sp);
+    }
+
+    iposition("https://api.map.baidu.com/location/ip?ak=GN5ab6dQimderLStqTaj0nBG1iu2GxVR&coor=bd09ll&callback=fn");
+
+
+    new Vue({
+      el: "#app",
+      data: {
+        message: "ddd"
+      },
+      components: {
+        'sea': {
+          template: "#search"
+        }
+      },
+      methods: {
+        search() {
+          inposition(
+            "http://api.map.baidu.com/place/v2/search?query=ATM机&tag=银行&region=北京&output=json&ak=GN5ab6dQimderLStqTaj0nBG1iu2GxVR"
+          )
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
