@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="js/vue.js"></script>
+</head>
+
+<body>
+  <div id="box">
+    <par>
+    </par>
+    <p>{{a}}</p>
+  </div>
+  <!-- 子组件构造 -->
+  <template id="child">
+    <div>
+      <p>{{ptext}}</p>
+      <h1>{{h1text}}</h1>
+    </div>
+  </template>
+  <!-- 父组件构造 -->
+  <template id="parent">
+    <div class="par">
+      <cd ptext="88888" h1text="jjjjj"></cd>
+
+      <cd ptext="5635" h1text="jjjsdsdsjj"></cd>
+
+      <cd ptext="2632" h1text="sddsc"></cd>
+    </div>
+  </template>
+  <script>
+    // 1.构造父子组件
+
+    // 2.注册父组件为全局组件，并在父组件内部注册子组件
+
+    Vue.component("par", {
+      components: {
+        "cd": {
+          template: "#child",
+          // 父组件传入的数据  子组件必须 声明 props
+          props: ["ptext", "h1text"]
+        }
+      },
+      template: "#parent"
+    })
+
+    new Vue({
+      el: "#box",
+      data: {
+        "a": 12356
+      }
+    })
+  </script>
+</body>
+
+</html>

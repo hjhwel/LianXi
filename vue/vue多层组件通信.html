@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="js/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 多层组件通信需要动态绑定 -->
+    <par v-for="item in datas" :name1="item.name" :age1="item.age"></par>
+  </div>
+
+
+  <template id="nm">
+    <h1>姓名：{{name2}}</h1>
+  </template>
+
+  <template id="ag">
+    <p>年龄：{{age2}}</p>
+  </template>
+
+  <template id="parent">
+    <div class="box">
+      <!-- <cd1 v-for="item in name1" :name2 = "item"></cd1>
+      <cd2 v-for="item in age1" :age2 = "item"></cd2> -->
+
+      <cd1 :name2="name1"></cd1>
+      <cd2 :age2="age1"></cd2>
+    </div>
+  </template>
+  <script>
+    Vue.component("par", {
+      template: "#parent",
+      // 第一次传入
+      props: ["name1", "age1"],
+      // 注册两个子组件
+      components: {
+        "cd1": {
+          template: "#nm",
+          // 第二次传入
+          props: ["name2"]
+        },
+        "cd2": {
+          template: "#ag",
+          // 第二次传入
+          props: ["age2"]
+        },
+      }
+    })
+
+    new Vue({
+      el: "#app",
+      // 最外层数据
+      data: {
+        datas: [{
+            name: 'hjh',
+            age:23
+          },
+          {
+            name: 'wel',
+            age:25
+          },
+          {
+            name: 'way',
+            age:12
+          },
+        ]
+      }
+    })
+  </script>
+</body>
+
+</html>

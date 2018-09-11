@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <title>Document</title>
     <script src="js/vue.js"></script>
 </head>
+
 <body>
     <div id="app">
         <btn></btn>
@@ -18,30 +20,29 @@
         <btn></btn>
         <btn></btn>
         <btn></btn>
-
     </div>
 
     <!-- 函数生成的对象是独立的，组件可以多次复用的，但是用函数形式的data会保证组件的data不会共享 -->
 
-    <template id="btn"> 
+    <template id="btn">
         <button @click="count+=1">点击次数{{count}}</button>
     </template>
 
     <script>
-
         Vue.component('btn', {
-            template:"#btn",
+            template: "#btn",
             // 函数形式的data就不会共享
-            data(){
+            data() {
                 return {
-                    count:0
+                    count: 0
                 }
             }
         })
 
         new Vue({
-            el:"#app"
+            el: "#app"
         })
     </script>
 </body>
+
 </html>
