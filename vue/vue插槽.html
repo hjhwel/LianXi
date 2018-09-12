@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+</head>
+
+<body>
+
+    <div id="app">
+        <zj class="">
+            <!-- 匿名插槽可以传任意的标签 -->
+            <h3>我是插槽</h3>
+            <input type="text">
+            <h3>我们都是插槽</h3>
+            <h3>我是插槽</h3>
+            <input type="text">
+            <h3>我们都是插槽</h3>
+            <h3>我是插槽</h3>
+            <input type="text">
+            <h3>我们都是插槽</h3>
+        </zj>
+    </div>
+
+    <template id="zhujian">
+        <!-- slot插槽 分为实名插槽和匿名插槽  -->
+        <!-- 实名插槽有内容限制，匿名插槽啥都可以插 -->
+        <!-- 插槽存在于组件内部 -->
+        <div id="panel">
+            <h1>匿名插槽顶部</h1>
+            <!-- 预留一个插槽  slot可以代替任何传进来的标签-->
+            <slot>如果不传就显示内部内容，如果内部没有内容，就显示为空</slot>
+            <h1>匿名插槽底部</h1>
+        </div>
+    </template>
+    <script>
+        // 2.全局注册组件
+        // 第一个值是注册组件的名称，第二个值是组件的构造器，也可以直接写构造模板
+        Vue.component("zj", {
+            template: "#zhujian"
+        });
+        new Vue({
+            el: "#app",
+        })
+
+        // 实例都可以访问到全局组件
+        new Vue({
+            el: "#app2",
+        })
+    </script>
+</body>
+
+</html>
