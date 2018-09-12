@@ -27,10 +27,10 @@
 
     #app{
       position: absolute;
-      top: 20px;
+      top: 6px;
       width: 300px;
       background-color: #fff;
-      left: 20px;
+      left: 75px;
     }
 
     #app input{
@@ -65,7 +65,9 @@
       height: 60px;
       background-color: #fff;
       border-bottom: 1px solid #dedede;
-      text-align: center;
+      box-sizing: border-box;
+      padding-left: 20px;
+      text-align: left;
       line-height: 60px;
     }
   </style>
@@ -75,20 +77,16 @@
   <div id="maparea">
 
   </div>
-  <div id="app" @click="search()">
+  <div id="app">
     <sea class=""></sea>
 
   </div>
 
   <template id="search">
     <div class="box">
-      <p><input type="text" id="ipu" placeholder="搜素查询"><button id="btn" @click="search()">搜索</button></p>
+      <p><input type="text" id="ipu" placeholder="搜素查询" @input="clear()"><button id="btn" @click="search()">搜索</button></p>
       <ul id="list">
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-        <li>4</li>
-        <li>5</li>
+        <li v-if="city.length>0" v-for="(item,index) in city" @click="liC(index)">{{item.name}}</li>
       </ul>
     </div>
   </template>
@@ -109,15 +107,42 @@
         ]
       }));
 
-      function fn2(data) {
-        console.log(data);
-      }
+
+
+
+
+
+
       map.setCurrentCity(data.content.address_detail.city); // 设置地图显示的城市 此项是必须设置的
       map.enableScrollWheelZoom(true);
 
       var marker = new BMap.Marker(new BMap.Point(data.content.point.x, data.content.point.y), 16);
 
       map.addOverlay(marker);
+
+
+      map.enableInertialDragging();
+
+      map.enableContinuousZoom();
+
+      var size = new BMap.Size(10, 20);
+      map.addControl(new BMap.CityListControl({
+        anchor: BMAP_ANCHOR_TOP_LEFT,
+        offset: size,
+        // 切换城市之间事件
+        // onChangeBefore: function(){
+        //    alert('before');
+        // },
+        // 切换城市之后事件
+        // onChangeAfter:function(){
+        //   alert('after');
+        // }
+      }));
+    }
+    var datas = [];
+
+    function fn1(data) {
+      datas = data.results;
     }
 
     // 封装一个ip定位的方法
@@ -139,14 +164,60 @@
       },
       components: {
         'sea': {
-          template: "#search"
-        }
-      },
-      methods: {
-        search() {
-          inposition(
-            "http://api.map.baidu.com/place/v2/search?query=ATM机&tag=银行&region=北京&output=json&ak=GN5ab6dQimderLStqTaj0nBG1iu2GxVR"
-          )
+          template: "#search",
+          data() {
+            return {
+              city: []
+            }
+          },
+          methods: {
+            search() {
+              var seaText = ipu.value.trim();
+              var re = cur_city_name.innerText;
+              this.city = [];
+              datas = []
+              if (ipu.value.length > 0) {
+                iposition(
+                  "http://api.map.baidu.com/place/v2/search?query=" + seaText +
+                  "&region="+re+"&output=json&ak=GN5ab6dQimderLStqTaj0nBG1iu2GxVR&callback=fn1"
+                )
+              }
+
+              setTimeout(function () {
+
+
+                map.clearOverlays();
+                for (var i = 0; i < datas.length; i++) {
+                  this.city.push(datas[i]);
+                  var marker = new BMap.Marker(new BMap.Point(this.city[i].location.lng, this.city[i].location.lat),
+                    10);
+                  map.addOverlay(marker);
+
+                  // marker.setAnimation(BMAP_ANIMATION_BOUNCE);
+
+                  // var local = new BMap.LocalSearch(map, {
+                  //   renderOptions: {
+                  //     map: map
+                  //   }
+                  // });
+                  // local.search(seaText);
+
+
+                }
+              }.bind(this), 1000)
+
+
+            },
+            liC(index) {
+              map.centerAndZoom(new BMap.Point(this.city[index].location.lng, this.city[index].location.lat), 19);
+            },
+            clear(){
+              if(ipu.value.length==0){
+                this.city=[];
+              }
+            }
+          }
+
         }
       }
     })
