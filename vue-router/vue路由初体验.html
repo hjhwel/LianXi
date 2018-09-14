@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="bot/bootstrap.css">
+  <script src="js/vue.js"></script>
+  <script src="js/vue-router.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #dedede;
+    }
+    img{
+      margin: 20px 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 标题 -->
+    <div class="row">
+      <div class="col-xs-8 col-xs-offset-2 ">
+        <div class="page-header">
+          <h1>Tab选项卡</h1>
+        </div>
+      </div>
+    </div>
+
+    <!-- 内容 -->
+    <div class="row">
+      <div class="col-xs-2 col-xs-offset-2">
+        <!-- 列表 -->
+        <div class="list-group">
+          <!-- 使用 router-link 组件来导航. -->
+          <!-- 通过传入 `to` 属性指定链接. -->
+          <!-- <router-link> 默认会被渲染成一个 `<a>` 标签 -->
+          <router-link to="/C1" class="list-group-item">原野</router-link>
+          <router-link to="/C2" class="list-group-item">山水</router-link>
+          <router-link to="/C3" class="list-group-item">日月</router-link>
+        </div>
+      </div>
+      <div class="col-xs-6">
+        <div class="panel">
+          <div class="panel-body text-center">
+            <!-- 路由出口 -->
+            <!-- 路由匹配到的组件将渲染在这里 -->
+            <router-view>
+
+            </router-view>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 组件1 -->
+  <template id="ch1">
+    <div class="pannel">
+      <h2>荒野</h2>
+      <img alt="" class="img-responsive center-block" src="images/1.jpg">
+      <p class="">孤独的树</p>
+    </div>
+  </template>
+
+  <!-- 组件2 -->
+  <template id="ch2">
+    <div class="pannel">
+      <h2>山水</h2>
+      <img class="img-responsive center-block" alt=""  src="images/2.jpg">
+      <p class="">小桥流水人家</p>
+    </div>
+  </template>
+
+  <!-- 组件3 -->
+  <template id="ch3">
+    <div class="pannel">
+      <h2>日月</h2>
+      <img  alt="" class="img-responsive center-block" src="images/3.jpg">
+      <p class="">洁白月光</p>
+    </div>
+  </template>
+  <script>
+    // 1.创建组件
+    // 用template 构造了三个子组件
+
+    // 2.创建组件
+    const c1 = Vue.extend({
+      template: "#ch1"
+    })
+    const c2 = Vue.extend({
+      template: "#ch2"
+    })
+    const c3 = Vue.extend({
+      template: "#ch3"
+    })
+
+    // 3.定义路由
+    // 路由就是数组，数组里面有对象，对象有组件的地址和组件的注册
+    // 路由配置都在这里进行
+
+    const routes = [{
+        path: "/C1",
+        component: c1
+      },
+      {
+        path: "/C2",
+        component: c2
+      },
+      {
+        path: "/C3",
+        component: c3
+      },
+      // 想让页面进入就是默认的一个地址，就要配置根路由 “/”
+      {
+        path: "/",
+        // 重新指向
+        redirect: "/C1"
+      }
+    ]
+
+    // 4.实例化路由，并将定义路由的配置传进去
+
+    const router = new VueRouter({
+      routes // (缩写) 相当于 routes: routes
+    })
+
+    // 5.实例化Vue 并挂载根实例和注入路由
+    // 记得要通过 router 配置参数注入路由，
+    // 从而让整个应用都有路由功能
+    const app = new Vue({
+      router
+    }).$mount("#app");
+  </script>
+</body>
+
+</html>
