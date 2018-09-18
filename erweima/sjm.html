@@ -25,7 +25,7 @@
         }
         #bm>div,
         #jm>div{
-            width: 50%;
+            width: 60%;
             text-align: center;
         }
         #jm {
@@ -41,7 +41,6 @@
         }
         #bm_ip,#jm_ip{
             align-self: auto;
-            margin-top: 20%;
             width: 100%;
             height: 2rem;
         }
@@ -69,7 +68,10 @@
         }
         #erm>img{
             width: 100%;
-            margin-top: 20%;
+            margin: 20px 0;
+        }
+        #erm>canvas{
+            width: 100%;    
         }
         #img{
             margin: 20px 0;
@@ -88,6 +90,7 @@
                     <input type="text" id="bm_ip" placeholder="输入信息点击任意区域编码">
                     <div id="erm">
                     </div>
+                    <p id="bm_p"></p>
                 </div>
             </div>
         </div>
@@ -98,7 +101,7 @@
                 <div id="pan2">
                     <label>
                         <input type="file" name="" id="jm_ip">
-                        <a>选择二维码</a>
+                        <a>上传图片</a>
                     </label>
                     <img alt="" width="100%" id="img">
                     <p id="jm_p"></p>
@@ -140,7 +143,8 @@
             h: 100
         })
         bm_ip.onchange = function () {
-            m.makeCode(this.value)
+            m.makeCode(this.value);
+            bm_p.innerText = "长按图片跳转";
         }
 
         erm.ontouchstart = function () {
@@ -184,7 +188,7 @@
                             qrcode.decode(fl.result);
                             qrcode.callback = function () {
                                 console.log(this.result);
-                                jm_p.innerText = "解码结果："+this.result;
+                                jm_p.innerText = "解码结果：" + this.result;
                             }
 
                         }.bind(this), 800)
