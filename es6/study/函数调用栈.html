@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // a 在 b 函数执行后调用
+        function a(params) {
+            console.log(params);
+        }
+        // 1. 回调函数 利用函数调用栈，函数执行才会生生执行上下文 并放入栈中
+        // 所以只有b执行后 a 才执行
+        function b(callback) {
+            console.log(12);
+            console.log(12);
+            console.log(12);
+            var data = 16
+            callback(data);
+        }
+        b(a);
+
+        // 队列机制 利用定时器的分发任务功能 将a 分到下一轮执行
+
+        function c(callback) {
+
+            callback && setTimeout(() => {
+                a(data)
+            }, 0);
+
+            console.log(5);
+            console.log(5);
+            console.log(5);
+            console.log(5);
+
+            var data = 25;
+        }
+
+        c(a);
+
+
+        // 利用promise
+
+        function d(callback) {
+            console.log(8);
+            console.log(8);
+            console.log(8);
+            console.log(8);
+
+            return new Promise(function (resolve, reject) {
+                // 完成后
+                if (typeof callback == "function") {
+                    resolve(callback);
+                } else {
+                    reject("callback不是函数")
+                }
+            })
+        }
+
+        d(a).then(function (a) {
+            a(400);
+        })
+
+        d(a).then(function (a) {
+            a(4050);
+        })
+        
+        d(a).then(function (a) {
+            a(444050);
+        })
+    </script>
+</body>
+
+</html>

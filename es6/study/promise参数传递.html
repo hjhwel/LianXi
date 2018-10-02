@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function fn(num) {
+            // 返回一个 promise对象
+            // 第一个函数有两个值
+            // 第一个是拿到结果是我们需要的
+            // 第二个是拿到结果但不是我们想要的，或者没有拿到结果
+            return new Promise(function (resolve, reject) {
+                if (typeof num == "number") {
+                    resolve(num);
+                } else {
+                    reject("num不是一个数字")
+                }
+            })
+        }
+
+        // 调用fn
+        // then 方法接受对象中的状态变化并执行
+        // 第一个是resolved() 状态的执行
+        // 第二个是reject() 状态的执行
+        // 和jQuery一样，也会返回一个promise 对象 所以可以进行链式编程
+        fn(1).then(
+            function (num) {
+                console.log("first" + num);
+                // 想要传给下一个then 就 return 出去
+                return ++num;
+            }
+        ).then(
+            function (num) {
+                console.log("sec" + num);
+                return ++num;
+            }
+        ).then(
+            function (num) {
+                console.log("san" + num);
+                return ++num;
+            }
+        )
+
+        // then 的执行也有先后之分,如果链式编程 一次只会分配一次 then 任务，分配完第一个then
+        // 再进行第二个分配，分配完成之后按顺序执行
+        fn("a").then(function (num) {
+            console.log(num);
+        }, function (err) {
+            console.log(err);
+            return err;
+        }).then(function (err) {
+            console.log(err + "  sec");
+            return err;
+        }).then(function (err) {
+            console.log(err + " fou");
+            return err;
+        })
+    </script>
+</body>
+
+</html>
