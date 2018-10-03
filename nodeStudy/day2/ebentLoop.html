@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        setTimeout(() => {
+            console.log("宏观任务1");
+            new Promise(function (resolved, reject) {
+                resolved();
+            }).then(function () {
+                console.log("微观任务2");
+            })
+        }, 0);
+
+        new Promise(function (resolved, reject) {
+            console.log("立即执行任务1");
+            resolved();
+        }).then(function () {
+            console.log("微观任务1");
+        })
+
+        setTimeout(() => {
+            console.log("宏观任务2");
+
+            new Promise(function (resolved, reject) {
+                resolved();
+            }).then(function () {
+                console.log("微观任务3");
+            })
+        }, 0);
+
+        setTimeout(() => {
+            console.log("宏观任务3");
+        }, 0);
+    </script>
+</body>
+
+</html>
