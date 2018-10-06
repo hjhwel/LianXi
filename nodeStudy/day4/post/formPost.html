@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <!-- post表单上传文件，要加上 enctype="multipart/form-data"-->
+  <!-- 首先知道enctype这个属性管理的是表单的MIME编码。共有三个值可选：
+1、application/x-www-form-urlencoded
+
+2、multipart/form-data
+3、text/plain
+
+  其中application/x-www-form-urlencoded是默认值，作用是设置表单传输的编码。而multipart/form-data是用来指定传输数据的特殊类型的，主要就是我们上传的非文本的内容，比如图片或是是mp3等等。
+
+  text/plain是纯文本传输的意思，在发邮件的时候要设置这种编码类型，否则会出现接收时编码混乱的问题。①和③都不能用于上传文件，只有multipart/form-data才能完整的传递文件数据 -->
+  <form action="http://127.0.0.1:8080/postMsg" method="POST" enctype="multipart/form-data">
+    <input type="text" name="name">
+    <input type="password" name="password">
+    <input type="file" name="pic">
+    <input type="submit">
+  </form>
+</body>
+</html>
