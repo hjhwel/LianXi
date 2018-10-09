@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function pro(name) {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve(name)
+        }, 2000);
+      })
+    }
+    let ass = async function () {
+      let m1 = await pro("hjh");
+      let m2 = await pro("wel");
+      console.log(m1,m2);
+    }
+
+    ass();
+  </script>
+</body>
+
+</html>

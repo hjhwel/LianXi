@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <button id="btn">请求</button>
+  <script>
+    function ajax(url) {
+      return new Promise((resolve, reject) => {
+        let xhr = new XMLHttpRequest();
+        xhr.open("get", url);
+        xhr.send();
+        xhr.onreadystatechange = () => {
+          if (xhr.status == 200 && xhr.readyState == 4) {
+            resolve(xhr.responseText)
+          }
+        }
+      })
+    }
+    let doubleAjax = async function () {
+      let first = await ajax("http://127.0.0.1:8080/hjh");
+      let second = await ajax("http://127.0.0.1:8080/hjh" + first + "welwel");
+      return second;
+    }
+    btn.onclick = () => {
+      doubleAjax().then((data) => {
+        console.log(data);
+      })
+    }
+  </script>
+</body>
+
+</html>

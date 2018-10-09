@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 和普通函数相比
+    // 1.函数定义不同
+    // 1.1 普通函数定义
+    function fn(params) {
+      console.log(1);
+      console.log(2);
+      console.log(3);
+      return 4;
+    }
+    // 1.2产出者函数定义
+    function* fn2(params) {
+      console.log(1);
+      yield 1;
+      console.log(2);
+      yield 2;
+      console.log(3);
+      yield 3;
+      return 4;
+    }
+
+    // 2.调用不同
+    // 2.1 普通函数
+    console.log(fn());
+    // 2.2 产出者函数
+    // 调用后返回对象，但是不会执行里面的代码，
+    let g = fn2();
+    // 调用对象的next()方法，一步步的执行
+    // 一个next()执行一步；
+    console.log(g.next());
+
+    // 3.返回值不同
+    // 普通函数有一个返回值
+    // return 啥是啥
+
+    // 产出者函数可以有多个返回值，但是return 只能有一个
+    // 其余的返回值 用 yield 来返回
+
+    function* fn3(a,b) {
+      console.log(a,b);
+      let c = yield 20;
+      console.log(c);
+      let d = yield 25;
+      console.log(d);;
+    }
+
+    let g2 = fn3(1,2);
+    console.log(g2.next(2));
+    console.log(g2.next(203));
+    console.log(g2.next(2));
+  </script>
+</body>
+
+</html>

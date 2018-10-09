@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <button id="btn">发送ajax请求</button>
+  <script>
+    function ajax(url) {
+      return new Promise((resolve, reject) => {
+        let xhr = new XMLHttpRequest();
+        xhr.open("get", url);
+        xhr.send();
+        xhr.onreadystatechange = () => {
+          if (xhr.status == 200 && xhr.readyState == 4) {
+            resolve(xhr.responseText)
+          }
+        }
+      })
+    }
+
+    btn.onclick = () => {
+      ajax("http://127.0.0.1:8080/hjh").then((data) => {
+        console.log("第一次请求数据" + data);
+        return data;
+      }).then((data2) => {
+        return ajax("http://127.0.0.1:8080/" + data2 + "2222")
+      }).then((data3) => {
+        console.log("第二次请求" + data3);
+      })
+    }
+  </script>
+</body>
+
+</html>
