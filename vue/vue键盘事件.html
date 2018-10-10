@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport' content='width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible' content='ie=edge">
+  <title>Vue</title>
+  <script src="js/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <h1>{{msg}}</h1>
+    <!-- 键盘事件 -->
+    <input type="text" v-model="valu" @keyup.enter="vl" @keyup.hjh="vl">
+  </div>
+</body>
+<script>
+  let app = new Vue({
+    el: '#app', //指定根元素
+    data: { //实例数据
+      msg: "hjhlovewel",
+      valu: "请输入....."
+    },
+    methods: {
+      vl() {
+        alert(this.valu);
+        this.v3();
+      },
+      v3(){
+        console.log(22);
+      }
+    }
+  })
+  Vue.config.keyCodes = {
+    // camelCase won`t work
+    hjh:37
+  }
+</script>
+
+</html>
