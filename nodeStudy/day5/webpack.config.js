@@ -24,8 +24,27 @@ module.exports = {
   module: {
     loaders: [
       {
-        test:/\.css$/,
-        loader:'style-loader!css-loader?modules&importLoaders=1&localIdentName=[name]__[local]__[hash:base64:5]'
+        test:/\.scss$/,
+        loader: ["style-loader", "css-loader", "sass-loader"]
+      },
+      {
+        test: /\.css$/,
+        loader: ["style-loader", "css-loader"]
+      },
+      {
+        test: /\.(png|jpg)$/,
+        loader: 'url?limit=40000'
+      },
+      {
+        test: /\.js$/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['env'],
+            plugins: [require('babel-plugin-transform-object-rest-spread')]
+          }
+        }
       }
     ]
   },

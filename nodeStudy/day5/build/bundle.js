@@ -69,9 +69,8 @@
 
 
 var sub = __webpack_require__(1);
-// require("./main.css");
 var app  = document.createElement('div');
-app.innerHTML = '<h1>Hello World</h1>';
+app.innerHTML = '<h1>Hello Wolrld</h1>';
 app.appendChild(sub());
 document.body.appendChild(app);
 
