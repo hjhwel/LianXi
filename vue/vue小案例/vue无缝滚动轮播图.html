@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport' content='width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible' content='ie=edge">
+  <title>Vue</title>
+  <script src="js/vue.js"></script>
+  <style>
+    #app {
+      width: 500px;
+      height: 530px;
+      border: 1px solid #000;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+
+    #box {
+      height: 500px;
+      background-color: #dedede;
+
+    }
+
+    #box div {
+      width: 500px;
+      height: 500px;
+      line-height: 500px;
+      text-align: center;
+      font-size: 100px;
+      float: left;
+    }
+
+    button {
+      line-height: 30px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <div id="box" :style="{width:imgData.length*500 + 'px',marginLeft:-num*500+'px',transition:ti}" @transitionend="loop()">
+      <div v-for="(item,index) in imgData">{{item}}</div>
+    </div>
+    <button @click="sub()">&lt;&lt;</button>
+    <button @click="add()">&gt;&gt;</button>
+  </div>
+</body>
+<script>
+  let app = new Vue({
+    el: '#app', //指定根元素
+    data: { //实例数据
+      imgData: [5, 1, 2, 3, 4, 5, 1],
+      num: 1,
+      ti: " all 0.5s",
+      isflag: true
+    },
+    methods: {
+      add() {
+        if (this.isflag) {
+          if (this.num > this.imgData.length - 2) {
+            this.num = 0;
+          }
+          this.ti = "all 0.5s"
+          this.num++;
+        }
+        this.isflag = false;
+      },
+      sub() {
+        if (this.isflag) {
+          if (this.num < 1) {
+            this.num = this.imgData.length - 1;
+          }
+          this.ti = "all 0.5s"
+          this.num--;
+        }
+        this.isflag = false;
+      },
+      loop() {
+        if (this.num == 0) {
+          this.ti = '';
+          this.num = this.imgData.length - 2;
+        } else if (this.num == this.imgData.length - 1) {
+          this.ti = '';
+          this.num = 1;
+        }
+        this.isflag = true;
+      }
+    }
+  })
+</script>
+
+</html>

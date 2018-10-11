@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport' content='width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible' content='ie=edge">
+  <title>Vue</title>
+  <script src="js/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <h1>{{res}}</h1>
+  </div>
+</body>
+<script>
+  let app = new Vue({
+    el:'#app',  //指定根元素
+    data:{     //实例数据
+      msg:"hjhlovewel"
+    },
+    computed:{
+      res(){
+        return this.msg.split("").reverse().join('')
+      }
+    }
+  })
+</script>
+</html>
