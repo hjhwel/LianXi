@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport' content='width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible' content='ie=edge">
+  <title>Vue</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    li{
+      list-style: none;
+    }
+    .view {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .box{
+      width: 800px;
+      height: 500px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-top: -250px;
+      margin-left: -400px;
+      background-color: #fff;
+      padding: 15px;
+      overflow: auto;
+    }
+    button{
+      margin: 0 5px;
+      padding: 5px;
+    }
+    h2>span{
+      float: right;
+      font-size: 16px;
+      font-weight: normal;
+      vertical-align: bottom;
+    }
+    h4>span{
+      font-size: 16px;
+      font-weight: normal;
+    }
+    .op{
+      padding-left: 10px;
+      max-height: 285px;
+      overflow: auto;
+    }
+    .op>div{
+      margin: 0 auto;
+      width: 90%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .op>div input{
+      width: 85%;
+      padding: 5px;
+    }
+    .op>div button{
+      width: 15%;
+    }
+    textarea{
+      width: 100%;
+      height: 100px;
+      margin: 0 auto;
+      font-size: 18px;
+      padding: 5px;
+      box-sizing: border-box;
+      resize: none;
+      font-weight: bold;
+    }
+    .option li,.test>li li{
+      border: 1px solid #dedede;
+      margin: 5px 30px;
+      min-width: 200px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      overflow: auto;
+    }
+    .test{
+      padding: 10px 25px;
+
+    }
+    .test>li li{
+      border: none;
+
+    }
+    .test>li li div{
+      padding: 0 8px;
+    }
+    .option li label,.test>li li label{
+      width: 85%;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      word-break: break-all;
+      cursor: pointer;
+    }
+    .option li label input,.test>li li label input{
+      margin: 0 5px 0 8px;
+    }
+    .option li div:nth-of-type(2){
+      width: 15%;
+      padding-left: 15px;
+    }
+    .save{
+      position: absolute;
+      width: 150px;
+      left: 50%;
+      margin-left: -75px;
+      bottom: 30px;
+      font-weight: bold;
+    }
+  </style>
+  <script src="js/vue.js"></script>
+
+</head>
+
+<body>
+  <div id="app">
+    <button @click="viewHasShow=true">添加题目</button>
+    <div class="view" v-if="viewHasShow" @click.stop="viewHasShow=false">
+      <div class="box" @click.stop>
+        <h2>题目：<span>题库共有{{testBase.length}}道题</span></h2>
+        <textarea v-model="oneTopc"></textarea>
+        <h3>选项：</h3>
+        <div class="op">
+          <div>
+            <input type="text" v-model="optionInput" @keyup.enter="addOption()">
+            <button @click="addOption()" v-text="isEdit?'确认编辑':'增加选项'">
+            </button><button v-show="isEdit" @click="isEdit=false">取消</button>
+          </div>
+          <ol class="option">
+            <li v-for="(item,index) in optionList" :style="{backgroundColor:listOrder[index] == oneResult?'#38F':'white'}">
+              <label><input type="radio" :value="listOrder[index]" v-model="oneResult">
+                <div>{{listOrder[index] + " . " + item}}</div>
+              </label>
+              <div><button @click="editing(index,item)">edi</button><button @click="del(index,listOrder[index])">del</button></div>
+            </li>
+          </ol>
+          <h3 v-show="oneResult.length">正确答案是 : {{oneResult}}</h3>
+        </div>
+        <button @click="save()" class="save">保存题目</button>
+      </div>
+    </div>
+    <ul class="test" v-for="(item,index) in testBase">
+      <li>
+        <h3>{{item.id + ' . ' + item.topic}}</h3>
+        <ul class="options">
+          <li v-for="(items,index) in item.option">
+            <label><input type="radio" :value="listOrder[index]" v-model="userAnswer[item.id-1]">
+              <div :style="{backgroundColor:listOrder[index] == userAnswer[item.id-1]?'#0074d9':'white'}">{{listOrder[index]
+                + " . " + items}}</div>
+            </label>
+
+          </li>
+        </ul>
+        <h4><span>你选择的答案是：</span>{{userAnswer[item.id-1]}}</h4>
+      </li>
+    </ul>
+    <h4 v-show="unSlect.length"><span>你还有第</span>{{unSlect.join("、")}}<span>道题未做，请继续作答！</span></h4>
+    <button @click="submit()">提交试卷</button>
+  </div>
+</body>
+<script>
+  let app = new Vue({
+    el: '#app', //指定根元素
+    data: { //实例数据
+      viewHasShow: false,
+      oneTopc: '',
+      optionInput: '',
+      optionList: [],
+      oneResult: '',
+      listOrder: "ABCDEFG",
+      isEdit: false,
+      optionEdiNum: -1,
+      testBase: [{
+          id: 1,
+          topic: "你最喜欢什么颜色？",
+          option: ["红色", "白色", "黑色", "绿色"],
+          result: "A"
+        },
+        {
+          id: 2,
+          topic: "你最喜欢什么颜色？",
+          option: ["红色", "白色", "黑色", "绿色"],
+          result: "A"
+        },
+        {
+          id: 3,
+          topic: "你最喜欢什么颜色？",
+          option: ["红色", "白色", "黑色", "绿色"],
+          result: "A"
+        },
+        {
+          id: 4,
+          topic: "你最喜欢什么颜色？",
+          option: ["红色", "白色", "黑色", "绿色"],
+          result: "A"
+        }
+      ],
+      userAnswer: [],
+      unSlect: []
+    },
+    methods: {
+      addOption() {
+        if (!this.isEdit) {
+          if (this.optionInput && this.optionList.length < 6) {
+            this.optionList.push(this.optionInput);
+            this.optionInput = "";
+          } else {
+            alert('请输入内容，选项最多添加六个');
+            this.optionInput = '';
+          }
+        } else {
+          this.optionList[this.optionEdiNum] = this.optionInput;
+          this.optionInput = "";
+          this.isEdit = false;
+        }
+      },
+      editing(index, item) {
+        this.optionInput = this.optionList[index];
+        this.optionEdiNum = index;
+        this.isEdit = true;
+      },
+      del(index, rid) {
+        this.optionList.splice(index, 1);
+        if (rid == this.oneResult) {
+          this.oneResult = '';
+        }
+      },
+      save() {
+        if (this.oneTopc && this.optionList && this.oneResult) {
+          let test = {
+            id: this.testBase.length + 1,
+            topic: this.oneTopc,
+            option: this.optionList,
+            result: this.oneResult,
+            isShow: 1
+          };
+          this.testBase.push(test);
+          alert("保存成功");
+          this.oneTopc = '';
+          this.oneResult = '';
+          this.optionList = [];
+        }
+      },
+      submit() {
+        this.unSlect=[];
+        if (this.userAnswer.length) {
+          for (let index = 0; index < this.userAnswer.length; index++) {
+            const element = this.userAnswer[index];
+            if(typeof element == "undefined"){
+              this.unSlect.push(index+1)
+            }
+          }
+        }else{
+          alert("请先做题！")
+        }
+      }
+    },
+    watch:{
+      userAnswer:function () {
+        this.userAnswer.length = this.testBase.length;
+      }
+    }
+  })
+</script>
+
+</html>
