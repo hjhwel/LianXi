@@ -23,7 +23,11 @@
       right: 0;
       background-color: rgba(0, 0, 0, 0.5);
     }
-
+    h4{
+      padding-left: 35px;
+      height: 30px;
+      line-height: 30px;
+    }
     .box{
       width: 800px;
       height: 500px;
@@ -89,7 +93,7 @@
       overflow: auto;
     }
     .test{
-      padding: 10px 25px;
+      padding: 5px 25px;
 
     }
     .test>li li{
@@ -97,7 +101,7 @@
 
     }
     .test>li li div{
-      padding: 0 8px;
+      padding: 1px 8px;
     }
     .option li label,.test>li li label{
       width: 85%;
@@ -185,13 +189,13 @@
         <ul class="options">
           <li v-for="(items,index) in item.option">
             <label><input type="radio" :value="listOrder[index]" v-model="userAnswer[item.id-1]" v-if="isSelect">
-              <div :style="{backgroundColor:listOrder[index] == userAnswer[item.id-1]?'#0074d9':'white'}">{{listOrder[index]
+              <div :style="{backgroundColor:listOrder[index] == userAnswer[item.id-1]?'#0074d9':'white',color:listOrder[index] == userAnswer[item.id-1]?'#fff':'#333'}">{{listOrder[index]
                 + " . " + items}}</div>
             </label>
 
           </li>
         </ul>
-        <h4><span>你选择的答案是：</span>{{userAnswer[item.id-1]}}</h4>
+        <h4><span v-show="userAnswer[item.id-1]">你的答案是：</span>{{userAnswer[item.id-1]}}</h4>
       </li>
     </ul>
     <h4 v-show="unSlect.length"><span>你还有第</span>{{unSlect.join("、")}}<span>道题未做，请继续作答！</span></h4>
@@ -230,33 +234,29 @@
       optionEdiNum: -1,
       testBase: [{
           id: 1,
-          topic: "你最喜欢什么颜色？",
-          option: ["红色", "白色", "黑色", "绿色"],
-          result: "A"
+          topic: "HTML是什么语言？",
+          option: ["高级文本语言", "超文本标记语言", "扩展标记语言", "图形化标记语言"],
+          result: "B"
         },
         {
           id: 2,
-          topic: "你最喜欢什么颜色？",
-          option: ["红色", "白色", "黑色", "绿色"],
-          result: "D"
+          topic: "下面语句表述正确的是？",
+          option: ["marginwidth=5表示框架宽度部分边缘所保留的空间。", "marginwidth=5表示框架宽度空间", "noresize是设定不用使用框框的大小",
+            "noresize是使用者设定此参数后，可随意地拉动框架改变其大小。"
+          ],
+          result: "A"
         },
         {
           id: 3,
-          topic: "你最喜欢什么颜色？",
-          option: ["红色", "白色", "黑色", "绿色"],
-          result: "C"
-        },
-        {
-          id: 4,
-          topic: "你最喜欢什么颜色？",
-          option: ["红色", "白色", "黑色", "绿色"],
-          result: "A"
+          topic: "在HTML文档中，引用外部样式表的正确位置是？",
+          option: ["文档的末尾", "<head>部分", "文档的顶部", "<body>部分"],
+          result: "B"
         }
       ],
       userAnswer: [],
       unSlect: [],
-      isScore:false,
-      isSelect:true
+      isScore: false,
+      isSelect: true
     },
     methods: {
       addOption() {
@@ -311,7 +311,7 @@
               this.unSlect.push(index + 1)
             }
           }
-          if(this.unSlect.length == 0){
+          if (this.unSlect.length == 0) {
             this.isScore = true;
             this.isSelect = false;
           }
@@ -319,9 +319,9 @@
           alert("请先做题！")
         }
       },
-      reset(){
-        this.isScore=false;
-        this.isSelect= true;
+      reset() {
+        this.isScore = false;
+        this.isSelect = true;
         this.userAnswer = []
       }
     },
@@ -330,13 +330,13 @@
         this.userAnswer.length = this.testBase.length;
       }
     },
-    computed:{
-      res(){
+    computed: {
+      res() {
         let count = 0;
-        if(this.isScore){
+        if (this.isScore) {
           for (let index = 0; index < this.userAnswer.length; index++) {
             let ele = this.userAnswer[index];
-            if(ele == this.testBase[index].result){
+            if (ele == this.testBase[index].result) {
               count++;
             }
           }
