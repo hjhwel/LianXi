@@ -1,6 +1,9 @@
+// 表单数据处理插件
 var formidable = require('formidable'),
   http = require('http'),
+  // until node.js的一个工具类  util.inspect() 方法返回 object 的字符串表示，主要用于调试
   util = require('util'),
+  // uuid v1 版本可以生成独一无二的标识字符串
   uuidv1 = require("uuid/v1"),
   path = require("path"),
   fs = require("fs");
