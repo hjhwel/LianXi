@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport' content='width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible' content='ie=edge">
+  <title>Vue</title>
+  <script src="js/vue.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    #app{
+      width: 400px;
+      height: 700px;
+      border: 1px solid #ddd;
+      margin: 100px auto ;
+      box-shadow: 1px 1px 2px 0px #dedede;
+      position: relative;
+    }
+    .header{
+      text-align: center;
+      line-height: 40px;
+      background-color: rgb(41, 167, 25);
+      font-weight: bold;
+      font-size: 20px;
+    }
+    .foot{
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      padding: 10px 20px;
+      box-sizing: border-box;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      line-height: 40px;
+      border-top: 1px solid #dedede;
+    }
+    h3{
+      font-size: 20px;
+      margin-top: 10px;
+    }
+    li{
+      list-style: none;
+      background-color: #dedede;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 10px;
+    }
+    .img{
+      width: 70px;
+      height: 70px;
+      margin: 5px;
+      background-color: rgb(63, 95, 4);
+    }
+    .content{
+      width: 300px;
+      height: 100px;
+      box-sizing: border-box;
+      padding-left: 10px;
+    }
+    button{
+      width: 25px;
+      height:25px;
+      text-align: center;
+      line-height: 25px;
+    }
+    .price{
+      display: flex;
+      line-height: 30px;
+      justify-content: space-between;
+      align-items: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <div class="header">
+      购物车
+    </div>
+    <ul>
+      <li v-for="(item,index) in shopList">
+        <input type="checkbox" @click="select(item)">
+        <div class="img"></div>
+        <div class="content">
+          <h3>{{item.shopName}}</h3>
+          <p class="price"><span>单价：{{item.shopPrice|price}}</span><span :style="{color:'red'}">{{item.shopPrice*item.shopNumber|price}}</span></p>
+          <p>
+            <button @click="reduce(item)">-</button>
+            <button>{{item.shopNumber}}</button>
+            <button @click="add(item)">+</button>
+          </p>
+        </div>
+      </li>
+    </ul>
+    <div class="foot">
+      <label for=""><input type="checkbox" name="" id="">全选</label>
+      <h2>总价：{{total|price}}</h2>
+    </div>
+  </div>
+
+</body>
+<script>
+  let app = new Vue({
+    el: '#app', //指定根元素
+    data: { //实例数据
+      total: 0,
+      shopList: [{
+          "shopId": "1001",
+          "shopName": "简约现代家具收纳架置物架",
+          "shopPrice": 299.00,
+          "shopNumber": 1,
+          "shopImage": "images/img_01.png"
+        },
+        {
+          "shopId": "1002",
+          "shopName": "简约现代写字台桌子",
+          "shopPrice": 199.00,
+          "shopNumber": 1,
+          "shopImage": "images/img_02.png"
+        },
+        {
+          "shopId": "1003",
+          "shopName": "换鞋凳休闲单人沙发布椅",
+          "shopPrice": 1299.00,
+          "shopNumber": 1,
+          "shopImage": "images/img_03.png"
+        },
+        {
+          "shopId": "1004",
+          "shopName": "简约现代写字台桌子",
+          "shopPrice": 1099.00,
+          "shopNumber": 1,
+          "shopImage": "images/img_04.png"
+        }
+      ]
+    },
+    methods: {
+      add(item) {
+        item.shopNumber++;
+      },
+      reduce(item) {
+        item.shopNumber > 1 ? item.shopNumber-- : null;
+      },
+      select(item) {
+
+      }
+    },
+    filters: {
+      price(val) {
+        return "￥" + val.toFixed(2)
+      }
+    },
+    computed: {
+      toalPrice() {
+
+      }
+    }
+  })
+</script>
+
+</html>

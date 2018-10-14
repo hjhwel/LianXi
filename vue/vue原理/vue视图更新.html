@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport' content='width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible' content='ie=edge">
+  <title>Vue</title>
+</head>
+
+<body>
+  <h1 id="app">hello</h1>
+</body>
+<script>
+  // let str = 'hjh';
+  //1.定时器实时刷新
+  // setInterval(() => {
+  //   app.innerHTML = str;
+  // }, 16.7)
+
+  // vue里通过es5的defineProperty
+  let obj = {
+    _str:'hjhlovewel'
+  };
+  Object.defineProperty(obj,"str",{
+    get() {
+      return this._str;
+    },
+    set(val){
+      app.innerHTML = val;
+      this._str=val;
+    }
+  })
+</script>
+
+</html>
