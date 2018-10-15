@@ -11,12 +11,13 @@
     * {
       margin: 0;
       padding: 0;
+      user-select: none;
     }
     #app{
       width: 400px;
-      height: 700px;
+      height: 600px;
       border: 1px solid #ddd;
-      margin: 100px auto ;
+      margin: 80px auto ;
       box-shadow: 1px 1px 2px 0px #dedede;
       position: relative;
     }
@@ -44,7 +45,10 @@
       font-size: 20px;
       margin-top: 10px;
     }
-    li{
+    .foot h2{
+      font-size: 20px;
+    }
+    ul li{
       list-style: none;
       background-color: #dedede;
       margin-bottom: 10px;
@@ -77,6 +81,38 @@
       justify-content: space-between;
       align-items: center;
     }
+    .foot button{
+      width: 100px;
+    }
+    .order{
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 40px;
+      bottom: 61px;
+      background-color: #fff;
+    }
+    ol li{
+      margin: 2px 0;
+      padding: 8px;
+      background-color: #dedede;
+      list-style: none;
+      box-sizing: border-box;
+    }
+    ol li:first-child{
+      text-align: center;
+      font-size: 20px;
+      line-height: 30px;
+      background-color: #fff;
+    }
+    .noAll{
+      text-align: center;
+      width: 100%;
+      background-color: #fff;
+      position: absolute;
+      left: 0;
+      top: 50%;
+    }
   </style>
 </head>
 
@@ -87,7 +123,7 @@
     </div>
     <ul>
       <li v-for="(item,index) in shopList">
-        <input type="checkbox" @click="select(item)">
+        <input type="checkbox" v-model="selected[index]">
         <div class="img"></div>
         <div class="content">
           <h3>{{item.shopName}}</h3>
@@ -100,9 +136,19 @@
         </div>
       </li>
     </ul>
+    <div class="order" v-show="showOrder">
+      <ol>
+        <li>请确认订单！</li>
+        <li class="noAll" v-if="!toalPrice">空空如也！！！快去加入购物车！</li>
+<li v-for="(item,index) in selected" v-show="item">{{order(index)}}</li>
+      </ol>
+    </div>
     <div class="foot">
-      <label for=""><input type="checkbox" name="" id="">全选</label>
-      <h2>总价：{{total|price}}</h2>
+      <label for="">
+        <input type="checkbox" :checked="selectAll" @click="select">全选
+      </label>
+      <button @click="showOrder=!showOrder" v-text="showOrder?'确认订单':'查看订单'">查看订单</button>
+      <h2>总价：{{toalPrice|price}}</h2>
     </div>
   </div>
 
@@ -112,6 +158,9 @@
     el: '#app', //指定根元素
     data: { //实例数据
       total: 0,
+      showOrder:false,
+      selected: [],
+      hasSelectAll: false,
       shopList: [{
           "shopId": "1001",
           "shopName": "简约现代家具收纳架置物架",
@@ -149,8 +198,16 @@
       reduce(item) {
         item.shopNumber > 1 ? item.shopNumber-- : null;
       },
-      select(item) {
-
+      select() {
+        this.selected = [];
+        this.hasSelectAll = !this.hasSelectAll;
+        for (let index = 0; index < this.shopList.length; index++) {
+          this.selected.push(this.hasSelectAll)
+        }
+      },
+      order(index){
+        let obj = this.shopList[index];
+        return `您购买了${obj.shopNumber}件${obj.shopName}，价值${obj.shopNumber*obj.shopPrice}元`
       }
     },
     filters: {
@@ -160,7 +217,19 @@
     },
     computed: {
       toalPrice() {
-
+        let count = 0;
+        this.selected.forEach((ele, index) => {
+          count += ele ? this.shopList[index].shopNumber * this.shopList[index].shopPrice : null
+        });
+        return count;
+      },
+      selectAll() {
+        let count = 0;
+        this.selected.forEach((ele, index) => {
+          ele ? count++ : null;
+        })
+        count == this.shopList.length ? this.hasSelectAll = true : this.hasSelectAll = false;
+        return count == this.shopList.length ? true : false;
       }
     }
   })

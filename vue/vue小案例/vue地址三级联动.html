@@ -12,35 +12,63 @@
 
 <body>
   <div id="app">
-    <select v-model="s">
-      <option :value="index" v-for="(item,index) in list1">{{index}}</option>
+    <select name="" id="" v-model="s" @change="change">
+      <option v-for="(item,index) in list">{{index}}</option>
     </select>
-    <select>
-      <option :value="index" v-for="(item,index) in res">{{index}}</option>
+    <select name="" id="" v-model="q">
+      <option v-for="(ite,inde) in list[s][0]">{{inde}}</option>
     </select>
+    <select name="" id="" v-model="zI">
+      <option v-for="(it,ind) in list[s][0][q]" :value="ind">{{it|qu}}</option>
+    </select>
+    <select name="" id="">
+      <option v-for="(it,ind) in z">{{it}}</option>
+    </select>
+    <h2>{{spli}}</h2>
   </div>
+
 </body>
 <script>
   let app = new Vue({
     el: '#app', //指定根元素
     data: { //实例数据
-      list1: area,
-      s: '',
+      list: area,
+      s: '河南省',
+      q: "郑州市",
+      z: [],
+      zI: 0
     },
-    methods:{
-      q(){
-        console.log(1);
+    methods: {
+      change() {
+        let obj = (this.list[this.s][0])
+        for (const key in obj) {
+          if (obj.hasOwnProperty(key)) {
+            const element = obj[key];
+            this.q = key
+            return key;
+          }
+        }
       }
     },
     computed: {
-      res() {
-        for (const key in this.list1[this.s]) {
-          if (this.list1[this.s].hasOwnProperty(key)) {
-            const element = this.list1[this.s][key];
-            return element
+      spli() {
+        let obj = this.list[this.s][0][this.q][this.zI]
+        for (const key in obj) {
+          if (obj.hasOwnProperty(key)) {
+            const element = obj[key];
+            this.z = element.replace(' ', '').split('、');
           }
         }
-
+      }
+    },
+    filters: {
+      qu(obj) {
+        for (const key in obj) {
+          if (obj.hasOwnProperty(key)) {
+            const element = obj[key];
+            return key
+          }
+        }
       }
     }
   })
