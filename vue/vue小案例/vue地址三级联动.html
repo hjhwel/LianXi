@@ -12,7 +12,7 @@
 
 <body>
   <div id="app">
-    <select name="" id="" v-model="s" @change="change">
+    <select name="" id="" v-model="s">
       <option v-for="(item,index) in list">{{index}}</option>
     </select>
     <select name="" id="" v-model="q">
@@ -21,10 +21,10 @@
     <select name="" id="" v-model="zI">
       <option v-for="(it,ind) in list[s][0][q]" :value="ind">{{it|qu}}</option>
     </select>
-    <select name="" id="">
-      <option v-for="(it,ind) in z">{{it}}</option>
+    <select name="" id="" v-model="ZZ">
+      <option v-for="(it,ind) in spli" :value="ind">{{it}}</option>
     </select>
-    <h2>{{spli}}</h2>
+    <h2>{{s + q + Object.keys(list[s][0][q][zI])[0] + spli[ZZ]}}</h2>
   </div>
 
 </body>
@@ -33,21 +33,15 @@
     el: '#app', //指定根元素
     data: { //实例数据
       list: area,
-      s: '河南省',
+      s    : '河南省',
       q: "郑州市",
-      z: [],
-      zI: 0
+      zI: 0,
+      ZZ: 0
     },
-    methods: {
-      change() {
+    watch: {
+      s() {
         let obj = (this.list[this.s][0])
-        for (const key in obj) {
-          if (obj.hasOwnProperty(key)) {
-            const element = obj[key];
-            this.q = key
-            return key;
-          }
-        }
+        this.q = Object.keys(obj)[0]
       }
     },
     computed: {
@@ -56,7 +50,7 @@
         for (const key in obj) {
           if (obj.hasOwnProperty(key)) {
             const element = obj[key];
-            this.z = element.replace(' ', '').split('、');
+            return element.replace(' ', '').split('、');
           }
         }
       }
