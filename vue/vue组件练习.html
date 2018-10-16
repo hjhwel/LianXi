@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport' content='width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible' content='ie=edge">
+  <title>Vue</title>
+  <script src="js/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <btn :td="list"></btn>
+  </div>
+</body>
+<script>
+  Vue.component('btn', {
+    // 模板
+    template: `
+      <div @mouseenter="add" class='hjh'>
+        <p >{{td}}</p>
+      </div>
+    `,
+    // 方法
+    methods: {
+      al() {
+        alert('msg');
+      },
+      add() {
+        this.count++;
+      }
+    },
+    props:['td'],
+    // 数据
+    data() {
+      return {
+        count: 0
+      }
+    }
+  })
+  let app = new Vue({
+    el: '#app', //指定根元素
+    data: { //实例数据
+      list:[1,2,3,4]
+    }
+  })
+</script>
+
+</html>

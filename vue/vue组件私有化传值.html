@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport' content='width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible' content='ie=edge">
+  <title>Vue</title>
+  <script src="js/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 静态传值，接收的是个字符串，不会解析 -->
+    <test wel="[hjh,lo]"></test>
+    <!-- 动态传值，接收会解析值 -->
+    <test :wel="[hjh,lo]"></test>
+  </div>
+</body>
+
+<script>
+  Vue.component('test', {
+    template:`
+    <div>
+        <p>{{wel}}</p>
+        <p>{{testS}}</p>
+        <p>{{res}}</p>
+    </div>
+    `,
+    props:{
+      wel:[String,Number,Array]
+    },
+    // 在data里面私有化传值，不在受父组件的影响
+    data(){
+      return {
+        testS:this.wel
+      }
+    },
+    // 通过计算属性改变传值，但保留关联
+    computed:{
+      res(){
+        return this.wel + 100000
+      }
+    }
+  })
+  let app = new Vue({
+    el: '#app', //指定根元素
+    data: { //实例数据
+      hjh: 123,
+      lo:'love'
+    }
+  })
+</script>
+
+</html>
