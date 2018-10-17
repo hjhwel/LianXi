@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport' content='width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible' content='ie=edge">
+  <title>Vue</title>
+  <script src="js/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <!-- <c1 :flag="flag" @cha="change"></c1>
+    <c2 :flag="flag" @cha="change"></c2> -->
+    <!-- v-model -->
+    <!-- <c1 v-model="flag"></c1>
+    <c2 v-model="flag"></c2> -->
+
+    <!-- sync修饰符 -->
+    <c1 :value.sync="flag"></c1>
+    <c2 :value.sync="flag"></c2>
+  </div>
+</body>
+<script>
+  Vue.component("c1", {
+    template: `
+    <div>
+      <p>组件1</p>
+      <input type="checkbox" :checked="value"  @click="change">
+    </div>
+    `,
+    // v-model 时候必须用value 接收
+    // 如果不用就配置model
+    // model:{
+      // prop:value,
+      // event:'input'
+    // },
+    props: ["value"],
+    methods: {
+      change(e) {
+        // sync
+        this.$emit("update:value",e.target.checked)
+        // v-model
+        // this.$emit("input",e.target.checked)
+      }
+    }
+  })
+  Vue.component("c2", {
+    template: `
+    <div>
+      <p>组件2</p>
+      <input type="checkbox" :checked="value" @click="change">
+    </div>
+    `,
+    props: ["value"],
+    methods: {
+      change(e) {
+        this.$emit("update:value",e.target.checked)
+      }
+    }
+  })
+  let app = new Vue({
+    el: '#app', //指定根元素
+    data: { //实例数据
+      flag: false
+    },
+    methods: {
+      change() {
+        this.flag = !this.flag
+      }
+    }
+  })
+</script>
+
+</html>

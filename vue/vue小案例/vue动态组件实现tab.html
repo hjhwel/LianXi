@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport' content='width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible' content='ie=edge">
+  <title>Vue</title>
+  <script src="js/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <button v-for="item in list" @click="initShow = item">{{item}}</button>
+    <div :is="initShow"></div>
+  </div>
+</body>
+<script>
+  Vue.component('c1', {
+    template: `
+      <h1>c1</h1>
+    `
+  })
+
+  Vue.component('c2', {
+    template: `
+      <h1>c2</h1>
+    `
+  })
+
+  Vue.component('c3', {
+    template: `
+      <h1>c3</h1>
+    `
+  })
+  let app = new Vue({
+    el: '#app', //指定根元素
+    data: { //实例数据
+      list:["c1","c2","c3"],
+      initShow:"c1"
+    }
+  })
+</script>
+
+</html>

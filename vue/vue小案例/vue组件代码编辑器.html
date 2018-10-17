@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport' content='width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible' content='ie=edge">
+  <title>Vue</title>
+  <script src="js/vue.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .txt {
+      width: 500px;
+      height: 500px;
+      position: absolute;
+      top: 50px;
+      left: 50%;
+      margin-left: -250px;
+      opacity: 0;
+    }
+
+    pre {
+      width: 500px;
+      height: 500px;
+      font-size: 16px;
+      background-color: #111;
+      position: absolute;
+      top: 50px;
+      left: 50%;
+      color: #fff;
+      margin-left: -250px;
+    }
+    .fun_code{
+      color: rgb(19, 107, 230);
+    }
+    .c_code{
+      color: rgb(219, 240, 29);
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <out :str="str"></out>
+    <inp :str.sync="str"></inp>
+  </div>
+</body>
+<script>
+  function name(params) {
+
+  }
+  Vue.component("inp", {
+    template: `
+    <textarea class="txt" @input="change"></textarea>
+    `,
+    props: ["str"],
+    methods: {
+      change(e) {
+        this.$emit("update:str", e.target.value)
+      }
+    }
+  })
+
+  Vue.component("out", {
+    template: `
+    <pre><code v-html="res"></code></pre>
+    `,
+    props: ["str"],
+    computed:{
+      res(){
+        let res = this.str;
+        res = res.replace(/function/g,'<span class="fun_code">function&nbsp;</span>');
+        res = res.replace(/\(/g,'<span class="c_code">(</span>')
+        res = res.replace(/\{/g,'<span class="c_code">{</span>')
+        res = res.replace(/\)/g,'<span class="c_code">)</span>')
+        res = res.replace(/\}/g,'<span class="c_code">}</span>')
+        return res;
+      }
+    }
+  })
+  let app = new Vue({
+    el: '#app', //指定根元素
+    data: { //实例数据
+      str: ''
+    }
+  })
+</script>
+
+</html>

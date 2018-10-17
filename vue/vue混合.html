@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport' content='width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible' content='ie=edge">
+  <title>Vue</title>
+  <script src="js/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <c1 :list="list" @click.native="al"></c1>
+    <c2>
+    </c2>
+  </div>
+</body>
+<script>
+  // 定义一个mixins,里面存放共有的属性
+  let myMixins = {
+    data() {
+      return {
+        x: 10,
+        y: 20,
+        list: [1, 5, 36, 3, 63, 5]
+      }
+    },
+    methods: {
+      al() {
+        alert(this.y);
+      }
+    },
+    components: {
+      "c1": {
+        template: `
+          <div>
+              <h1 v-for="item in list">{{item}}</h1>
+            </div>
+        `,
+        props: ["list"]
+      }
+    }
+  }
+
+  Vue.component("c2", {
+    mixins: [myMixins],
+    template: `
+      <div>{{hjh}}
+        <c1 :list="list"></c1>
+        </div>
+    `,
+    data() {
+      return {
+        "hjh": "wel",
+        list: [12, 1, 2, 13, 53]
+      }
+    }
+  })
+
+
+  let app = new Vue({
+    mixins: [myMixins],
+    el: '#app', //指定根元素
+    data: { //实例数据
+
+    }
+  })
+</script>
+
+</html>
