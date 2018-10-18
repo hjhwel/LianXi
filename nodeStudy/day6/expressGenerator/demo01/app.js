@@ -5,7 +5,9 @@ let cookieParser = require('cookie-parser');
 let logger = require('morgan');
 // 引入路由文件
 let indexRouter = require('./routes/index');
-let usersRouter = require('./routes/users');
+// 新配置路由
+let loginRouter = require('./routes/login');
+let regRouter = require('./routes/reg');
 // 生成express实例
 let app = express();
 
@@ -21,7 +23,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // 让用户访问到路由
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/login', loginRouter);
+app.use('/reg', regRouter);
 
 // catch 404 and forward to error handler  生成404
 app.use(function(req, res, next) {
