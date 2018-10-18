@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport' content='width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible' content='ie=edge">
+  <title>Vue</title>
+  <script src="js/vue.js"></script>
+  <script src="js/vue-router.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <router-view :list="list"></router-view>
+  </div>
+</body>
+<script>
+  let list = {
+    template: `
+    <ul>
+      <li v-for="(item,index) in list">
+        <h3>{{item.shopName}}</h3>
+        <p>图片地址：{{item.shopImage}}</p>
+        <router-link :to="'/detail/'+index">查看详情</router-link>
+      </li>
+    </ul>
+  `,
+    props: ['list']
+  }
+
+
+  let detail = {
+    template: `
+    <ul>
+      <li>
+        <h3>名字：{{list[$route.params.index].shopName}}</h3>
+        <p>数量：{{list[$route.params.index].shopNumber}}</p>
+        <p>价格：{{list[$route.params.index].shopPrice|format}}</p>
+        <router-link to="/list">返回列表</router-link>
+      </li>
+    </ul>
+  `,
+    props: ['list'],
+    created() {
+      console.log(123);
+    },
+    filters:{
+      format(val){
+        return '￥' + val.toFixed(2)
+      }
+    }
+  }
+
+
+  let app = new Vue({
+    el: '#app', //指定根元素
+    data: { //实例数据
+      list: [{
+          "shopId": "1001",
+          "shopName": "简约现代家具收纳架置物架",
+          "shopPrice": 299.00,
+          "shopNumber": 1,
+          "shopImage": "images/img_01.png"
+        },
+        {
+          "shopId": "1002",
+          "shopName": "简约现代写字台桌子",
+          "shopPrice": 199.00,
+          "shopNumber": 1,
+          "shopImage": "images/img_02.png"
+        },
+        {
+          "shopId": "1003",
+          "shopName": "换鞋凳休闲单人沙发布椅",
+          "shopPrice": 1299.00,
+          "shopNumber": 1,
+          "shopImage": "images/img_03.png"
+        },
+        {
+          "shopId": "1004",
+          "shopName": "简约现代写字台桌子",
+          "shopPrice": 1099.00,
+          "shopNumber": 1,
+          "shopImage": "images/img_04.png"
+        }
+      ]
+    },
+    router: new VueRouter({
+      routes: [{
+          path: "/list",
+          component: list
+        },
+        {
+          path: "/detail/:index",
+          component: detail
+        }
+      ]
+    })
+  })
+</script>
+
+</html>
