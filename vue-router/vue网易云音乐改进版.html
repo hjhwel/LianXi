@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue</title>
+    <script src="js/vue.js"></script>
+    <script src="js/vue-router.js"></script>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <!-- 引入组件库 -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <style>
+        *{
+            user-select: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        li{
+            list-style: none;
+        }
+        .el-header,
+        .el-footer {
+            background-color: #F56C6C;
+            color: #333;
+            text-align: center;
+            line-height: 60px;
+            font-weight: bold;
+            font-size: 24px;
+        }
+        .el-main {
+            background-color: #E9EEF3;
+            color: #333;
+            text-align: left;
+        }
+        .bottom {
+          margin-top: 10px;
+          line-height: 12px;
+        }
+
+        .button {
+          padding: 0;
+          float: right;
+         }
+
+        .image {
+          width: 100%;
+          height: 200px;
+          display: block;
+        }
+        @media screen and (max-width: 800px) {
+            .image {
+                height: 100px;
+            }
+        }
+        .image:hover{
+            opacity: 0.8;
+        }
+        .clearfix:before,
+        .clearfix:after {
+            display: table;
+            content: "";
+        }
+
+        .clearfix:after {
+            clear: both
+        }
+        .el-col{
+            margin-bottom: 10px;
+        }
+
+        .lyricBox{
+            height: 500px;
+            overflow: auto;
+        }
+        .lyricBox li{
+            text-align: center;
+            margin-bottom: 10px;
+            transition: all 0.2s;
+            word-spacing: 2px;
+        }
+        audio{
+            width: 100%;
+        }
+        .active{
+            color: #fff;
+            font-size: 20px;
+            line-height: 40px;
+        }
+        .playMusic{
+            position: absolute;
+            top: 68px;
+            bottom: 0;
+            left: 8px;
+            right: 8px;
+        }
+        .playCol{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+        .el-scrollbar__wrap {
+            overflow-x: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <el-container>
+            <el-header>
+                <el-row>
+                    <el-col :span="2">
+                        <el-button size="medium" type="danger" @click="$router.go(-1)" v-show="leftBtn"><i class="el-icon-arrow-left"></i></el-button>
+                    </el-col>
+                    <el-col :span="20">
+                        {{title}}
+                    </el-col>
+                    <el-col :span="2">
+                        <el-button size="midium" type="danger" @click="$router.go(1)" v-show="rightBtn"><i class="el-icon-arrow-right"></i></el-button>
+                    </el-col>
+                </el-row>
+            </el-header>
+            <router-view @change="head"></router-view>
+        </el-container>
+    </div>
+</body>
+<script>
+    // 封装ajax方法
+    Vue.prototype.$ajax = (url) => {
+        return new Promise((resolve, reject) => {
+            let xhr = new XMLHttpRequest();
+            let timeS = new Date().getTime().toString();
+            xhr.open("GET", url + "&timeS=" + timeS);
+            xhr.send();
+            xhr.onreadystatechange = () => {
+                if (xhr.readyState == 4) {
+                    if (xhr.status == 200) {
+                        resolve(JSON.parse(xhr.responseText))
+                    } else {
+                        reject("err", xhr.status)
+                    }
+                }
+            }
+        })
+    }
+
+
+    // 首页
+    let index = {
+        template: `
+            <el-main  v-loading="loading">
+                <c1 @change="agAjax(arguments[0])"></c1>
+                <el-row :gutter="10">
+                    <el-col :span="4" v-for="(item, index) in singerList" :key="index" >
+                        <router-link :to="'/musicList/'+ item.id">
+                        <el-card :body-style="{padding:'0 0 110% 0',height:'0',margin:'0 0 5px 0'}" shadow="hover">
+                            <img :src="item.picUrl" class="image">
+                            <div style="padding: 12px;">
+                                <div class="bottom clearfix">
+                                    <span>{{item.name}}</span>
+                                </div>
+                            </div>
+                        </el-card>
+                        </router-link>
+                    </el-col>
+                </el-row>
+            </el-main>
+        `,
+        data() {
+            return {
+                singerList: [],
+                timeS: new Date().getTime().toString(),
+                loading: true
+            }
+        },
+        created() {
+            this.$ajax('http://musicapi.leanapp.cn/artist/list?cat=1001').then((data) => {
+                console.log(data);
+                this.singerList = data.artists;
+                this.loading = false;
+            })
+            this.$emit("change", "歌手", false)
+        },
+        methods: {
+            agAjax(data) {
+                this.loading = true;
+                this.$ajax('http://musicapi.leanapp.cn/artist/list?cat=' + data + "&Ts=" + this.timeS).then((data) => {
+                    console.log(data);
+                    this.singerList = data.artists;
+                    this.loading = false;
+                })
+            }
+        }
+    }
+
+
+    Vue.component("c1", {
+        template: `
+            <el-row>
+            <el-col :span="22" :offset="1">
+                歌手分类：
+                <el-button type="text" v-for="(val,keys) in singer" :key="val.id" @click="change(val)">{{keys}}</el-button>
+            </el-col>
+            </el-row>
+        `,
+        data() {
+            return {
+                singer: {
+                    '华语男歌手': 1001,
+                    '华语女歌手': 1002,
+                    '华语组合 / 乐队': 1003,
+                    '欧美男歌手': 2001,
+                    '欧美女歌手': 2002,
+                    '欧美组合 / 乐队': 2003,
+                    '日本男歌手': 6001,
+                    '日本女歌手': 6002,
+                    '日本组合 / 乐队': 6003,
+                    '韩国男歌手': 7001,
+                    '韩国女歌手': 7002,
+                    '韩国组合 / 乐队': 7003,
+                    '其他男歌手': 4001,
+                    '其他女歌手': 4002,
+                    '其他组合 / 乐队': 4003,
+                    "入驻歌手": 5001
+                }
+            }
+        },
+        methods: {
+            change(val) {
+                console.log(val);
+                this.$emit("change", val)
+            }
+        }
+    })
+
+    // 歌曲列表
+    let musicList = {
+        template: `
+    <el-table
+    :data="tableData"
+    stripe
+    style="width: 100%"
+    @row-click="player(arguments)"
+    v-loading="loading"
+    >
+    <el-table-column
+      type="index"
+      label="序号"
+      width="120">
+    </el-table-column>
+    <el-table-column
+      prop="name"
+      label="歌曲名"
+      width="320">
+    </el-table-column>
+    <el-table-column
+      prop="ar[0].name"
+      label="歌手">
+    </el-table-column>
+    <el-table-column
+      prop="al.name"
+      label="专辑">
+    </el-table-column>
+    </el-table>
+        `,
+        props: ["id"],
+        data() {
+            return {
+                tableData: [],
+                loading: true
+            }
+        },
+        created() {
+            this.$ajax('http://musicapi.leanapp.cn/artists?id=' + this.id).then((data) => {
+                this.tableData = data.hotSongs;
+                this.loading = false;
+                console.log(this.tableData);
+                this.$emit("change", data.artist.name, true)
+            })
+
+
+        },
+        methods: {
+            player(index) {
+                console.log(index[0].id);
+                this.$router.push('/player/' + index[0].id + '/' + index[0].name)
+
+            }
+        }
+    }
+
+    let player = {
+        template: `
+    <el-main class="playMusic">
+        <el-row>
+            <el-col :span="24" v-loading="loading">
+            <div  class="lyricBox">
+            <el-scrollbar style="height:100%">
+                <ul class="lyric">
+                    <li v-for="(item,index) in lyric" :class="index==lyricIndex-1?'active':null">{{item}}</li>
+                </ul>
+            </el-scrollbar>
+            </div>
+            </el-col>
+        </el-row>
+        <el-row class="playCol">
+            <el-col :span="24"><audio :src="url" controls @timeupdate="ly" @seeking="sk"></audio></el-col>
+        </el-row>
+    </el-main>
+    `,
+        data() {
+            return {
+                url: '',
+                lyric: [],
+                com: [],
+                timeL: [],
+                lyricIndex: 0,
+                loading: true,
+                totalTime: '',
+                bj: 0
+            }
+        },
+        props: ['id', 'name'],
+        created() {
+            this.$ajax('http://musicapi.leanapp.cn/music/url?id=' + this.id).then((data) => {
+                this.url = data.data[0].url
+
+            })
+            this.$ajax('http://musicapi.leanapp.cn/lyric?id=' + this.id).then((data) => {
+
+                let ly01 = data.lrc.lyric.split("\n");
+                // 遍历数组，取出每条歌词
+                let timeReg = /\[(\d*:\d*\.\d*)\]/;
+                // 遍历数组
+                ly01.forEach(element => {
+                    // 处理歌词
+                    let lrc = element.split("]")[1];
+                    // 排除没有歌词的
+                    if (!lrc) return true;
+                    // 歌词存起来
+                    this.lyric.push(lrc)
+                    // 取出时间
+                    // 利用正则表达式匹配并取出时间
+                    let res = timeReg.exec(element);
+                    // 排除空的
+                    if (res == null) {
+                        return true;
+                        // 相当于continue;
+                    }
+                    // 取出时间
+                    let timeStr = res[1];
+                    // 转成秒
+                    let res2 = timeStr.split(':');
+                    let min = parseInt(res2[0]) * 60;
+                    let sec = parseFloat(res2[1]);
+                    let time = parseFloat(Number(min + sec).toFixed(2));
+                    this.timeL.push(time);
+                    this.loading = false;
+                });
+            })
+            this.$ajax('http://musicapi.leanapp.cn/comment/music?id=' + this.id).then((data) => {
+                this.com = data.comments;
+            })
+            this.$emit("change", this.name, true, false)
+        },
+        methods: {
+            ly(e) {
+                let current = e.target.currentTime;
+                this.bj = current / e.target.duration * 100;
+                if (current > this.timeL[this.lyricIndex]) {
+                    this.lyricIndex++;
+                }
+            },
+            sk(e) {
+                let current = e.target.currentTime;
+                this.lyricIndex = 0;
+                this.timeL.forEach((val, index) => {
+                    if (current > val) {
+                        this.lyricIndex = index;
+                        return false;
+                    }
+                })
+            }
+        }
+    }
+
+    var app = new Vue({
+        el: "#app", //指定根元素
+        data: { //实例数据
+            title: "歌手",
+            leftBtn: true,
+            rightBtn: true
+        },
+        router: new VueRouter({
+            routes: [{
+                path: "/",
+                component: index
+            }, {
+                path: '/musicList/:id',
+                component: musicList,
+                props: true
+            }, {
+                path: '/player/:id/:name',
+                component: player,
+                props: true
+            }]
+        }),
+        methods: {
+            head() {
+                this.title = arguments[0];
+                this.leftBtn = arguments[1]
+                if (arguments.length > 2) {
+                    this.rightBtn = arguments[2]
+                } else {
+                    this.rightBtn = true
+                }
+            }
+        }
+    })
+</script>
+
+</html>
