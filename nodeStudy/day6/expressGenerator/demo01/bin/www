@@ -4,22 +4,22 @@
  * Module dependencies.
  */
 
-var app = require('../app');
-var debug = require('debug')('demo01:server');
-var http = require('http');
+let app = require('../app');
+let debug = require('debug')('demo01:server');
+let http = require('http');
 
 /**
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '3000');
+let port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
 /**
  * Create HTTP server.
  */
 
-var server = http.createServer(app);
+let server = http.createServer(app);
 
 /**
  * Listen on provided port, on all network interfaces.
@@ -34,7 +34,7 @@ server.on('listening', onListening);
  */
 
 function normalizePort(val) {
-  var port = parseInt(val, 10);
+  let port = parseInt(val, 10);
 
   if (isNaN(port)) {
     // named pipe
@@ -58,9 +58,9 @@ function onError(error) {
     throw error;
   }
 
-  var bind = typeof port === 'string'
-    ? 'Pipe ' + port
-    : 'Port ' + port;
+  let bind = typeof port === 'string' ?
+    'Pipe ' + port :
+    'Port ' + port;
 
   // handle specific listen errors with friendly messages
   switch (error.code) {
@@ -82,9 +82,73 @@ function onError(error) {
  */
 
 function onListening() {
-  var addr = server.address();
-  var bind = typeof addr === 'string'
-    ? 'pipe ' + addr
-    : 'port ' + addr.port;
+  let addr = server.address();
+  let bind = typeof addr === 'string' ?
+    'pipe ' + addr :
+    'port ' + addr.port;
   debug('Listening on ' + bind);
 }
+
+
+// 由于比较简单就不在另加文件配置socket.io
+// 1.引入socket包
+let socketPackage = require("socket.io");
+// 2.实例化
+// 将创建的服务传进去
+let io = socketPackage(server);
+// 3.建立连接
+io.on("connection", (socket) => {
+  console.log("连接成功");
+  // 3.1 向所有客户端广播消息
+  socket.emit("msg", "你好！我是何金昊的乖妞妞儿...");
+  // 3.2 接收客户端的消息
+  socket.on("msg", (data) => {
+    console.log(data);
+    // 根据消息去回复库里拿对应的回复
+    let msg = backMsg(data);
+    // 回复
+    socket.emit("msg", msg);
+  })
+
+  // 监听连接断开
+  socket.on("disconnect", () => {
+    socket.emit("msg","我要休息了！何金昊不让我聊太久...");
+  })
+})
+
+
+
+
+// 回复库
+let backMsg = (data) => {
+  let msg = null;
+  switch (data) {
+    case '同桌':
+      msg = '我在呢...';
+      break;
+    case '你喜欢我吗':
+      msg = '不，我喜欢的是何金昊';
+      break;
+    case '你好':
+      msg = '你也好哦!';
+      break;
+    case '唱首歌':
+      msg = '我说的比唱的好听!何金昊听过的哦！经常夸我呢';
+      break;
+    case '你很聪明':
+      msg = '哪里!哪里!都是我家何金昊教的好';
+      break;
+    case '怎么老提何金昊啊':
+      msg = '因为爱!所以爱... 哈！忍不住唱起来了呢';
+      break;
+    case '性别':
+      msg = '这还用问吗？当然是小仙女啦';
+      break;
+    case '我爱你':
+      msg = '我看过那么多云, 你是最灵动的那一朵!';
+      break;
+    default:
+      msg = '我要去洗澡了...';
+  }
+  return msg;
+};

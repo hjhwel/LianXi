@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!--链接bootstrap样式-->
+    <link href="lib/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/chat.css">
+    <!--设置站点图标-->
+    <link rel="icon" href="images/lk_favicon.ico" type="image/x-icon"/>
+    <title>撩课学院-IT人的自我成长社区</title>
+</head>
+<body>
+<div class="panel panel-default">
+    <div class="panel-heading text-center">
+            <span class="glyphicon glyphicon-cloud" style="
+            font-size: 100px; color: #E9232C"></span>
+        <h2 class="text-danger" style="margin-top: 10px;">同桌(萌萌哒)</h2>
+    </div>
+    <div class="panel-body" style="position: relative;">
+        <ul id="chatList">
+        </ul>
+    </div>
+    <div class="panel-footer">
+        <input type="text" id="msg" placeholder="请输入聊天内容">
+        <button id="btn_send" class="btn btn-primary">发送</button>
+        <button id="btn_close" class="btn btn-danger">关闭</button>
+    </div>
+</div>
+<!-- 引入 -->
+<script src="/socket.io/socket.io.js"></script>
+<script src="lib/jquery/jquery.js"></script>
+<script>
+    // 指定服务器地址
+    let url = "http://localhost:3000";
+    // 连接服务器并接收返回的实例
+    let socket = io.connect(url);
+    // 监听连接
+    socket.on("connect",()=>{
+        console.log("连接成功啦");
+        // 1.打开通道 提交一个open事件
+        socket.emit("open");
+        // 2.接收服务器的消息
+        socket.on("msg",(data)=>{
+            console.log(data);
+            // 插入到页面
+            insertMsg("service",data)
+        })
+        // 3.发送并处理客户端的消息
+        $("#btn_send").on("click",()=>{
+            addUserMsg();
+        })
+        // 4.enter
+        $(window).on("keydown",(e)=>{
+            if(e.keyCode == 13){
+                $("#btn_send").trigger("click")
+            }
+        })
+
+        // 5. 关闭聊天
+        $("#btn_close").on("click",()=>{
+            // 关闭连接
+            socket.disconnect(true);
+            // 跳转页面
+            window.location.href = "/"
+        })
+
+    })
+
+    function insertMsg(className,data) {
+        let $chatList = $("#chatList");
+        $chatList.append($(
+            `
+                <li class="${className}"><span class="chat-msg">${data}</span></li>
+            `
+        ));
+        // 聊天界面最下面
+        let scrollH = $chatList[0].scrollHeight;
+        $chatList.scrollTop(scrollH)
+    }
+
+    function addUserMsg() {
+        // 第一步发送消息到服务器
+        let msg = $("#msg").val();
+        socket.emit("msg",msg)
+
+        // 插入消息到聊天界面
+        insertMsg("custom",msg)
+
+        // 清空输入框
+        $("#msg").val('');
+    }
+</script>
+</body>
+</html>

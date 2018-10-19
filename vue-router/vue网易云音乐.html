@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport' content='width=device-width, initial-scale=1.0">
@@ -8,38 +9,43 @@
   <script src="js/vue.js"></script>
   <script src="js/vue-router.js"></script>
   <style>
-    *{
+    * {
       margin: 0;
       padding: 0;
     }
-    li{
+
+    li {
       list-style: none;
       margin: 20px;
     }
-    img{
+
+    img {
       width: 100px;
     }
-    .lyric{
+
+    .lyric {
       width: 500px;
       height: 400px;
       overflow: auto;
     }
-    .user{
+
+    .user {
       font-weight: bold;
     }
   </style>
 </head>
+
 <body>
   <div id="app">
     <!-- <keep-alive> -->
-        <router-view></router-view>
+    <router-view></router-view>
     <!-- </keep-alive> -->
   </div>
 
 </body>
 <script>
   let singList = {
-    template:`
+    template: `
     <div>
       <h1>歌单列表</h1>
       <ul>
@@ -52,26 +58,26 @@
       </ul>
     </div>
     `,
-    data(){
+    data() {
       return {
-        list:[]
+        list: []
       }
     },
     created() {
-      this.$ajax('http://musicapi.leanapp.cn/top/playlist/highquality?limit=10').then((data)=>{
+      this.$ajax('http://musicapi.leanapp.cn/top/playlist/highquality?limit=50').then((data) => {
         // console.log(data);
         this.list = data.playlists
       })
     },
-    filters:{
-      st(val){
-        return val.slice(0,80) + "....."
+    filters: {
+      st(val) {
+        return val.slice(0, 80) + "....."
       }
     }
   }
 
-  let detail={
-    template:`
+  let detail = {
+    template: `
     <div>
 
       <h1>歌单详情</h1>
@@ -86,22 +92,22 @@
       </ul>
     </div>
     `,
-    data(){
+    data() {
       return {
-        list:[]
+        list: []
       }
     },
     created() {
-      this.$ajax('http://musicapi.leanapp.cn/playlist/detail?limit=20&id=' + this.$route.params.id).then((data)=>{
+      this.$ajax('http://musicapi.leanapp.cn/playlist/detail?limit=20&id=' + this.$route.params.id).then((data) => {
         // console.log(data.playlist.tracks);
-        this.list = data.playlist.tracks.slice(0,10)
+        this.list = data.playlist.tracks.slice(0, 10)
       })
     }
   }
 
 
-  let player={
-    template:`
+  let player = {
+    template: `
     <div>
       <button @click="$router.go(-1)">返回</button>
       <h1>{{$route.params.title}}</h1>
@@ -117,24 +123,24 @@
       </ul>
     </div>
     `,
-    data(){
+    data() {
       return {
-        url:'',
-        lyric:[],
-        com:[]
+        url: '',
+        lyric: [],
+        com: []
       }
     },
     created() {
-      this.$ajax('http://musicapi.leanapp.cn/music/url?id=' + this.$route.params.id).then((data)=>{
+      this.$ajax('http://musicapi.leanapp.cn/music/url?id=' + this.$route.params.id).then((data) => {
         console.log(data.data[0].url);
         this.url = data.data[0].url
       })
-      this.$ajax('http://musicapi.leanapp.cn/lyric?id=' + this.$route.params.id).then((data)=>{
+      this.$ajax('http://musicapi.leanapp.cn/lyric?id=' + this.$route.params.id).then((data) => {
         // let timeReg = /\[(\d*:\d*\.\d*)\]/;
         console.log(data.lrc.lyric.split("\n"));
         this.lyric = data.lrc.lyric.split("\n");
       })
-      this.$ajax('http://musicapi.leanapp.cn/comment/music?id=' + this.$route.params.id).then((data)=>{
+      this.$ajax('http://musicapi.leanapp.cn/comment/music?id=' + this.$route.params.id).then((data) => {
         console.log(data.comments);
         this.com = data.comments
       })
@@ -142,18 +148,18 @@
   }
   // ajax方法封装
 
-  Vue.prototype.$ajax=(url)=>{
-    return new Promise((resolve,reject)=>{
+  Vue.prototype.$ajax = (url) => {
+    return new Promise((resolve, reject) => {
       let xhr = new XMLHttpRequest();
       let timeS = new Date().getTime().toString();
-      xhr.open("GET",url + "&timeS="+ timeS);
+      xhr.open("GET", url + "&timeS=" + timeS);
       xhr.send();
-      xhr.onreadystatechange=()=>{
-        if(xhr.readyState == 4){
-          if(xhr.status == 200){
+      xhr.onreadystatechange = () => {
+        if (xhr.readyState == 4) {
+          if (xhr.status == 200) {
             resolve(JSON.parse(xhr.responseText))
-          }else{
-            reject("err",xhr.status)
+          } else {
+            reject("err", xhr.status)
           }
         }
       }
@@ -162,29 +168,27 @@
 
 
   let app = new Vue({
-    el:'#app',  //指定根元素
-    data:{     //实例数据
+    el: '#app', //指定根元素
+    data: { //实例数据
 
     },
-    router:new VueRouter({
-      routes:[
-        {
-          path:'/',
-          component:singList
+    router: new VueRouter({
+      routes: [{
+          path: '/',
+          component: singList
         },
         {
-          path:'/detail/:id',
-          component:detail
+          path: '/detail/:id',
+          component: detail
         },
         {
-          path:'/player/:id/:title',
-          component:player
+          path: '/player/:id/:title',
+          component: player
         }
       ]
     })
 
   })
-
-
 </script>
+
 </html>

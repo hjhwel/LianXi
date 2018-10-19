@@ -8,6 +8,11 @@ let indexRouter = require('./routes/index');
 // 新配置路由
 let loginRouter = require('./routes/login');
 let regRouter = require('./routes/reg');
+let chatRouter = require('./routes/chat');
+
+// 配置数据库
+let mongoose = require('./config/mogodb.js');
+let db = mongoose();
 // 生成express实例
 let app = express();
 
@@ -25,6 +30,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/login', loginRouter);
 app.use('/reg', regRouter);
+app.use('/chat', chatRouter);
 
 // catch 404 and forward to error handler  生成404
 app.use(function(req, res, next) {
