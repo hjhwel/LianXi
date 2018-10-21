@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport' content='width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible' content='ie=edge">
+  <title>Vue</title>
+  <script src="js/vue.js"></script>
+  <script src="js/vue-router.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <router-link to="/">index</router-link>
+    <router-link to="/pro">pro</router-link>
+    <router-view></router-view>
+  </div>
+</body>
+<script>
+  let index = {
+    template: `
+      <h1>index</h1>
+    `
+  }
+
+  let pro = {
+    template: `
+      <h2>pro</h2>
+    `
+  }
+  let detail = {
+    template: `
+      <h2>detail</h2>
+    `,
+    beforeRouteEnter (to, from, next) {
+      // ...
+      console.log(to,from);
+      // 不能直接访问this
+      // 在创建前接收回调函数，参数是所在组件本身
+      next(vm=>{
+        console.log(vm);
+      })
+    },
+    beforeRouteLeave (to, from, next) {
+      // ...
+      console.log('leave');
+      console.log(to,from);
+      next()
+    },
+    beforeRouteUpdate (to, from, next) {
+      // ...
+      console.log('update');
+      next()
+      console.log(to,from);
+    }
+  }
+
+  let app = new Vue({
+    el: '#app', //指定根元素
+    data: { //实例数据
+
+    },
+    router: new VueRouter({
+      routes: [{
+          path: '/',
+          component: index
+        },
+        {
+          path: '/pro',
+          component: pro,
+          beforeEnter: (to, from, next) => {
+            // ...
+            // console.log(to,from);
+            // 路由独享守卫
+            next()
+          }
+        },
+        {
+          path:'/detail',
+          component:detail
+        }
+      ]
+    })
+  })
+  // 全局导航守卫
+  // 拦截每个跳转
+  app.$router.beforeEach((to, from, next) => {
+    // to and from are both route objects
+    // console.log(to,from);
+    if(to.path=='/'){
+      next('/detail')
+    }else{
+      next()
+    }
+
+  })
+
+  // 全局解析守卫
+  // 跳转后执行 只有两个参数
+    app.$router.afterEach((to,from)=>{
+      console.log(to,from);
+    })
+</script>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport' content='width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible' content='ie=edge">
+  <title>Vue</title>
+  <script src="js/vue.js"></script>
+  <script src="js/vue-router.js"></script>
+</head>
+<body>
+  <div id="app">
+    <router-view></router-view>
+  </div>
+</body>
+<script>
+
+  let f = {
+    template:`
+      <h1>
+      父组件
+          <router-view>
+          </router-view>
+      </h1>
+    `
+  }
+
+  let c1 = {
+    template:`
+      <h1>
+      子组件组件
+      </h1>
+    `
+  }
+  let app = new Vue({
+    el:'#app',  //指定根元素
+    data:{     //实例数据
+
+    },
+    router:new VueRouter({
+      routes:[
+        {
+          path:"/f",
+          component:f,
+          children:[
+            {
+              path:'',//默认的写成空
+              component:c1
+            }
+          ]
+        }
+      ]
+    })
+  })
+</script>
+</html>
