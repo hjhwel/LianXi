@@ -53,73 +53,78 @@
 </template>
 
 <script>
-  export default{
-    data(){
-      return {
-        message: [{
-            name: "hjh",
-            age: 18,
-            sex: "男",
-            phonenum: 18798465132
-          },
-          {
-            name: "hjh1",
-            age: 138,
-            sex: "男",
-            phonenum: 18798465132
-          },
-          {
-            name: "wel",
-            age: 18,
-            sex: "女",
-            phonenum: 18798465132
-          },
-          {
-            name: "hjh3",
-            age: 148,
-            sex: "男",
-            phonenum: 18798465132
-          },
-        ],
-        newMessage: {
-          name: "",
-          age: '',
+export default {
+  data() {
+    return {
+      message: [
+        {
+          name: "hjh",
+          age: 18,
           sex: "男",
-          phonenum: ''
-        }
-      }
-    },
-    methods: {
-        addMessage() {
-          // 进行判断
-          if (this.newMessage.name===""||this.newMessage.age<=0||this.newMessage.phonenum==="") {
-            if (this.newMessage.name==="") {
-              alert('姓名不能为空');
-              return;
-            }else if (this.newMessage.age<=0) {
-              alert('年龄不能小于1');
-              return;
-            } else if (this.newMessage.phonenum==="") {
-              alert('手机号不能为空');
-              return;
-            }
-          }
-          // 添加数据
-          this.message.unshift(this.newMessage)
-          // 清空对象
-          this.newMessage = {
-            name: "",
-            age: '',
-            sex: "男",
-            phonenum: ''
-          }
+          phonenum: 18798465132
         },
-        // 删除数据就要接收对应的下标
-        delMessage(index) {
-          this.message.splice(index,1)
+        {
+          name: "hjh1",
+          age: 138,
+          sex: "男",
+          phonenum: 18798465132
+        },
+        {
+          name: "wel",
+          age: 18,
+          sex: "女",
+          phonenum: 18798465132
+        },
+        {
+          name: "hjh3",
+          age: 148,
+          sex: "男",
+          phonenum: 18798465132
+        }
+      ],
+      newMessage: {
+        name: "",
+        age: "",
+        sex: "男",
+        phonenum: ""
+      }
+    };
+  },
+  methods: {
+    addMessage() {
+      // 进行判断
+      if (
+        this.newMessage.name === "" ||
+        this.newMessage.age <= 0 ||
+        this.newMessage.phonenum === ""
+      ) {
+        if (this.newMessage.name === "") {
+          alert("姓名不能为空");
+          return;
+        } else if (this.newMessage.age <= 0) {
+          alert("年龄不能小于1");
+          return;
+        } else if (this.newMessage.phonenum === "") {
+          alert("手机号不能为空");
+          return;
         }
       }
+      // 添加数据
+      this.message.unshift(this.newMessage);
+      // 清空对象
+      this.newMessage = {
+        name: "",
+        age: "",
+        sex: "男",
+        phonenum: ""
+      };
+    },
+    // 删除数据就要接收对应的下标
+    delMessage(index) {
+      this.message.splice(index, 1);
+    }
   }
+};
 </script>
 
 <style>
