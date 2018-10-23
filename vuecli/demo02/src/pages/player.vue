@@ -14,7 +14,8 @@
         musicUrl: '',
         musicPic: '',
         degSum: 0,
-        timeOut: ''
+        timeOut: '',
+        isPlay:false,
       }
     },
     props: ["id", 'name'],

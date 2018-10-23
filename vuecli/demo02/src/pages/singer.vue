@@ -22,6 +22,9 @@
         this.singerList = data.artists;
         this.$loading.hide()
       })
+      this.$axios('http://musicapi.leanapp.cn/artist/list?cat=1001').then((des)=>{
+        console.log(des);
+      })
     },
   }
 </script>

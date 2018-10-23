@@ -5,8 +5,13 @@ import app from './app'
 import router from './router'
 import ajax from './plugins/ajax'
 import loading from './plugins/loading'
+import toTop from './components/toTop'
+import axios from 'axios'
+console.log(axios);
+Vue.prototype.$axios = axios;
 Vue.use(ajax);
 Vue.use(loading);
+Vue.component('totop',toTop)
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

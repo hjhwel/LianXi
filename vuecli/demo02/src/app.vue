@@ -5,6 +5,7 @@
       {{title}}
       <span class="right"  @click="$router.go(1)" v-show="rightShow">&gt;</span>
     </header>
+    <totop></totop>
     <router-view :title.sync="title" @righ="rightShow=false"></router-view>
   </div>
 </template>
