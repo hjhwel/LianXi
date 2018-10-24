@@ -59,9 +59,10 @@ app.get("/search", (req, res) => {
 })
 
 app.post("/insert", (req, res) => {
-  console.log(req.body);
+  // console.log(req.body);
   let data = req.body;
-  connection.query("INSERT INTO userinfo (name, age,sex,tel) VALUES ('"+data.name+"','"+data.age+"','"+data.sex+"','"+data.tel+"')",(err,data)=>{
+  connection.query("INSERT INTO userinfo (name, age,sex,tel) VALUES ('"+data.name+"','"+data.age+"','"+data.sex+"','"+data.tel+"')",(err,rows)=>{
+    console.log(rows);
     if(err == null){
       res.send(true)
     }else{

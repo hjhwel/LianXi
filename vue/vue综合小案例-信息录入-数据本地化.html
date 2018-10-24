@@ -99,31 +99,7 @@
     new Vue({
       el: "#app",
       data: {
-        message: [{
-            name: "hjh",
-            age: 18,
-            sex: "男",
-            phonenum: 18798465132
-          },
-          {
-            name: "hjh1",
-            age: 138,
-            sex: "男",
-            phonenum: 18798465132
-          },
-          {
-            name: "wel",
-            age: 18,
-            sex: "女",
-            phonenum: 18798465132
-          },
-          {
-            name: "hjh3",
-            age: 148,
-            sex: "男",
-            phonenum: 18798465132
-          },
-        ],
+        message: [],
         newMessage: {
           name: "",
           age: 1,
@@ -134,20 +110,24 @@
       methods: {
         addMessage() {
           // 进行判断
-          if (this.newMessage.name===""||this.newMessage.age<=0||this.newMessage.phonenum==="") {
-            if (this.newMessage.name==="") {
+          if (this.newMessage.name === "" || this.newMessage.age <= 0 || this.newMessage.phonenum === "") {
+            if (this.newMessage.name === "") {
               alert('姓名不能为空');
               return;
-            }else if (this.newMessage.age<=0) {
+            } else if (this.newMessage.age <= 0) {
               alert('年龄不能小于1');
               return;
-            } else if (this.newMessage.phonenum==="") {
+            } else if (this.newMessage.phonenum === "") {
               alert('手机号不能为空');
               return;
             }
           }
           // 添加数据
+          // 存到localstorage
           this.message.unshift(this.newMessage)
+
+          window.localStorage.setItem('msg',JSON.stringify(this.message))
+
           // 清空对象
           this.newMessage = {
             name: "",
@@ -158,9 +138,15 @@
         },
         // 删除数据就要接收对应的下标
         delMessage(index) {
-          this.message.splice(index,1)
+          this.message.splice(index, 1)
+          window.localStorage.setItem('msg',JSON.stringify(this.message))
         }
-      }
+      },
+      created() {
+        // 取数据从localstorage 里面取
+        this.message = JSON.parse(window.localStorage.getItem('msg')) || [];
+        console.log(this.message);
+      },
     })
   </script>
 </body>

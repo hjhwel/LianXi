@@ -84,9 +84,6 @@
             return;
           }
         }
-        // 添加数据
-
-
         // 插入数据
         this.$axios.post('http://localhost:9090/insert', this.newMessage).then((res) => {
           if (res.data) {
