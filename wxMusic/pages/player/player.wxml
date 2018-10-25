@@ -1,0 +1,4 @@
+<audio src="{{src}}" controls="{{true}}" name="{{detail.name}}" author="{{detail.ar[0].name}}" poster="{{detail.al.picUrl}}" id="myAudio" ></audio>
+<button type="primary" bindtap="audioPlay">播放</button>
+<button type="primary" bindtap="audioPause">暂停</button>
+<button type="primary" bindtap="audioStart">回到开头</button>

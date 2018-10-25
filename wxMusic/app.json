@@ -1,0 +1,15 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/songs/songs",
+    "pages/player/player"
+  ],
+  "window":{
+    "backgroundTextStyle":"dark",
+    "navigationBarBackgroundColor": "#ff6700",
+    "navigationBarTitleText": "魏丽的私人音乐",
+    "navigationBarTextStyle":"black",
+    "enablePullDownRefresh":true
+  }
+
+}

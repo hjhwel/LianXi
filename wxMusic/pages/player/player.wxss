@@ -1,0 +1,4 @@
+/* pages/player/player.wxss */
+audio{
+  width: 100%;
+}
