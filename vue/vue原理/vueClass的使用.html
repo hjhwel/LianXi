@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport' content='width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible' content='ie=edge">
+    <title>Vue</title>
+    <script src="../js/vue.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box1{
+            color: #f00;
+        }
+        .box2{
+            background-color: #0f0;
+        }
+        .box3{
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+    <div class="box1">普通使用</div>
+    <div :class="['box1']">数组使用</div>
+    <div :class="['box1','box2']">数组使用</div>
+    <div :class="['box1','box2',isShow?'box3':null]">数组使用</div>
+    <!-- 用的最多 -->
+    <div :class="{'box1':isShow}">对象使用</div>
+    <div :class="classObj">对象使用</div>
+    </div>
+</body>
+<script>
+    let app = new Vue({
+        el:'#app',  //指定根元素
+        data:{     //实例数据
+            isShow:true,
+            classObj:{'box1':true,'box3':true,'box2':false}
+        }
+    })
+</script>
+</html>
