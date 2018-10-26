@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport' content='width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible' content='ie=edge">
+    <title>Vue</title>
+    <script src="../js/vue.js"></script>
+    <style>
+        .op-enter-active,.op-leave-active{
+            transition: all 1s;
+        }
+        .op-enter,.op-leave-to{
+            opacity: 0;
+            transform: translateY(20px)
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+    <button @click="hidden">点击</button>
+    <h1 v-show="isShow">无过渡显示与隐藏</h1>
+    <transition name="op">
+        <h1 v-show="isShow">过渡显示与隐藏</h1>
+    </transition>
+    </div>
+</body>
+<script>
+    let app = new Vue({
+        el:'#app',  //指定根元素
+        data:{     //实例数据
+            isShow:true
+        },
+        methods:{
+            hidden(){
+                this.isShow = !this.isShow
+            }
+        }
+    })
+</script>
+</html>
